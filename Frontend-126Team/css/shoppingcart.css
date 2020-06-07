@@ -1,0 +1,196 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
+    
+}
+*{box-sizing: border-box;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.5;background: #fff;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img{max-width: 100%;}
+/*===dùng reset để thiết lập cơ bản chung===*/
+
+
+
+
+
+/*menu header*/
+.menu_header{border-top:1px solid #ebebeb; background-color: #f5f5f5;}
+.menuheader_left{float:left;}
+.menuheader_right{float:right}
+.menu_hmain >li{
+    float:left;
+    padding: 0.8em 1.5em;
+}
+.menu_hmain li a{display: block;color:#666;} /* block :: full het hix*/  /* inline_block giữ nguyên ảnh gốc*/
+.menuheader_right li{border:none}
+
+.li_co_cap{
+    position: relative; /* thằng cha dùng relative*/
+    text-decoration: none;
+    display: inline-block;
+    border:none;
+}
+
+.menu_con{
+    position: absolute; /* thằng con dùng absolute*/
+    top:100%; 
+    left:50%; 
+    transform: translate(-50%, 0px);
+    display:none;
+    width: 150px ;
+    z-index: 99999;  /* độ chìm độ nổi , càng cao càng nổi */
+    border:1px solid #ebebeb;
+    border-top:none;
+    padding:20px;background:#fff;
+}
+.menu_con li{display: block;margin-bottom:8px;float: none;padding:0;}
+.menu_con li a{font-size:13px;}
+.li_co_cap:hover .menu_con{display:block} 
+
+
+
+#slider img{width:100%;}
+#slider a{display:block;}
+
+.main_page{
+    background: url('../10 diem/img/2997.jpg') no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;position: relative;
+}
+.main_page:after{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 0;}
+.main_page >div{position: relative;z-index:1;}
+
+.fixed_menu{
+    position: fixed;
+    width:100%;
+    top:0;left:0;
+    z-index: 999999;
+    background:#fff;
+}
+
+.menu_header2{
+    border-bottom: 1px solid #ebebeb; 
+    border-top: 1px solid #ebebeb; 
+    padding:0 10px;
+}
+
+.menuheader_left2{
+   padding: 12px 5px;
+    float: left;
+    position: relative;
+}
+.menuheader_mid{
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    
+}
+.menuheader_mid li{
+    border: none;
+} 
+/*menu header*/
+
+
+
+
+
+
+
+
+
+
+
+.table gt tbody tr td tfoot td {  
+    vertical-align: middle;
+    }
+     
+     
+@media screen and (max-width: 600px) { 
+    table#cart tbody td .form-control { 
+    display: inline !important;
+    } 
+     
+    .actions .btn { 
+    width:36%; 
+    margin:1.5em 0;
+    } 
+     
+    .actions .btn-info { 
+    float:left;
+    } 
+     
+    .actions .btn-danger { 
+    float:right;
+    } 
+     
+    table#cart thead {
+    display: none;
+    } 
+     
+    table#cart tbody td {
+    display: block;
+    padding: .6rem;
+    min-width:320px;
+    } 
+     
+    table#cart tbody tr td:first-child {
+    background: #333;
+    color: #fff;
+    } 
+     
+    table#cart tbody td:before { 
+    content: attr(data-th);
+    font-weight: bold; 
+    display: inline-block;
+    width: 8rem;
+    } 
+     
+    table#cart tfoot td {
+    display:block;
+    } 
+    table#cart tfoot td .btn {
+    display:block;
+    }
+.container_grid{
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 10px;
+}
+}
