@@ -166,8 +166,19 @@ if ( ! function_exists('redirect'))
         header("location: ".base_url().$url);exit();
     }
 }
+function formatPrice($number)
+{
+    $number = intval($number);
+    return number_format($number, 0, ',', '.');
+}
 
-
+function formatPriceSale($number, $sale)
+{
+    $number = intval($number);
+    $sale = intval($sale);
+    $price = $number*(100 - $sale)/100;
+    return formatPrice($price);
+}
 ?>
 
 

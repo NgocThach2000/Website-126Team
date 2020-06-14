@@ -15,7 +15,7 @@ class Database
 
     public function __construct()
     {
-        $this->link = mysqli_connect("localhost","root","","web126") or die ();
+        $this->link = mysqli_connect("localhost","root","","DoAnWeb") or die ();
         mysqli_set_charset($this->link,"utf8");
     }
 
@@ -51,9 +51,7 @@ class Database
     public function update($table, array $data, array $conditions)
     {
         $sql = "UPDATE {$table}";
-
         $set = " SET ";
-
         $where = " WHERE ";
         foreach($data as $field => $value) {
             if(is_string($value)) {
@@ -232,7 +230,7 @@ class Database
             $result = mysqli_query($this->link,$sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
         }
         
-        if( $result)
+        if($result)
         {
             while ($num = mysqli_fetch_assoc($result))
             {

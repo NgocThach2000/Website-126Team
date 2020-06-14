@@ -1,6 +1,6 @@
 <?php
     $open = "product";
-    require_once __DIR__."/../../autoload/autoload.php";
+    include_once __DIR__."/../../autoload/autoload.php";
     $product = $db->fetchAll("product");
 
     if(isset($_GET['page']))
@@ -14,7 +14,7 @@
 
     $sql = "SELECT product.*, category.name as namecate FROM product LEFT JOIN category on category.id = product.category_id";
 
-    $product = $db->fetchJone('product', $sql, $pag, 3, true);
+    $product = $db->fetchJone('product', $sql, $pag, 10, true);
 
     if(isset($product['page']))
     {
@@ -23,7 +23,7 @@
     }
 
 ?>
-<?php require_once __DIR__."/../../layouts/header.php"; ?>
+<?php include_once __DIR__."/../../layouts/header.php"; ?>
     <!-- Page Heading -->
     
     <div class="row">
@@ -43,7 +43,7 @@
             </ol >
             <div class="clearfix"></div>
             <!--Thông báo lỗi-->
-            <?php require_once __DIR__."/../../../partials/notification.php"; ?>
+            <?php include_once __DIR__."/../../../partials/notification.php"; ?>
         </div>
         <?php //var_dump($product); ?>
     </div>
@@ -53,13 +53,14 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
-                        <th>Category</th>
+                        <th>Tên</th>
+                        <th>Danh mục</th>
                         <th>Slug</th>
-                        <th>Thunbar</th>
-                        <th>Info</th>                       
-                        <th>Created</th>
-                        <th>Action</th>
+                        <th>Hình ảnh 1</th>
+                        <th>Hình ảnh 2</th>
+                        <th>Thông tin</th>                       
+                        <th>Thời gian khởi tạo</th>
+                        <th>Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,15 +68,19 @@
                     <tr>
                         <td><?php echo $stt ?></td>
                         <td><?php echo $item['name'] ?></td>
-                        <td><?php echo $item['category_id'] ?></td>
+                        <td><?php echo $item['namecate'] ?></td>
                         <td><?php echo $item['slug'] ?></td>
                         <td>
-                        	<img src="<?php echo uploads()?>product<?php echo $item['thunbar'] ?>" width="80px" height="80px"/>
+                        	<img src="<?php echo uploads()?>product<?php echo $item['thunbar1'] ?>" width="80px" height="80px"/>
+                        </td>
+                        <td>
+                        	<img src="<?php echo uploads()?>product<?php echo $item['thunbar2'] ?>" width="80px" height="80px"/>
                         </td>
                         <td>
                         	<ul>
                         		<li>Giá: <?php echo $item['price'] ?></li>
-                        		<li>Số lượng <?php echo $item['number']; ?></li>
+                                <li>Số lượng <?php echo $item['number']; ?></li>
+                                <li>Size: <?php echo $item['size'] ?></li>
                         	</ul>
                         </td>
                         <td><?php echo $item['created_at'] ?></td>
@@ -92,7 +97,7 @@
                     <nav aria-label="Page navigation clearfix" >
                         <ul class="pagination">
                             <li>
-                                <a class="page-link" href="" tabindex="-1" aria-label="Previous">
+                                <a class="page-link" href="?page=<?php if($pag > 1){ echo ($pag-1); } else{ echo $pag;} ?>" tabindex="-1" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
@@ -113,11 +118,10 @@
                             </li>
                             <?php endfor; ?>
                             <li>
-	                            <a href="" aria-label="Next">
+	                            <a href="?page=<?php if($pag <= $sotrang-1){ echo ($pag+1); } else{ echo $pag;} ?>" aria-label="Next">
 	                                <span aria-hidden="true">&raquo;</span>
 	                            </a>
                             </li>
-                        	
                         </ul>
                     </nav>
                 </div>
@@ -125,5 +129,5 @@
         </div>
     </div>
     <!-- Page Footer-->
-<?php require_once __DIR__."/../../layouts/footer.php"; ?>
+<?php include_once __DIR__."/../../layouts/footer.php"; ?>
                     

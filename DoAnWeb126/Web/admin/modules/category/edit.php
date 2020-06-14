@@ -1,16 +1,13 @@
 <?php
     $open = "category";
-    require_once __DIR__."/../../autoload/autoload.php";
+    include_once __DIR__."/../../autoload/autoload.php";
     $id = intval(getInput('id'));
-    //_debug($id);
-
     $EditCategory = $db->fetchID("category", $id);
     if(empty($EditCategory))
     {
         $_SESSION['error'] = "Dữ liệu không tồn tại ";
         redirectAdmin("category");
     }
-
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $data = 
         [
@@ -53,7 +50,7 @@
         }
     }
 ?>
-<?php require_once __DIR__."/../../layouts/header.php"; ?>
+<?php include_once __DIR__."/../../layouts/header.php"; ?>
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -63,7 +60,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li class="active"> <i class="fa fa-dashboard"> </i>
-                    <a href="index.php">Dashboard</a>
+                    <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
                      <a href="">Danh mục</a>
@@ -74,7 +71,7 @@
             </ol >
             <div class="clearfix">
                  <!--Thông báo lỗi-->
-                <?php require_once __DIR__."/../../../partials/notification.php"; ?>
+                <?php include_once __DIR__."/../../../partials/notification.php"; ?>
             </div>
         </div>
     </div>
@@ -89,10 +86,11 @@
                     <p class="text-danger"> <?php echo $error['name']; ?> </p>
                 <?php endif ?>
             </div>
+
             <button type="submit" class="btn btn-primary">Lưu</button>
         </form>
         </div>
     </div>
     <!-- Page Footer-->
-<?php require_once __DIR__."/../../layouts/footer.php"; ?>
+<?php include_once __DIR__."/../../layouts/footer.php"; ?>
                     

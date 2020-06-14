@@ -1,6 +1,6 @@
 <?php
     $open = "product";
-    require_once __DIR__."/../../autoload/autoload.php";
+    include_once __DIR__."/../../autoload/autoload.php";
     $id = intval(getInput('id'));
     //_debug($id);
 

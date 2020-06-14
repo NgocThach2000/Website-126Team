@@ -1,6 +1,6 @@
 <?php
     $open = "category";
-    require_once __DIR__."/../../autoload/autoload.php";
+    include_once __DIR__."/../../autoload/autoload.php";
     
     $category = $db->fetchAll("category");
 
@@ -23,7 +23,7 @@
         unset($category['page']);
     }
 ?>
-<?php require_once __DIR__."/../../layouts/header.php"; ?>
+<?php include_once __DIR__."/../../layouts/header.php"; ?>
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -42,7 +42,7 @@
             </ol >
             <div class="clearfix"></div>
             <!--Thông báo lỗi-->
-            <?php require_once __DIR__."/../../../partials/notification.php"; ?>
+            <?php include_once __DIR__."/../../../partials/notification.php"; ?>
         </div>
         <?php //var_dump($category); ?>
     </div>
@@ -52,10 +52,11 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
+                        <th>Tên danh mục</th>
                         <th>Slug</th>
-                        <th>Created</th>
-                        <th>Action</th>
+                     
+                        <th>Thời gian khởi tạo</th>
+                        <th>Hoạt động</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -78,7 +79,7 @@
                     <nav aria-label="Page navigation clearfix" >
                         <ul class="pagination">
                             <li>
-                                <a class="page-link" href="" tabindex="-1" aria-label="Previous">
+                                <a class="page-link" href="?page=<?php if($pag > 1){ echo ($pag-1); } else{ echo $pag;} ?>" tabindex="-1" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
@@ -99,7 +100,7 @@
                             </li>
                             <?php endfor; ?>
                             <li>
-                                <a href="" aria-label="Next">
+                                <a href="?page=<?php if($pag <= $sotrang-1){ echo ($pag+1); } else{ echo $pag;} ?>" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
@@ -111,5 +112,5 @@
         </div>
     </div>
     <!-- Page Footer-->
-<?php require_once __DIR__."/../../layouts/footer.php"; ?>
+<?php include_once __DIR__."/../../layouts/footer.php"; ?>
                     

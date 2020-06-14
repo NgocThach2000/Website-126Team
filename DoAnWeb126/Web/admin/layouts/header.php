@@ -23,7 +23,7 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     </button>
-                    <a class="navbar-brand" href="#">Xin Chào Admin</a>
+                    <a class="navbar-brand" href="#">Admin</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -76,9 +76,11 @@
                             <a href="<?php echo modules("product") ?>"><i class="fa fa-fw fa-database"></i> Sản Phẩm</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'admin' ? 'active' : '' ?>">
-                            <a href="<?php echo modules("admin") ?>"><i class="fa fa-fw fa-user"></i> Admin</a>
+                            <a href="<?php echo modules("admin") ?>"><i class="fa fa-fw fa-lock"></i> Admin</a>
                         </li>
-                        
+                        <li class="<?php echo isset($open) && $open == 'user' ? 'active' : '' ?>">
+                            <a href="<?php echo modules("user") ?>"><i class="fa fa-fw fa-user"></i> Thành Viên </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

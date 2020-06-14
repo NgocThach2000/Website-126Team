@@ -1,6 +1,6 @@
 <?php
     $open = "admin";
-    require_once __DIR__."/../../autoload/autoload.php";
+    include_once __DIR__."/../../autoload/autoload.php";
     $admin = $db->fetchAll("admin");
 
     if(isset($_GET['page']))
@@ -23,7 +23,7 @@
     }
 
 ?>
-<?php require_once __DIR__."/../../layouts/header.php"; ?>
+<?php include_once __DIR__."/../../layouts/header.php"; ?>
 
     <!-- Page Heading -->
     
@@ -44,7 +44,7 @@
             </ol >
             <div class="clearfix"></div>
             <!--Thông báo lỗi-->
-            <?php require_once __DIR__."/../../../partials/notification.php"; ?>
+            <?php include_once __DIR__."/../../../partials/notification.php"; ?>
         </div>
         <?php //var_dump($admin); ?>
     </div>
@@ -115,5 +115,5 @@
         </div>
     </div>
     <!-- Page Footer-->
-<?php require_once __DIR__."/../../layouts/footer.php"; ?>
+<?php include_once __DIR__."/../../layouts/footer.php"; ?>
                     

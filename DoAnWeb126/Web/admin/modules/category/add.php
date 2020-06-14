@@ -1,6 +1,6 @@
 <?php
     $open = "category";
-    require_once __DIR__."/../../autoload/autoload.php";
+    include_once __DIR__."/../../autoload/autoload.php";
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $data = 
         [
@@ -31,7 +31,7 @@
     }
 
 ?>
-<?php require_once __DIR__."/../../layouts/header.php"; ?>
+<?php include_once __DIR__."/../../layouts/header.php"; ?>
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -52,7 +52,7 @@
             </ol >
             <div class="clearfix">
                 <!--Thông báo lỗi-->
-                <?php require_once __DIR__."/../../../partials/notification.php"; ?>
+                <?php include_once __DIR__."/../../../partials/notification.php"; ?>
             </div>
         </div>
     </div>
@@ -72,5 +72,5 @@
         </div>
     </div>
     <!-- Page Footer-->
-<?php require_once __DIR__."/../../layouts/footer.php"; ?>
+<?php include_once __DIR__."/../../layouts/footer.php"; ?>
                     

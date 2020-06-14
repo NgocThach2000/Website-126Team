@@ -1,7 +1,7 @@
 <?php
     $open = "admin";
     
-    require_once __DIR__."/../../autoload/autoload.php";
+    include_once __DIR__."/../../autoload/autoload.php";
     /**
     *Danh mục danh mục
     */
@@ -45,7 +45,7 @@
         if(postInput('address') == ''){
         	$error['address'] = "Mời bạn nhập địa chỉ";
         }
-         if(postInput('level') == ''){
+        if(postInput('level') == ''){
         	$error['level'] = "Mời bạn chọn chức vụ";
         }
         if($data['password'] != MD5(postInput("re_password"))){
@@ -67,7 +67,7 @@
     }
 
 ?>
-<?php require_once __DIR__."/../../layouts/header.php"; ?>
+<?php include_once __DIR__."/../../layouts/header.php"; ?>
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -88,7 +88,7 @@
             </ol >
             <div class="clearfix">
                 <!--Thông báo lỗi-->
-                <?php require_once __DIR__."/../../../partials/notification.php"; ?>
+                <?php include_once __DIR__."/../../../partials/notification.php"; ?>
             </div>
         </div>
     </div>
@@ -142,6 +142,7 @@
                 <?php endif ?>
             </div>
 
+
             <div class="form-group">
                 <label for="iadmin"> Địa chỉ </label>
                 <input type="type" class="form-control col-sm-2 control-label" placeholder="280 An Dương Vương, Phường 4, Quận 5, Hồ Chí Minh" id="iadmin" name="address" value="<?php echo $data['address'] ?>" >
@@ -168,4 +169,4 @@
         </div>
     </div>
     <!-- Page Footer-->
-<?php require_once __DIR__."/../../layouts/footer.php"; ?>
+<?php include_once __DIR__."/../../layouts/footer.php"; ?>

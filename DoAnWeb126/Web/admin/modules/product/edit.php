@@ -1,9 +1,11 @@
 <?php
     $open = "product";
-    require_once __DIR__."/../../autoload/autoload.php";
+    include_once __DIR__."/../../autoload/autoload.php";
     $category = $db->fetchAll("category");
+    
     $id = intval(getInput('id'));
     //_debug($id);
+    
 
     $Editproduct = $db->fetchID("product", $id);
     if(empty($Editproduct))
@@ -21,10 +23,11 @@
             "number" => postInput('number'),
             "price" => postInput('price'),
             "sale" => postInput('sale'),
+            "size" => postInput('size'),
             "content" => postInput('content')
         ];
         $error = [];
-       if(postInput('name') == ''){
+        if(postInput('name') == ''){
             $error['name'] = "Mời bạn nhập đầy đủ tên sản phẩm";
         }
         if(postInput('category_id') == ''){
@@ -39,25 +42,40 @@
         if(postInput('number') == ''){
             $error['number'] = "Mời bạn nhập số lượng sản phẩm";
         }
+        if(postInput('size') == ''){
+            $error['size'] = "Mời bạn nhập size sản phẩm";
+        }
         //empty error is mean not error
         if(empty($error))
         {
-            if(isset($_FILES['thunbar']))
+            if(isset($_FILES['thunbar1']) && isset($_FILES['thunbar2']))
             {
-            $file_name = $_FILES['thunbar']['name'];
-            $file_tmp = $_FILES['thunbar']['tmp_name'];
-            $file_type = $_FILES['thunbar']['type'];
-            $file_error = $_FILES['thunbar']['error'];
+            $file_name = $_FILES['thunbar1']['name'];
+            $file_tmp = $_FILES['thunbar1']['tmp_name'];
+            $file_error = $_FILES['thunbar1']['error'];
+            //update thunbar2
+            $file_name2 = $_FILES['thunbar2']['name'];
+            $file_tmp2 = $_FILES['thunbar2']['tmp_name'];
+            $file_error2 = $_FILES['thunbar2']['error'];
                 if($file_error == 0)
                 {
                     $part = ROOT ."product";
-                    $data['thunbar'] = $file_name;
+                    $data['thunbar1'] = $file_name;
+                    
+                }
+                if($file_error2 == 0)
+                {
+                    $part = ROOT ."product";
+                    $data['thunbar2'] = $file_name2;
+                    
                 }
             }
+            
             $update = $db->update("product", $data, array('id' => $id ));
             if($update > 0)
             {
                 move_uploaded_file($file_tmp, $part.$file_name);
+                move_uploaded_file($file_tmp2, $part.$file_name2);
                 $_SESSION['success'] = "Cập nhật thành công";
                 redirectAdmin("product");
             }
@@ -68,7 +86,7 @@
         }
     }
 ?>
-<?php require_once __DIR__."/../../layouts/header.php"; ?>
+<?php include_once __DIR__."/../../layouts/header.php"; ?>
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -78,7 +96,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li class="active"> <i class="fa fa-dashboard"> </i>
-                    <a href="index.php">Dashboard</a>
+                    <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
                      <a href="">sản phẩm</a>
@@ -89,7 +107,7 @@
             </ol >
             <div class="clearfix">
                  <!--Thông báo lỗi-->
-                <?php require_once __DIR__."/../../../partials/notification.php"; ?>
+                <?php include_once __DIR__."/../../../partials/notification.php"; ?>
             </div>
         </div>
     </div>
@@ -150,17 +168,40 @@
                     <p class="text-danger"> <?php echo $error['sale']; ?> </p>
                 <?php endif ?>
             </div>
+            
+            <div class="form-group">
+                <label for="iproduct">Size</label>
+                <input type="type" class="form-control col-sm-2 control-label" placeholder="XL" id="iproduct" name="size" value="<?php echo $Editproduct['size'];?>">
+                
+                <?php if(isset($error['size'])): ?>
+                    <p class="text-danger"> <?php echo $error['size']; ?> </p>
+                <?php endif ?>
+            </div>
 
             <div class="form-group">
-                <label for="iproduct">Hình ảnh</label>
-                <input type="file" class="form-control col-sm-2 control-label" id="iproduct" name="thunbar" />
+                <label for="iproduct">Hình ảnh 1</label>
+                <input type="file" class="form-control col-sm-2 control-label" id="iproduct" name="thunbar1" />
                 
-                <?php if(isset($error['thunbar'])): ?>
-                    <p class="text-danger"> <?php echo $error['thunbar']; ?> </p>
+                <?php if(isset($error['thunbar1'])): ?>
+                    <p class="text-danger"> <?php echo $error['thunbar1']; ?> </p>
                 <?php endif ?>
-                <img src="<?php echo uploads_product() ?><?php echo $Editproduct['thunbar'] ?>" width="50px" height="50px">
+                <div>
+                    <img src="<?php echo uploads_product() ?><?php echo $Editproduct['thunbar1'] ?>" width="20%" height="20%">
+                <div>
             </div>
-             
+
+            <div class="form-group">
+                <label for="iproduct">Hình ảnh 2</label>
+                <input type="file" class="form-control col-sm-2 control-label" id="iproduct" name="thunbar2" />
+                
+                <?php if(isset($error['thunbar2'])): ?>
+                    <p class="text-danger"> <?php echo $error['thunbar2']; ?> </p>
+                <?php endif ?>
+                <div>
+                    <img src="<?php echo uploads_product() ?><?php echo $Editproduct['thunbar2'] ?>" width="20%" height="20%">
+                <div>
+            </div>     
+            
             <div class="form-group">
                 <label for="iproduct">Nội dung</label>
                 <textarea class="form-control" name="content" rows="10"><?php echo $Editproduct['content'];?></textarea>
@@ -174,5 +215,5 @@
         </div>
     </div>
     <!-- Page Footer-->
-<?php require_once __DIR__."/../../layouts/footer.php"; ?>
+<?php include_once __DIR__."/../../layouts/footer.php"; ?>
                     

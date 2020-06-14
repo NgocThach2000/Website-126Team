@@ -1,4 +1,4 @@
-<div class="footer">  
+<div class="footer">  <!-- Footer1-->
             <div class="fixwidth clearfix">
                 <div class="content_footer">
                     <div class="content_foot">
@@ -7,9 +7,9 @@
                     <p>Hệ thống bán lẻ đồ thể thao Sporter là đơn vị chuyên sản xuất và phân phối các sản phẩm thể thao chuyên nghiệp. Tại đây bạn có thể dễ dàng mua Quần áo và dụng cụ thể thao chất lượng cao, chính hãng... </p>
                     <p><a class="Hotline">HOTLINE:19001000</a></p>
                     <div class="img_icon">
-                        <a href="#"> <img class="icon1" src="<?php echo public_frontend() ?>img/icons8-facebook-100.png"></a>
-                        <a href="#"> <img class="icon2" src="<?php echo public_frontend() ?>img/icons8-instagram-50.png"></a>
-                        <a href="#"> <img class="icon3" src="<?php echo public_frontend() ?>img/icons8-twitter-48.png"></a>
+                        <a href="#"> <img class="icon1" src="<?php echo public_frontend() ?>img/icons8-facebook-100.png"   ></a>
+                        <a href="#"> <img class="icon2" src="<?php echo public_frontend() ?>img/icons8-instagram-50.png"  ></a>
+                        <a href="#"> <img class="icon3" src="<?php echo public_frontend() ?>img/icons8-twitter-48.png"   ></a>
                 
                     </div>
                 </div>    <!-- -->
@@ -27,9 +27,8 @@
 
                 <div class="footer_right">
                     <div class="boxfooter_fanpage">
-                        <div class="chat_facebook">
-                            <div class="fb-page fb_iframe_widget" data-href=" https://www.facebook.com/BeoBeoRestaurant/" data-tabs="timeline" data-width="500" data-height="230" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=&amp;container_width=423&amp;height=230&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FBeoBeoRestaurant%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=timeline&amp;width=500"><span style="vertical-align: bottom; width: 423px; height: 230px;"><iframe name="f2ba25d82703e8c" width="500px" height="230px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.10/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D46%23cb%3Df3456ddd5625608%26domain%3Dbeoquan.vn%26origin%3Dhttp%253A%252F%252Fbeoquan.vn%252Ff1ecc8a51423df8%26relation%3Dparent.parent&amp;container_width=423&amp;height=230&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FBeoBeoRestaurant%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=timeline&amp;width=500" style="border: none; visibility: visible; width: 423px; height: 230px;" class=""></iframe></span>
-                            </div>
+                        <div class="chat_facebook"> 
+                            <div class="fb-page" data-href="https://www.facebook.com/nike/" data-tabs="timeline" data-width="500" data-height="225" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/nike/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/nike/">Nike</a></blockquote></div> 
                         </div>
                     </div>
                 </div>
@@ -41,10 +40,10 @@
                 <ul class="content_foot3 clearfix">
                     <li><a href="#"> <img class="icon4" src="<?php echo public_frontend() ?>img/icons8-location-48.png"  width="18" > </a></li>
                     <li>VietNam</li>
-                    <li class="copyright">©2020 Nike, Inc. All Rights Reserved</li>
+                    <li class="copyright">©2020 126 Team, Inc. All Rights Reserved</li>
                 </ul> 
             </div>              
-        </div>   
+        </div>   <!-- -->
     </div>    
 
     <div class="hotline-phone-ring-wrap">
@@ -53,7 +52,7 @@
             <div class="hotline-phone-ring-circle-fill"></div>
             <div class="hotline-phone-ring-img-circle">
             <a href="tel:0987654321" class="pps-btn-img">
-                <img src="https://nguyenhung.net/wp-content/uploads/2019/05/icon-call-nh.png" alt="Gọi điện thoại" width="50">
+                <img src="<?php echo public_frontend() ?>img/icon-call-nh.png" alt="Gọi điện thoại" width="50">
             </a>
             </div>
         </div>
@@ -72,37 +71,34 @@
             <ul id="">
                 <li class=""><a href="#" id="Ao">Áo</a>
                     <ul class="">
-                        <li><a href="#">Áo Nike</a></li>
-                        <li><a href="#">Áo Adidas</a></li>
-                        <li><a href="#">Áo Thái</a></li>
-                        <li><a href="#">Áo bóng đá</a></li>
+                        <?php foreach($category_ao as $item): ?>
+                            <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
+                        <?php endforeach ?>
                     </ul>
                 </li>
                 <li class=""><a href="#">Quần</a>
                     <ul class="">
-                        <li><a href="#">Quần Nike</a></li>
-                        <li><a href="#">Quần Adidas</a></li>
-                        <li><a href="#">Quần Thái</a></li>
-                        <li><a href="#">Quần bóng đá</a></li>
+                        <?php foreach($category_quan as $item): ?>
+                            <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
+                        <?php endforeach ?>
                     </ul>
                 </li>
                 <li class=""><a href="#"><b>Giày</b></a>
                     <ul class="">
-                        <li><a href="#">Giày thể thao</a></li>
-                        <li><a href="#">Giày bóng đá</a></li>
+                        <?php foreach($category_giay as $item): ?>
+                            <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
+                        <?php endforeach ?>
                     </ul>
                 </li>
                 <li class=""><a href="#">Dụng cụ hỗ trợ</a>
                     <ul class="">
-                        <li><a href="#">Túi thể thao</a></li>
-                        <li><a href="#">Băng tay</a></li>
-                        <li><a href="#">Băng gối</a></li>
-                        <li><a href="#">Băng chân</a></li>
+                        <?php foreach($category_dungcuhotro as $item): ?>
+                            <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
+                        <?php endforeach ?>
                     </ul>
                 </li>
-                <li><a href="#"><b>Sale</b></a></li>
+                <li ><a href="Login.php">Đăng nhập / Đăng ký</a></li>
+                    
             </ul>
         </nav>
     </div>
-</body>
-</html>
