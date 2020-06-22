@@ -1,7 +1,7 @@
 body{
     background-color: #ebebeb;
   }
-  .bg_login{background:url('img/bg_login.jpg') no-repeat;position: relative;height:100vh;background-size: 100%;}
+  .bg_login{background:url('http://localhost:8080/DoAnWeb126//Web/public/frontend/img/bg_login.jpg') no-repeat;position: relative;height:100vh;background-size: 100%;}
   .bg_login:after{content:'';position: absolute;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index: 99;}
   .login-box{ 
     top:50%;

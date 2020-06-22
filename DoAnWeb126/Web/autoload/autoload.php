@@ -5,19 +5,14 @@ include_once  __DIR__. "/../libraries/function.php";
 $db = new Database;
 define("ROOT", $_SERVER['DOCUMENT_ROOT']."/DoAnWeb126/Web/public/uploads/");
 
-//Lấy list theo danh mục Áo, Quần, Giày và dụng cụ;
-$sql_cate_ao = "SELECT category.* FROM category WHERE category.name like 'Áo%' ";
-$category_ao = $db->fetchsql($sql_cate_ao);
-
-$sql_cate_quan = "SELECT category.* FROM category WHERE category.name like 'Quần%' ";
-$category_quan = $db->fetchsql($sql_cate_quan);
-
-$sql_cate_giay = "SELECT category.* FROM category WHERE category.name like 'Giày%' ";
-$category_giay = $db->fetchsql($sql_cate_giay);
-
-$sql_cate_dungcuhotro = "SELECT category.* FROM category WHERE category.name not like 'Áo%' AND category.name not like 'Quần%' AND category.name not like 'Giày%'";
-$category_dungcuhotro = $db->fetchsql($sql_cate_dungcuhotro);
-
-$category = $db->fetchAll("category");
-
+// Truy vấn dữ liệu lấy danh mục
+$sql = "SELECT * FROM category_parent";
+    $Category_show = $db->fetchsql($sql);
+    $data = [];
+    foreach ($Category_show as $item){
+        $cateID = intval($item['id']);
+        $sql_Cate = " SELECT * FROM category WHERE category_parent_id = $cateID ";
+        $CateHome = $db->fetchsql($sql_Cate);
+        $data[$item['name']] = $CateHome;
+    }
 ?>

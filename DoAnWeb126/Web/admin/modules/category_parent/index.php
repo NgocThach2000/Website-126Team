@@ -1,8 +1,9 @@
 <?php
-    $open = "category";
+    $open = "category_parent";
     include_once __DIR__."/../../autoload/autoload.php";
     
-    $category = $db->fetchAll("category");
+    $category_parent = $db->fetchAll("category_parent");
+
     if(isset($_GET['page']))
     {
         $pag = $_GET['page'];
@@ -12,14 +13,14 @@
         $pag = 1;
     }
 
-    //$sql = "SELECT category.* FROM category ORDER BY ID DESC";
-    $sql = "SELECT category.*, category_parent.name as namePcate FROM category LEFT JOIN category_parent on category_parent.id = category.category_parent_id";
-    $category = $db->fetchJone('category', $sql, $pag, 10, true);
+    $sql = "SELECT category_parent.* FROM category_parent ORDER BY ID DESC";
 
-    if(isset($category['page']))
+    $category_parent = $db->fetchJone('category_parent', $sql, $pag, 10, true);
+
+    if(isset($category_parent['page']))
     {
-        $sotrang = $category['page'];
-        unset($category['page']);
+        $sotrang = $category_parent['page'];
+        unset($category_parent['page']);
     }
 ?>
 <?php include_once __DIR__."/../../layouts/header.php"; ?>
@@ -27,7 +28,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Danh Sách Danh Mục
+                Danh Sách Danh Mục Cha
                 <a href="add.php" class="btn btn-success">Thêm Mới</a>
             </h1>
             <ol class="breadcrumb">
@@ -51,7 +52,6 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên danh mục cha</th>
                         <th>Tên danh mục</th>
                         <th>Slug</th>
                         <th>Thời gian khởi tạo</th>
@@ -59,11 +59,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!--sổ danh mục-->
-                    <?php $stt = 1; foreach($category as $item): ?>
+                    <?php $stt = 1; foreach($category_parent as $item): ?>
                     <tr>
                         <td><?php echo $stt ?></td>
-                        <td><?php echo $item['namePcate'] ?></td>
                         <td><?php echo $item['name'] ?></td>
                         <td><?php echo $item['slug'] ?></td>
                         <td><?php echo $item['created_at'] ?></td>
@@ -79,7 +77,6 @@
                 <div class="pull-right">
                     <nav aria-label="Page navigation clearfix" >
                         <ul class="pagination">
-                            <!--phân trang-->
                             <li>
                                 <a class="page-link" href="?page=<?php if($pag > 1){ echo ($pag-1); } else{ echo $pag;} ?>" tabindex="-1" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>

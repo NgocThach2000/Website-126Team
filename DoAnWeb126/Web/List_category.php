@@ -2,7 +2,7 @@
     include_once __DIR__. "/autoload/autoload.php"; 
     $id = intval(getInput('id'));
     $EditCategory = $db->fetchID("category", $id);
-    
+    //gán page
     if(isset($_GET['page']))
     {
         $pag = $_GET['page'];
@@ -12,11 +12,15 @@
     }
     $sql = "SELECT * FROM product WHERE category_id = $id";
     $total = count($db->fetchsql($sql));
-
+    //tổng số sản phẩm hiển thị = 9
     $product = $db->fetchJones("product",$sql, $total, $pag, 9, true);
     $sotrang = $product['page'];
     unset($product['page']);
     $path = $_SERVER['SCRIPT_NAME'];
+    // sổ list có cùng category_parent;
+
+
+    
 ?>
 <?php include_once __DIR__. "/layouts/header.php" ?>
     <link href="<?php echo public_frontend() ?>css/List_category.css" rel="stylesheet" />  
@@ -73,18 +77,12 @@
                 <div class="Danhmuc"><b>DANH MỤC SẢN PHẨM</b></div>
                 <div>
                     <ul class="menu_sidebar">
-                        <?php foreach($category_ao as $item): ?> 
-                        <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?><i class="fas fa-sort-down"></i></a>
-                            <ul>
-                                <div >
-                                    <li><a class="sidebar_option" href="#">Mới</a></li>
-                                    <li><a class="sidebar_option" href="#">Cũ</a></li>
-                                </div>
-                            </ul>
-                        </li>
+                        <?php foreach($data as $key => $value): ?> 
+                        <li><a href=""><?php echo $key ?><i class="fas fa-sort-down"></i></a></li>
                         <?php endforeach ?>
                     </ul>      
                 </div>
+                
                 <div class="Item_different"><b>SẢN PHẨM KHÁC</b>
                     <div class="Item_trousers clearfix">
                         <a class="icon" href="#"><img src="<?php echo public_frontend() ?>img/bannerAo.jpg" alt="icon" width="70"/>

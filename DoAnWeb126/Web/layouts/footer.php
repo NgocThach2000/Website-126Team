@@ -69,36 +69,18 @@
     <div class="loadmenu">
         <nav id="my-menu">
             <ul id="">
-                <li class=""><a href="#" id="Ao">Áo</a>
-                    <ul class="">
-                        <?php foreach($category_ao as $item): ?>
-                            <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
+                <!--Sổ danh mục cha-->
+                <?php foreach($data as $key => $value): ?>
+                <li><a href="#" id="<?php echo $key ?>"><?php echo $key ?></a>
+                    <ul>
+                        <!--sổ danh mục con-->
+                        <?php foreach($value as $item): ?>
+                        <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
                         <?php endforeach ?>
                     </ul>
                 </li>
-                <li class=""><a href="#">Quần</a>
-                    <ul class="">
-                        <?php foreach($category_quan as $item): ?>
-                            <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
-                        <?php endforeach ?>
-                    </ul>
-                </li>
-                <li class=""><a href="#"><b>Giày</b></a>
-                    <ul class="">
-                        <?php foreach($category_giay as $item): ?>
-                            <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
-                        <?php endforeach ?>
-                    </ul>
-                </li>
-                <li class=""><a href="#">Dụng cụ hỗ trợ</a>
-                    <ul class="">
-                        <?php foreach($category_dungcuhotro as $item): ?>
-                            <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
-                        <?php endforeach ?>
-                    </ul>
-                </li>
-                <li ><a href="Login.php">Đăng nhập / Đăng ký</a></li>
-                    
+                <?php endforeach ?>
+                <li ><a href="Login.php">Đăng nhập / Đăng ký</a></li> 
             </ul>
         </nav>
     </div>

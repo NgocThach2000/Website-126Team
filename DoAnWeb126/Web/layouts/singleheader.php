@@ -22,40 +22,20 @@
                     </li>                
                 </ul>
             </div>
-            
             <div class="menu_header2 clearfix"> <!-- div con dùng float thì thêm class clearfix ở div cha -->            
                 <a href="Home.php" id="logo"><img src="<?php echo public_frontend() ?>img/iconfinder_nike_27575.png" alt="icon" width="50"></a>
                 <div id="menu_contain">
                     <ul class="menu_hmain menuheader_mid clearfix">
-                        <li class="li_co_cap"><a href="#" id="Ao">Áo</a>
+                        <!--Sổ danh mục sản phẩm-->
+                        <?php foreach($data as $key => $value): ?>
+                        <li class="li_co_cap"><a href="#" id="<?php echo $key ?>"><?php echo $key ?></a>
                             <ul class="menu_con">
-                                <?php foreach($category_ao as $item): ?>
+                                <?php foreach($value as $item): ?>
                                 <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
-                                <?php endforeach; ?>
+                                <?php endforeach ?>
                             </ul>
                         </li>
-                        <li class="li_co_cap"><a href="#">Quần</a>
-                            <ul class="menu_con">
-                                <?php foreach($category_quan as $item): ?>
-                                <li><a href="List_category.php?id=<?php  echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </li>
-                        <li class="li_co_cap"><a href="#">Giày</a>
-                            <ul class="menu_con">
-                                <?php foreach($category_giay as $item): ?>
-                                <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </li>
-                        <li class="li_co_cap"><a href="#">Dụng cụ hỗ trợ</a>
-                            <ul class="menu_con">
-                                <?php foreach($category_dungcuhotro as $item): ?>
-                                <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </li>
-                        
+                        <?php endforeach ?>
                     </ul>
                 </div>
                 <form method="" action="" class="form_search">                

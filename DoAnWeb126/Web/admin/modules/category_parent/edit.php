@@ -1,41 +1,36 @@
 <?php
-    $open = "category";
+    $open = "category_parent";
     include_once __DIR__."/../../autoload/autoload.php";
-    $category_parent = $db->fetchAll("category_parent");
     $id = intval(getInput('id'));
-    $EditCategory = $db->fetchID("category", $id);
-    if(empty($EditCategory))
+    $EditCategory_parent = $db->fetchID("category_parent", $id);
+    if(empty($EditCategory_parent))
     {
         $_SESSION['error'] = "Dữ liệu không tồn tại ";
-        redirectAdmin("category");
+        redirectAdmin("category_parent");
     }
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $data = 
         [
             "name" => postInput('name'),
-            "slug" => to_slug(postInput('name')),
-            "category_parent_id" => postInput('category_parent_id')
+            "slug" => to_slug(postInput('name'))
         ];
         $error = [];
         if(postInput('name') == ''){
             $error['name'] = "Mời bạn nhập đầy đủ tên danh mục";
         }
-        if(postInput('category_parent_id') == ''){
-            $error['category_parent_id'] = "Mời bạn chọn danh mục cha";
-        }
         //empty error is mean not error
         if(empty($error)){
             //check
-            if($EditCategory['name'] != $data['name']){
-                $isset = $db->fetchOne("category", " name = '".$data['name']."' ");
+            if($EditCategory_parent['name'] != $data['name']){
+                $isset = $db->fetchOne("category_parent", " name = '".$data['name']."' ");
                 if(count($isset) > 0){
                     $_SESSION['error'] = "Tên danh mục đã tồn tại !";
                 }
                 else{
-                    $id_update = $db->update("category", $data, array("id"=>$id));
+                    $id_update = $db->update("category_parent", $data, array("id"=>$id));
                     if($id_update > 0){
                         $_SESSION['success'] = "Cập nhật thành công ";
-                        redirectAdmin("category");
+                        redirectAdmin("category_parent");
                     }
                     else{
                         $_SESSION['error'] = "Dữ liệu không thay đổi ";
@@ -43,10 +38,10 @@
                 }
             }
             else{
-                $id_update = $db->update("category", $data, array("id"=>$id));
+                $id_update = $db->update("category_parent", $data, array("id"=>$id));
                 if($id_update > 0){
                     $_SESSION['success'] = "Cập nhật thành công ";
-                    redirectAdmin("category");
+                    redirectAdmin("category_parent");
                 }
                 else{
                     $_SESSION['error'] = "Dữ liệu không thay đổi ";
@@ -82,24 +77,10 @@
     </div>
     <div class="container">
         <div class="col-md-12">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="" method="POST">
             <div class="form-group">
-                <label for="icategory" class="control-label">Danh mục cha</label>
-                <select class="form-control col-md-8" name="category_parent_id">
-                	<option value="">- Mời bạn chọn danh mục cha -</option>
-                
-        		<?php foreach ($category_parent as $item) : ?>
-        			<option value="<?php echo $item['id'] ?>"<?php echo $EditCategory['category_parent_id'] == $item['id'] ? "selected = 'selected'" : '' ?>><?php echo $item['name'] ?> </option>
-        		<?php endforeach ?>
-        		</select>
-
-        		<?php if(isset($error['category_parent_id'])): ?>
-                    <p class="text-danger"> <?php echo $error['category_parent_id']; ?> </p>
-                <?php endif ?>
-            </div>
-            <div class="form-group">
-                <label for="icategory">Tên danh mục</label>
-                <input type="type" class="form-control col-sm-2 control-label" placeholder="Tên danh mục" id="icategory" name="name" value="<?php echo $EditCategory['name'];?>">
+                <label for="icategory_parent">Tên danh mục</label>
+                <input type="type" class="form-control col-sm-2 control-label" placeholder="Tên danh mục" id="icategory_parent" name="name" value="<?php echo $EditCategory_parent['name'];?>">
                 
                 <?php if(isset($error['name'])): ?>
                     <p class="text-danger"> <?php echo $error['name']; ?> </p>

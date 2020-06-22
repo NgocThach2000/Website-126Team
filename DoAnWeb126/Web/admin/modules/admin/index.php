@@ -54,11 +54,11 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
-                        <th>Phone</th>
+                        <th>Tên</th>
+                        <th>Số điện thoại</th>
                         <th>Email</th>
-                        <th>Address</th>                                              
-                        <th>Action</th>
+                        <th>Địa chỉ</th>                                              
+                        <th>Hoạt động</th>
                     </tr>
                 </thead>
                 <tbody>

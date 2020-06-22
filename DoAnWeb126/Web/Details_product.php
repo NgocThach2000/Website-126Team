@@ -19,15 +19,13 @@
                 <div class="main_containt clearfix fixwidth" >
                     <div class="main_containt_left" >
                         <a><img class="img_main" src="<?php echo uploads_product() ?><?php echo $product['thunbar1'] ?>" /></a>
-
                         <a><img class="img_main_2" src="<?php echo uploads_product() ?><?php echo $product['thunbar2'] ?>" /></a>
-                        
                     </div>
 
                     <div class="main_containt_right " >
                         <div class="content_detail"><b><?php echo $product['content'] ?></b></div>
                         <div class="content_detail_two"> <?php echo $product['name'] ?> Size Từ S, M, L, XL</div>
-                        <div class="price"><?php formatPrice($product['price']) ?> đ</div>
+                        <div class="price"><?php echo formatPrice($product['price']) ?> đ</div>
                             <div class="size">
                             <label  for="sizeT">SIZE: </label>
                             <select id="sizeT">
@@ -41,6 +39,7 @@
                         <b class="Danhmuc" >DANH MỤC SẢN PHẨM</b>
                         <div class="div_menu_sidebar">
                             <ul class="menu_sidebar">
+                                <!--Sổ danh mục-->
                                 <?php foreach($category_ao as $item): ?>
                                 <li>
                                     <a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?> <i class="fas fa-sort-down"></i></a>
