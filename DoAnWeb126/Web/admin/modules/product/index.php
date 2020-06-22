@@ -71,10 +71,10 @@
                         <td><?php echo $item['namecate'] ?></td>
                         <td><?php echo $item['slug'] ?></td>
                         <td>
-                        	<img src="<?php echo uploads()?>product<?php echo $item['thunbar1'] ?>" width="80px" height="80px"/>
+                        	<img src="<?php echo uploads()?>product/<?php echo $item['thunbar1'] ?>" width="80px" height="80px"/>
                         </td>
                         <td>
-                        	<img src="<?php echo uploads()?>product<?php echo $item['thunbar2'] ?>" width="80px" height="80px"/>
+                        	<img src="<?php echo uploads()?>product/<?php echo $item['thunbar2'] ?>" width="80px" height="80px"/>
                         </td>
                         <td>
                         	<ul>

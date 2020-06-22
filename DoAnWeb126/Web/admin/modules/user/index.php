@@ -46,7 +46,6 @@
             <!--Thông báo lỗi-->
             <?php include_once __DIR__."/../../../partials/notification.php"; ?>
         </div>
-        <?php //var_dump($user); ?>
     </div>
     <div class="row">
         <div class="col md 12">

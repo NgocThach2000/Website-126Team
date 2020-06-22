@@ -59,13 +59,13 @@
             $file_error2 = $_FILES['thunbar2']['error'];
                 if($file_error == 0)
                 {
-                    $part = ROOT ."product";
+                    $part = ROOT ."product/";
                     $data['thunbar1'] = $file_name;
                     
                 }
                 if($file_error2 == 0)
                 {
-                    $part = ROOT ."product";
+                    $part = ROOT ."product/";
                     $data['thunbar2'] = $file_name2;
                     
                 }

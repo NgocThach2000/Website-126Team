@@ -80,7 +80,7 @@
                     </ul>
                 </li>
                 <?php endforeach ?>
-                <li ><a href="Login.php">Đăng nhập / Đăng ký</a></li> 
+                <li ><a href="Login.php">Đăng nhập</a></li> 
             </ul>
         </nav>
     </div>

@@ -1,80 +1,66 @@
 <?php 
     include_once __DIR__. "/autoload/autoload.php"; 
+    $data = 
+    [
+      "email"	=> postInput('email'),
+      "password" => postInput('password')
+    ];
+    $error = [];
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        
+        if($data['email'] == ''){
+        	$error['email'] = "*Vui lòng nhập email";
+        }
+        if($data['password'] == ''){
+        	$error['password'] = "*Vui lòng mật khẩu";
+        }
+        if(empty($error))
+        {
+            $is_check = $db->fetchOne("user", " email = '".$data['email']."' AND password = '".$data['password']."' ");
+            if($is_check != NULL)
+            {
+              $_SESSION['user_name'] = $is_check['name'];
+              $_SESSION['user_id']   = $is_check['id'];
+              $_SESSION['user_avatar'] = $is_check['avatar'];
+              echo'<script>';
+              echo "alert('Đăng nhập thành công'); location.href='Home.php' ";
+              echo'</script>';
+            }
+            else
+            {
+              echo'<script>';
+              echo "alert('Đăng nhập Thất Bại')";
+              echo'</script>';
+            }
+        }
+    }
 ?>
 <head>    
     <link href="<?php echo public_frontend() ?>css/Login.css" rel="stylesheet" />
     <link href="<?php echo public_frontend() ?>css/mmenu.css" rel="stylesheet" />    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0"></script>
-    <div id="fb-root"></div>
     <title>Đăng nhập</title>
 </head>
 <body>
-  <div class="bg_login">
     <div class="login-box">
-        <div class="lb-header">
-          <a href="#" class="active" id="login-box-link">Đăng nhập</a>
-          <a href="#" id="signup-box-link">Đăng ký</a>
-        </div>
-        <div class="social-login">
-          <a href="#">
-            <i class="fa fa-facebook fa-lg"></i>
-            Đăng nhập bằng Facebook
-          </a>
-          <a href="#">
-            <i class="fa fa-google-plus fa-lg"></i>
-            Đăng nhập bằng Google
-          </a>
-        </div>
-        <form method="POST" class="email-login" enctype="multipart/form-data">
-          <div class="u-form-group"> 
-            <input type="email" placeholder="Email"/>
-          </div>
-          <div class="u-form-group">
-            <input type="password" placeholder="Mật khẩu"/>
-          </div>
-          <div class="u-form-group">
-            <input type="submit" class="btn btn-primary" value="Đăng nhập"></input>
-          </div>
-          <div class="u-form-group">
-            <a href="#" class="forgot-password">Quên mật khẩu</a>
-          </div>
-        </form>
-        <!--Form dang ky-->
-        <form method="POST" class="email-signup" enctype="multipart/form-data">
-          <div class="u-form-group">
-            <input type="email" placeholder="Email"/>
-          </div>
-          <div class="u-form-group">
-            <input type="password" placeholder="Mật khẩu"/>
-          </div>
-          <div class="u-form-group">
-            <input type="password" placeholder="Nhập lại mật khẩu"/>
-          </div>
-          <div class="u-form-group">
-            <input type="submit" class="btn btn-primary" value="Đăng ký"></input>
-          </div>
-        </form>
-    </div>
-  </div>
+      <img src="<?php echo public_frontend() ?>img/usericon.png" class="avatar">
+      <h1>Đăng Nhập</h1>
+      <form action="" method="POST" enctype="multipart/form-data">
+        <p class="Pnormal">Email</p>
+        <input type="email" name="email" placeholder="Email">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>   
-        <script>
-        $(".email-signup").hide(); // ẩn sign up đi
-        $("#signup-box-link").click(function(){  
-        $(".email-login").fadeOut(100);         //hiện ra speed 100
-        $(".email-signup").delay(100).fadeIn(100);
-        $("#login-box-link").removeClass("active");  
-        $("#signup-box-link").addClass("active");
-        });
-        $("#login-box-link").click(function(){  
-        $(".email-login").delay(100).fadeIn(100);;
-        $(".email-signup").fadeOut(100);
-        $("#login-box-link").addClass("active");
-        $("#signup-box-link").removeClass("active");
-        });
-    </script>
+        <?php if(isset($error['email'])): ?>
+          <p class="text_danger"><?php echo $error['email']; ?></p>
+        <?php endif; ?>
+
+        <p class="Pnormal">Mật Khẩu</p>
+        <input type="password" name="password" placeholder="Password">
+        <?php if(isset($error['password'])): ?>
+          <p class="text_danger"><?php echo $error['password']; ?></p>
+        <?php endif; ?>
+
+        <input type="submit" name="Submit" value="Đăng Nhập">
+        <a href="Forgot.php">Quên Mật Khẩu</a>
+        <a id="register" href="Register.php" >Đăng Ký</a>
+      </form>
+    </div>
 </body>

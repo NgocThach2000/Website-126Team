@@ -10,7 +10,7 @@
         "name" 	=> postInput('name'),
         "email"	=> postInput('email'),
         "phone" => postInput('phone'),
-    	"password" => MD5(postInput('password')),
+    	"password" => postInput('password'),
         "address" => postInput('address'),
         "avatar" => postInput('avatar')
   
@@ -46,8 +46,8 @@
         if(postInput('address') == ''){
         	$error['address'] = "Mời bạn nhập địa chỉ";
         }
-        if($data['password'] != MD5(postInput("re_password"))){
-        	$error['password'] = "Mật khẩu không khớp ";
+        if($data['password'] != postInput("re_password")){
+        	$error['password'] = "Mật khẩu không khớp";
         }
         if(!isset($_FILES['avatar'])){
         	$error['avatar'] = "Mời bạn chọn hình ảnh";
@@ -63,7 +63,7 @@
            	$file_error = $_FILES['avatar']['error'];
 	           	if($file_error == 0)
 	           	{
-	           		$part = ROOT ."users";
+	           		$part = ROOT ."users/";
 	           		$data['avatar'] = $file_name;
 	           	}
            	}
@@ -91,7 +91,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li class="active"> <i class="fa fa-dashboard"> </i>
-                    <a href="index.php">Dashboard</a>
+                    <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
                     <a href="">User</a>
@@ -131,7 +131,7 @@
 
             <div class="form-group">
                 <label for="iuser"> Số điện thoại </label>
-                <input type="number" class="form-control col-sm-2 control-label" placeholder="090955533" id="iuser" name="phone" value="<?php echo $data['phone'] ?>" >
+                <input type="text" class="form-control col-sm-2 control-label" placeholder="090955533" id="iuser" name="phone" value="<?php echo $data['phone'] ?>" >
                 
                 <?php if(isset($error['phone'])): ?>
                     <p class="text-danger"> <?php echo $error['phone']; ?> </p>

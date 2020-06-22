@@ -67,7 +67,7 @@
         		$error['password'] = " Mật khẩu thay đổi không khớp ";
         	}
             else{
-                $data['password'] = MD5(postInput("password"));
+                $data['password'] = postInput("password");
             }
         }
         //error empty is mean not error
@@ -81,7 +81,7 @@
            	$file_error = $_FILES['avatar']['error'];
 	           	if($file_error == 0)
 	           	{
-	           		$part = ROOT ."users";
+	           		$part = ROOT ."users/";
 	           		$data['avatar'] = $file_name;
 	           	}
            	}

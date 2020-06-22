@@ -55,7 +55,7 @@
            	$file_error = $_FILES['thunbar1']['error'];
 	           	if($file_error == 0)
 	           	{
-	           		$part = ROOT ."product";
+	           		$part = ROOT ."product/";
 	           		$data['thunbar1'] = $file_name;
 	           	}
             }
@@ -68,7 +68,7 @@
             $file_error2 = $_FILES['thunbar2']['error'];
                 if($file2_error == 0)
                 {
-                    $part2 = ROOT ."product";
+                    $part2 = ROOT ."product/";
                     $data['thunbar2'] = $file_name2;
                 }
             }

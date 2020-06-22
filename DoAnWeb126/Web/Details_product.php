@@ -46,8 +46,6 @@
                                 </li>
                                 <?php endforeach ?>
                             </ul>
-                            
-                          
                         </div>
 
                         <div class="Item_different"><b>SẢN PHẨM KHÁC</b>

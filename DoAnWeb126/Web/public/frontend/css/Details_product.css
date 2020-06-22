@@ -184,7 +184,7 @@ a{text-decoration: none;}
 } 
 /*menu header*/
 
-.menu_sidebar{}
+
 .menu_sidebar >li > a{color:#ebebeb;font-size:15px;font-weight:bold;display:block;cursor: pointer;}
 .menu_sidebar >li{padding: 10px 0;border-bottom:1px solid #ebebeb;position: relative;}
 .menu_sidebar >li:after{content: ''; position: absolute; background: url(img/arrow.png) no-repeat top center; background-size: 100%; 

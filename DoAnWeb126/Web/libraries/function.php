@@ -132,7 +132,10 @@ function uploads_product()
 {
     return base_url() . "public/uploads/product/";
 }
-
+function uploads_users()
+{
+    return base_url() . "public/uploads/users/";
+}
  if ( ! function_exists('redirectStyle'))
 {
     function redirectStyle($url = "")
@@ -140,7 +143,9 @@ function uploads_product()
         header("location: ".base_url()."{$url}");exit();
     }
 }
-
+function getLastName($name) {
+    return array_slice(explode(' ', $name), -1)[0];
+}
 
 
 /**

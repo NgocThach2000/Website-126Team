@@ -70,7 +70,7 @@
         		$error['password'] = " Mật khẩu thay đổi không khớp ";
         	}
             else{
-                $data['password'] = MD5(postInput("password"));
+                $data['password'] = postInput("password");
             }
         }
         //error empty is mean not error

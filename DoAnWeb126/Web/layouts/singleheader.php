@@ -13,13 +13,33 @@
                 </ul>
                 <ul class="menu_hmain menuheader_right clearfix">
                     
-                    <li class="li_co_cap"><a href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-50.png" alt="icon" width="22"/></a>
+                    <?php if(isset($_SESSION['user_id'])): ?> 
+                        <li class="li_co_cap dropdown">
+                            <?php if($_SESSION['user_avatar'] != "") : ?>
+                                <a href="#"><img src="<?php echo uploads_users() ?><?php echo $_SESSION['user_avatar'] ?>" alt="icon" width="22" height="22"/> <?php echo getLastName($_SESSION['user_name']); ?></a>
+                            <?php else: ?>
+                                <a href="#"><img src="<?php echo public_frontend() ?>img/iconuser.png" alt="icon" width="22" height="22"/> <?php echo getLastName($_SESSION['user_name']); ?></a>
+                            <?php endif; ?>
+                            <ul class="dropdown-content">
+                                <li><a href="UserAccount.php?id=<?php echo $_SESSION['user_id'] ?>">Tài khoản của tôi</a></li>
+                                <li><a href="">Đơn hàng của tôi</a></li>
+                                <li><a href="Logout.php">Đăng Xuất</a></li>
+                            </ul>
+                        </li>
+                    
+                    <?php else: ?>
+                    <li class="li_co_cap"><a class="login" href="Login.php">
+                        <img src="<?php echo public_frontend() ?>img/iconuser.png" alt="icon" width="22" height="22"/> Đăng nhập</a>
+                    </li>
+                    <li class="li_co_cap"><a class="login" href="Register.php">
+                        <img src="<?php echo public_frontend() ?>img/sigup.png" alt="icon" width="30" height="25"/> Đăng ký</a>
+                    </li>
+                    <?php endif; ?>
+                    <li class="li_co_cap"><a href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-50.png" alt="icon" width="22" height="22"/></a>
                         <ul class="menu_con">
                             <li><a href="Shoping_cart.php">Số lượng:0</a></li>                            
                         </ul>
-                    </li>    
-                    <li class="li_co_cap"><a class="login"  href="Login.php">Đăng nhập / Đăng ký</a>
-                    </li>                
+                    </li>
                 </ul>
             </div>
             <div class="menu_header2 clearfix"> <!-- div con dùng float thì thêm class clearfix ở div cha -->            

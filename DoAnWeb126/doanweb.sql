@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 22, 2020 lúc 01:16 PM
+-- Thời gian đã tạo: Th6 22, 2020 lúc 10:08 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.5
 
@@ -150,15 +150,16 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `slug`, `price`, `sale`, `thunbar1`, `thunbar2`, `size`, `category_id`, `content`, `number`, `created_at`, `updated_at`) VALUES
-(9, 'Nike Sportswear ', 'nike-sportswear', 963000, '0', 'Ao1.jpg', 'Ao2.jpg', 'L', 17, 'Nike T-shirts with full-color tie prints and pixel graphics printed on soft cotton for unfocused look with a soft feel. ', 10, '2020-06-13 03:41:47', '2020-06-13 09:29:33'),
-(10, 'Nike Sportswear Swoosh', 'nike-sportswear-swoosh', 819000, '0', 'sportswear-swoosh-1.jpg', 'sportswear-swoosh-t-shir2.jpg', 'S', 17, 'Áo thun Nike Sportswear Swoosh giúp bạn nổi bật với chất liệu cotton mềm mại và logo cổ điển trên ngực áo.', 10, '2020-06-13 05:16:17', '2020-06-13 05:16:17'),
-(12, 'Nike Sportswear Black1', 'nike-sportswear-black1', 819000, '0', 'sportswear-t-shirt-01.jpg', 'sportswear-t-shirt-nt02.jpg', 'XXL', 17, 'kết hợp độc đáo với logo cổ điển trên áo phông thể thao Nike. Chất liệu cotton mềm mại tạo cảm giác mịn màng như bầu trời.', 5, '2020-06-13 05:23:27', '2020-06-13 05:23:27'),
-(13, 'Nike Sportswear', 'nike-sportswear', 819000, '0', 'sportswear-t-shirt-s1.jpg', 'sportswear-t-shirt-zmMkxS2.jpg', 'XXL', 17, 'Áo thun thể thao Nike tạo cho bạn một chiếc áo cotton mềm mại và logo cổ điển trên ngực áo.', 5, '2020-06-13 05:29:36', '2020-06-13 05:29:36'),
-(14, 'NikeCourt Dri-FIT', 'nikecourt-dri-fit', 1199000, '0', 'nikecourt-dri-fit-tennis-polo-6jCqZv1.jpg', 'nikecourt-dri-fit-tennis-polo-6jCqZv2.jpg', 'XL', 17, 'With sweat-wicking, 100% recycled fabric and a design that\'s made for movement, the NikeCourt Dri-FIT Polo is your first choice for the court. This product is made from at least 75% recycled polyester.', 20, '2020-06-13 05:32:17', '2020-06-13 05:32:17'),
-(15, 'Nike Dri-FIT', 'nike-dri-fit', 659000, '0', 'dri-fit-training-tank-brmLc1.jpg', 'dri-fit-training-tank-brmLc2.jpg', 'XXL', 17, 'Nike Dri-FIT Tank được làm từ vải mềm, thấm mồ hôi trong một cấu hình không tay để giúp bạn thoải mái và di chuyển tự do trong suốt quá trình tập luyện.', 5, '2020-06-13 05:34:31', '2020-06-13 05:34:31'),
+(9, 'Nike Sportswear ', 'nike-sportswear', 963200, '0', 'dri-fit-academy-football-short-sleeve-top-01.jpg', 'dri-fit-academy-football-short-sleeve-top-02.jpg', 'L', 17, 'Nike T-shirts with full-color tie prints and pixel graphics printed on soft cotton for unfocused look with a soft feel. ', 10, '2020-06-13 03:41:47', '2020-06-22 15:29:15'),
+(10, 'Nike Sportswear Swooshh', 'nike-sportswear-swooshh', 819000, '0', 'nikecourt-dri-fit-tennis-polo-6jCqZv1.jpg', 'nikecourt-dri-fit-tennis-polo-6jCqZv2.jpg', 'S', 17, 'Áo thun Nike Sportswear Swoosh giúp bạn nổi bật với chất liệu cotton mềm mại và logo cổ điển trên ngực áo.', 10, '2020-06-13 05:16:17', '2020-06-22 15:31:42'),
+(12, 'Nike Sportswear Black1', 'nike-sportswear-black1', 819000, '0', 'exploration-series-basketball-t-shirt-Ttjgk1.jpg', 'exploration-series-basketball-t-shirt-Ttjgk2.jpg', 'XXL', 17, 'kết hợp độc đáo với logo cổ điển trên áo phông thể thao Nike. Chất liệu cotton mềm mại tạo cảm giác mịn màng như bầu trời.', 5, '2020-06-13 05:23:27', '2020-06-22 15:32:00'),
+(13, 'Nike Sportswear', 'nike-sportswear', 819000, '0', 'sportswear-t-shirt-01.jpg', 'sportswear-t-shirt-nt02.jpg', 'XXL', 17, 'Áo thun thể thao Nike tạo cho bạn một chiếc áo cotton mềm mại và logo cổ điển trên ngực áo.', 5, '2020-06-13 05:29:36', '2020-06-22 15:32:13'),
+(14, 'NikeCourt Dri-FIT', 'nikecourt-dri-fit', 1199000, '0', 'Ao1.jpg', 'Ao2.jpg', 'XL', 17, 'With sweat-wicking, 100% recycled fabric and a design that\'s made for movement, the NikeCourt Dri-FIT Polo is your first choice for the court. This product is made from at least 75% recycled polyester.', 20, '2020-06-13 05:32:17', '2020-06-22 15:37:32'),
+(15, 'Nike Dri-FIT', 'nike-dri-fit', 659000, '0', 'dri-fit-classic-basketball-jersey-gZ1Bk1.jpg', 'dri-fit-classic-basketball-jersey-gZ1Bk2.jpg', 'XXL', 17, 'Nike Dri-FIT Tank được làm từ vải mềm, thấm mồ hôi trong một cấu hình không tay để giúp bạn thoải mái và di chuyển tự do trong suốt quá trình tập luyện.', 5, '2020-06-13 05:34:31', '2020-06-22 15:37:44'),
 (16, 'Men\'s Short-Sleeve', 'mens-short-sleeve', 659000, '0', 'pro-short-sleeve-top-NQKZts1.jpg', 'dri-fit-training-tank-brmLc2.jpg', 'XL', 17, 'Nike Pro Top có Công nghệ Dri-FIT giúp bạn khô ráo và thoải mái.', 5, '2020-06-13 05:35:54', '2020-06-13 05:35:54'),
-(17, 'Nike Dri-FIT Classic', 'nike-dri-fit-classic', 819000, '0', 'dri-fit-classic-basketball-jersey-gZ1Bk1.jpg', 'dri-fit-classic-basketball-jersey-gZ1Bk2.jpg', 'XXL', 17, 'Nike Dri-FIT Classic kết hợp thiết kế hiệu suất với phong cách bóng rổ theo phong cách sống. Nó được làm từ vải lưới thấm mồ hôi tạo cảm giác mềm mại và nhẹ.', 5, '2020-06-13 05:37:28', '2020-06-13 05:37:28'),
-(18, 'Nike Exploration Series', 'nike-exploration-series', 819000, '0', 'exploration-series-basketball-t-shirt-Ttjgk1.jpg', 'exploration-series-basketball-t-shirt-Ttjgk2.jpg', 'L', 17, 'áo phông Nike Explective Series. Được làm từ bông nhẹ, đan nhẹ, nó có đồ họa lấy cảm hứng từ màu sắc và cảnh quan xung quanh Phoenix, Arizona, Hoa Kỳ.', 20, '2020-06-13 05:39:24', '2020-06-13 05:39:24');
+(17, 'Nike Dri-FIT Classic', 'nike-dri-fit-classic', 819000, '0', 'dri-fit-training-tank-brmLc1.jpg', 'dri-fit-training-tank-brmLc2.jpg', 'XXL', 17, 'Nike Dri-FIT Classic kết hợp thiết kế hiệu suất với phong cách bóng rổ theo phong cách sống. Nó được làm từ vải lưới thấm mồ hôi tạo cảm giác mềm mại và nhẹ.', 5, '2020-06-13 05:37:28', '2020-06-22 15:39:03'),
+(18, 'Nike Exploration Series', 'nike-exploration-series', 819000, '0', 'sportswear-t-shirt-s1.jpg', 'sportswear-t-shirt-zmMkxS2.jpg', 'L', 17, 'áo phông Nike Explective Series. Được làm từ bông nhẹ, đan nhẹ, nó có đồ họa lấy cảm hứng từ màu sắc và cảnh quan xung quanh Phoenix, Arizona, Hoa Kỳ.', 20, '2020-06-13 05:39:24', '2020-06-22 15:39:17'),
+(20, 'Áo Thái', 'ao-thai', 2000000, '0', 'sportswear-swoosh-1.jpg', 'sportswear-swoosh-t-shir2.jpg', 'XL', 19, 'Oke', 20, '2020-06-22 15:07:55', '2020-06-22 15:07:55');
 
 -- --------------------------------------------------------
 
@@ -187,11 +188,20 @@ CREATE TABLE `user` (
   `email` varchar(100) DEFAULT NULL,
   `phone` char(15) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
+  `avatar` varchar(100) DEFAULT NULL,
   `status` tinyint(4) DEFAULT 1,
   `password` varchar(50) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `phone`, `address`, `avatar`, `status`, `password`, `created_at`, `updated_at`) VALUES
+(4, 'Hồ Phạm Ngọc Thạch', 'ngocthach26112000@gmail.com', '0778889076', 'Tây Ninh', 'anh-dai-dien-cutejpg.jpg', 1, '123', '2020-06-22 15:21:57', '2020-06-22 15:21:57'),
+(7, 'Van Thang', 'VanThang@gmail.com', '123456', 'Bình Định', '', 1, '123', '2020-06-22 18:48:58', '2020-06-22 18:48:58');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -271,7 +281,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `transaction`
@@ -283,7 +293,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

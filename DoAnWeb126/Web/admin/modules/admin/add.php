@@ -10,7 +10,7 @@
         "name" 	=> postInput('name'),
         "email"	=> postInput('email'),
         "phone" => postInput('phone'),
-    	"password" => MD5(postInput('password')),
+    	"password" => postInput('password'),
         "address" => postInput('address'),
         "level" => postInput('level')
     ];
@@ -48,7 +48,7 @@
         if(postInput('level') == ''){
         	$error['level'] = "Mời bạn chọn chức vụ";
         }
-        if($data['password'] != MD5(postInput("re_password"))){
+        if($data['password'] != postInput("re_password")){
         	$error['password'] = "Mật khẩu không khớp ";
         }
         //error empty is error
