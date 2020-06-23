@@ -25,12 +25,16 @@
                     <div class="main_containt_right " >
                         <div class="content_detail"><b><?php echo $product['content'] ?></b></div>
                         <div class="content_detail_two"> <?php echo $product['name'] ?> Size Từ S, M, L, XL</div>
-                        <div class="price"><?php echo formatPrice($product['price']) ?> đ</div>
-                            <div class="size">
-                            <label  for="sizeT">SIZE: </label>
-                            <select id="sizeT">
-                            <option> <?php echo $product['size'] ?> </option>
-                            </select>
+                        <?php if($product['sale'] == 0): ?>
+                        <div class="price"><h4><?php echo formatPrice($product['price']) ?> đ</h4>/div>
+                        <?php else: ?>
+                        <div class="price"><h4><strike><?php echo formatPrice($product['price']) ?> đ</strike> </h4> <h4><?php echo formatPriceSale($product['price'], $product['sale'])?> đ</h4></div>   
+                        <?php endif ?>
+                        <div class="size">
+                        <label  for="sizeT">SIZE: </label>
+                        <select id="sizeT">
+                        <option> <?php echo $product['size'] ?> </option>
+                        </select>
                         </div>
                         <div class=cart_call>
                             <div class="cart1" ><a style="text-decoration: none;" href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-50.png" width="30"></img></a></div>
@@ -38,14 +42,9 @@
                         </div>
                         <b class="Danhmuc" >DANH MỤC SẢN PHẨM</b>
                         <div class="div_menu_sidebar">
-                            <ul class="menu_sidebar">
-                                <!--Sổ danh mục-->
-                                <?php foreach($category_ao as $item): ?>
-                                <li>
-                                    <a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?> <i class="fas fa-sort-down"></i></a>
-                                </li>
-                                <?php endforeach ?>
-                            </ul>
+                            <!-- <ul class="menu_sidebar">
+                                
+                            </ul> -->
                         </div>
 
                         <div class="Item_different"><b>SẢN PHẨM KHÁC</b>

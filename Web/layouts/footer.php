@@ -68,19 +68,31 @@
     
     <div class="loadmenu">
         <nav id="my-menu">
-            <ul id="">
+            <ul>
                 <!--Sổ danh mục cha-->
-                <?php foreach($data as $key => $value): ?>
-                <li><a href="#" id="<?php echo $key ?>"><?php echo $key ?></a>
-                    <ul>
+                <?php $stt = 0; foreach($data as $key => $value): ?>
+                <li><a href="#load<?php echo $stt ?>" id="<?php echo $key ?>"><?php echo $key ?></a>
+                    <ul id="load<?php echo $stt ?>">
                         <!--sổ danh mục con-->
                         <?php foreach($value as $item): ?>
                         <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
                         <?php endforeach ?>
                     </ul>
                 </li>
-                <?php endforeach ?>
-                <li ><a href="Login.php">Đăng nhập</a></li> 
+                <?php $stt++; endforeach ?>
+                <?php if(isset($_SESSION['user_id'])): ?>
+                    <li><a href="#load02"><?php echo getLastName($_SESSION["user_name"]) ?> </a>
+                        <ul id="load02">
+                            <li><a href="UserAccount.php?id=<?php echo $_SESSION['user_id'] ?>">Tài khoản của tôi</a></li>
+                            <li><a href="">Đơn hàng của tôi</a></li>
+                            <li><a href="Logout.php">Đăng Xuất</a></li>
+                        </ul>
+                    </li>
+                <?php else: ?>
+                    <li><a href="Login.php">Đăng nhập</a></li> 
+                    <li><a href="Register.php">Đăng ký</a></li> 
+                <?php endif ?>
+                
             </ul>
         </nav>
     </div>

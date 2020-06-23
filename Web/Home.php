@@ -21,7 +21,6 @@
                 </h1>
                 <div id="cf">
                     <a href="#"> <img class="img_con" src="<?php echo public_frontend() ?>images/32x32/ecopetit.cat-ronaldo-4k-wallpaper-2314365.png" alt="main"></a> 
-                    
                 </div>
                 <button class="button">Shop</button>  
             </div>

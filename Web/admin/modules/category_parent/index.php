@@ -1,36 +1,35 @@
 <?php
-    $open = "product";
+    $open = "category_parent";
     include_once __DIR__."/../../autoload/autoload.php";
-    $product = $db->fetchAll("product");
+    
+    $category_parent = $db->fetchAll("category_parent");
 
     if(isset($_GET['page']))
     {
-    	$pag = $_GET['page'];
+        $pag = $_GET['page'];
     }
     else
     {
-    	$pag = 1;
+        $pag = 1;
     }
 
-    $sql = "SELECT product.*, category.name as namecate FROM product LEFT JOIN category on category.id = product.category_id";
+    $sql = "SELECT category_parent.* FROM category_parent ORDER BY ID DESC";
 
-    $product = $db->fetchJone('product', $sql, $pag, 10, true);
+    $category_parent = $db->fetchJone('category_parent', $sql, $pag, 10, true);
 
-    if(isset($product['page']))
+    if(isset($category_parent['page']))
     {
-    	$sotrang = $product['page'];
-    	unset($product['page']);
+        $sotrang = $category_parent['page'];
+        unset($category_parent['page']);
     }
-
 ?>
 <?php include_once __DIR__."/../../layouts/header.php"; ?>
     <!-- Page Heading -->
-    
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Danh Sách Sản Phẩm
-                <a href="add.php" class="btn btn-success">Thêm mới</a>
+                Danh Sách Danh Mục Cha
+                <a href="add.php" class="btn btn-success">Thêm Mới</a>
             </h1>
             <ol class="breadcrumb">
                 <li class="active">
@@ -38,14 +37,14 @@
                     <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">Sản phẩm</a>
+                    <a href="">Danh Mục</a>
                 </li>
             </ol >
             <div class="clearfix"></div>
             <!--Thông báo lỗi-->
             <?php include_once __DIR__."/../../../partials/notification.php"; ?>
         </div>
-        <?php //var_dump($product); ?>
+        <?php //var_dump($category); ?>
     </div>
     <div class="row">
         <div class="col md 12">
@@ -53,36 +52,16 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên</th>
-                        <th>Danh mục</th>
-                        <th>Slug</th>
-                        <th>Hình ảnh 1</th>
-                        <th>Hình ảnh 2</th>
-                        <th>Thông tin</th>                       
+                        <th>Tên danh mục</th>
                         <th>Thời gian khởi tạo</th>
-                        <th>Hành động</th>
+                        <th>Hoạt động</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $stt = 1; foreach($product as $item): ?>
+                    <?php $stt = 1; foreach($category_parent as $item): ?>
                     <tr>
                         <td><?php echo $stt ?></td>
                         <td><?php echo $item['name'] ?></td>
-                        <td><?php echo $item['namecate'] ?></td>
-                        <td><?php echo $item['slug'] ?></td>
-                        <td>
-                        	<img src="<?php echo uploads()?>product/<?php echo $item['thunbar1'] ?>" width="80px" height="80px"/>
-                        </td>
-                        <td>
-                        	<img src="<?php echo uploads()?>product/<?php echo $item['thunbar2'] ?>" width="80px" height="80px"/>
-                        </td>
-                        <td>
-                        	<ul>
-                        		<li>Giá: <?php echo $item['price'] ?></li>
-                                <li>Số lượng <?php echo $item['number']; ?></li>
-                                <li>Size: <?php echo $item['size'] ?></li>
-                        	</ul>
-                        </td>
                         <td><?php echo $item['created_at'] ?></td>
                         <td>
                             <a class="btn btn-xs btn-info" href="edit.php?id=<?php echo $item['id']?>"> <i class="fa fa-edit"></i> Sửa</a>
@@ -118,10 +97,11 @@
                             </li>
                             <?php endfor; ?>
                             <li>
-	                            <a href="?page=<?php if($pag <= $sotrang-1){ echo ($pag+1); } else{ echo $pag;} ?>" aria-label="Next">
-	                                <span aria-hidden="true">&raquo;</span>
-	                            </a>
+                                <a href="?page=<?php if($pag <= $sotrang-1){ echo ($pag+1); } else{ echo $pag;} ?>" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
                             </li>
+                            
                         </ul>
                     </nav>
                 </div>

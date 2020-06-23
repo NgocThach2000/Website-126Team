@@ -44,7 +44,11 @@
                             <a><img src="<?php echo uploads() ?>product/<?php echo $item['thunbar1'] ?>"/></a>
                             <div class="clothes_all">
                             <p class="clothes_name"><?php echo $item['name'] ?></p>
+                            <?php if($item['sale'] == 0) : ?>
                             <p class="clothes_price"><?php echo formatPrice($item['price']) ?> VNĐ</p>
+                            <?php else: ?>
+                            <p class="clothes_price"><strike><?php echo formatPrice($item['price']) ?> VNĐ</strike></p>
+                            <?php endif?>
                             <a class="clothes_info" href="Details_product.php?id=<?php echo $item['id'] ?>" >Chi tiết</a>
                             </div>
                         </div>    
@@ -75,31 +79,28 @@
             </div>  
             <div class="main_containt_right"> 
                 <div class="Danhmuc"><b>DANH MỤC SẢN PHẨM</b></div>
-                <div>
+                <!-- <div>
                     <ul class="menu_sidebar">
-                        <?php foreach($data as $key => $value): ?> 
-                        <li><a href=""><?php echo $key ?><i class="fas fa-sort-down"></i></a></li>
-                        <?php endforeach ?>
                     </ul>      
-                </div>
+                </div> -->
                 
                 <div class="Item_different"><b>SẢN PHẨM KHÁC</b>
                     <div class="Item_trousers clearfix">
-                        <a class="icon" href="#"><img src="<?php echo public_frontend() ?>img/bannerAo.jpg" alt="icon" width="70"/>
+                        <a class="icon" href="List_category.php?id=17"><img src="<?php echo public_frontend() ?>img/bannerAo.jpg" alt="icon" width="70"/>
                             <div class="Item_content"><a href="List_category.php?id=17">ÁO </a></div>
                     </div>
                     <div class="Item_trousers clearfix">
-                        <a class="icon" href="#"><img src="<?php echo public_frontend() ?>img/1095278_L.jpg" alt="icon" width="70"/>
+                        <a class="icon" href="List_category.php?id=21"><img src="<?php echo public_frontend() ?>img/1095278_L.jpg" alt="icon" width="70"/>
                             <div class="Item_content"><a href="List_category.php?id=21">QUẦN </a></div>
                     </div>
 
                     <div class="Item_trousers clearfix">
-                        <a class="icon" href="#"><img src="<?php echo public_frontend() ?>img/1978458_L.jpg" alt="icon" width="70"/>
+                        <a class="icon" href="List_category.php?id=25"><img src="<?php echo public_frontend() ?>img/1978458_L.jpg" alt="icon" width="70"/>
                             <div class="Item_content"><a href="List_category.php?id=25">GIÀY </a></div>
                     </div>
 
                     <div class="Item_trousers clearfix">
-                        <a class="icon" href="#"><img src="<?php echo public_frontend() ?>img/885885_L.jpg" alt="icon" width="70"/>
+                        <a class="icon" href="List_category.php?id=28"><img src="<?php echo public_frontend() ?>img/885885_L.jpg" alt="icon" width="70"/>
                             <div class="Item_content"><a href="List_category.php?id=28">DỤNG CỤ </a></div>
                     </div>
                 </div>

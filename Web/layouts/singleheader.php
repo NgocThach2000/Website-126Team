@@ -11,8 +11,8 @@
                     <li class="homeres"><a class="Trangchu" href="Home.php">Trang chủ</a></li>
                     <li><a class="iconTrangchu" href="Home.php"><img src="<?php echo public_frontend() ?>img/iconfinder_nike_27575.png"alt="icon" width="22"/></a> </li>
                 </ul>
+                <!--Sổ mục tài khoản, giỏ hàng-->
                 <ul class="menu_hmain menuheader_right clearfix">
-                    
                     <?php if(isset($_SESSION['user_id'])): ?> 
                         <li class="li_co_cap dropdown">
                             <?php if($_SESSION['user_avatar'] != "") : ?>
@@ -26,7 +26,6 @@
                                 <li><a href="Logout.php">Đăng Xuất</a></li>
                             </ul>
                         </li>
-                    
                     <?php else: ?>
                     <li class="li_co_cap"><a class="login" href="Login.php">
                         <img src="<?php echo public_frontend() ?>img/iconuser.png" alt="icon" width="22" height="22"/> Đăng nhập</a>
@@ -35,20 +34,21 @@
                         <img src="<?php echo public_frontend() ?>img/sigup.png" alt="icon" width="30" height="25"/> Đăng ký</a>
                     </li>
                     <?php endif; ?>
-                    <li class="li_co_cap"><a href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-50.png" alt="icon" width="22" height="22"/></a>
+                    <li class="li_co_cap"><a href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart.png" alt="icon" width="22" height="22"/></a>
                         <ul class="menu_con">
                             <li><a href="Shoping_cart.php">Số lượng:0</a></li>                            
                         </ul>
                     </li>
                 </ul>
+                <!--end sổ mục-->
             </div>
             <div class="menu_header2 clearfix"> <!-- div con dùng float thì thêm class clearfix ở div cha -->            
                 <a href="Home.php" id="logo"><img src="<?php echo public_frontend() ?>img/iconfinder_nike_27575.png" alt="icon" width="50"></a>
                 <div id="menu_contain">
                     <ul class="menu_hmain menuheader_mid clearfix">
                         <!--Sổ danh mục sản phẩm-->
-                        <?php foreach($data as $key => $value): ?>
-                        <li class="li_co_cap"><a href="#" id="<?php echo $key ?>"><?php echo $key ?></a>
+                        <?php $stt = 0; foreach($data as $key => $value): ?>
+                        <li class="li_co_cap"><a href="#"><?php echo $key ?></a>
                             <ul class="menu_con">
                                 <?php foreach($value as $item): ?>
                                 <li><a href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
@@ -56,6 +56,7 @@
                             </ul>
                         </li>
                         <?php endforeach ?>
+                         <!--end Sổ danh mục sản phẩm-->
                     </ul>
                 </div>
                 <form method="" action="" class="form_search">                

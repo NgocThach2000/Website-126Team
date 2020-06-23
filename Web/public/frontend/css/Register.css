@@ -3,8 +3,8 @@ body{
   margin: 0;
   padding: 0;
   background: url(../img/register00.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: fixed;
+  
   background-position: center;
   font-family: Roboto, Helvetica, Arial, sans-serif;;
  } 
