@@ -46,6 +46,8 @@
         </div>   <!-- -->
     </div>    
 
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="<?php echo public_frontend() ?>img/icons8-up-26.png"  width="40"></button>
+
     <div class="hotline-phone-ring-wrap">
         <div class="hotline-phone-ring">
             <div class="hotline-phone-ring-circle"></div>
@@ -96,3 +98,24 @@
             </ul>
         </nav>
     </div>
+
+    <script>
+        //Scroll 
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+                $('#myBtn').fadeIn();
+            } else {
+                $('#myBtn').fadeOut();
+            }
+    });
+
+    $('#myBtn').click(function(){
+         $('html, body').animate({scrollTop : 0},500);
+            return false;
+        });
+
+    });
+
+
+ </script>

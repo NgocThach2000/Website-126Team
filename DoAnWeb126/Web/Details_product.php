@@ -40,16 +40,41 @@
                             <div class="cart1" ><a style="text-decoration: none;" href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" width="30"></img></a></div>
                             <div class="call1" ><a style="text-decoration: none; color: black;" href="#"><img src="<?php echo public_frontend() ?>img/icon-call-nh.png" width="24">1900 1000</img></a></div>
                         </div>
-                        <b class="Danhmuc" >DANH MỤC SẢN PHẨM</b>
-                        <div class="div_menu_sidebar">
-                            <!-- <ul class="menu_sidebar">
-                                
-                            </ul> -->
+                        <!--Đỗ sản phẩm-->
+                            <b class="Danhmuc" >DANH MỤC SẢN PHẨM</b>
+                                <div class="div_menu_sidebar">
+                                    <?php foreach($data as $key => $value): ?>
+                                    <ul class="menu_sidebar">
+                                        <li><a><?php echo $key ?> </a>
+                                            <?php foreach($value as $item): ?>
+                                            <ul>
+                                                <div >
+                                                    <li><a class="sidebar_option" href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
+                                                </div>
+                                            </ul>
+                                            <?php endforeach ?>
+                                        </li>
+                                    </ul>
+                                    <?php endforeach ?>
+                                </div>
+                            <!--End-->
                         </div>
-
-                        <div class="Item_different"><b>SẢN PHẨM KHÁC</b>
-                        
-                        </div>
-                    </div>
+                    <!--Sản phẩm-->
+                    
                 </div>
+            </div>
+        <script>
+            $(document).ready(function() {
+            $("#my-menu").mmenu();
+            });
+            $('.menu_sidebar >li').click(function(){
+                if(!$(this).hasClass('liactive_side')){
+                    $(this).addClass('liactive_side');
+                }
+                else{
+                    $(this).removeClass('liactive_side');
+                }
+                $(this).find('ul').toggle();
+            });
+        </script>
 <?php include_once __DIR__. "/layouts/footer.php" ?>

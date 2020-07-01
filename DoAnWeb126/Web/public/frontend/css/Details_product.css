@@ -114,7 +114,7 @@ a{text-decoration: none;}
 /*Menu header*/
 .menu_sidebar >li > a{color:#ebebeb;font-size:15px;font-weight:bold;display:block;cursor: pointer;}
 .menu_sidebar >li{padding: 10px 0;border-bottom:1px solid #ebebeb;position: relative;}
-.menu_sidebar >li:after{content: ''; position: absolute; background: url(img/arrow.png) no-repeat top center; background-size: 100%; 
+.menu_sidebar >li:after{content: ''; position: absolute; background: url(../img/arrow.png) no-repeat top center; background-size: 100%; 
 top: 12px; right: 10px; width: 20px; height: 20px;transition: all ease 0.6s;;}
 .menu_sidebar >li ul{display:none;padding-top: 10px; padding-left: 15px;}
 .menu_sidebar >li ul >li >a{color:#ebebeb;font-size:13px;}
