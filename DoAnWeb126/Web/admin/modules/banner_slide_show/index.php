@@ -1,7 +1,7 @@
 <?php
-    $open = "admin";
+    $open = "banner_slide_show";
     include_once __DIR__."/../../autoload/autoload.php";
-    $admin = $db->fetchAll("admin");
+    $banner_slide_show = $db->fetchAll("banner_slide_show");
 
     if(isset($_GET['page']))
     {
@@ -12,14 +12,14 @@
     	$pag = 1;
     }
 
-    $sql = "SELECT admin.*FROM admin ORDER BY ID DESC";
+    $sql = "SELECT banner_slide_show.*FROM banner_slide_show ORDER BY ID DESC";
 
-    $admin = $db->fetchJone('admin', $sql, $pag, 3, true);
+    $banner_slide_show = $db->fetchJone('banner_slide_show', $sql, $pag, 5, true);
 
-    if(isset($admin['page']))
+    if(isset($banner_slide_show['page']))
     {
-    	$sotrang = $admin['page'];
-    	unset($admin['page']);
+    	$sotrang = $banner_slide_show['page'];
+    	unset($banner_slide_show['page']);
     }
 
 ?>
@@ -30,7 +30,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Danh Sách Admin
+                Danh Sách Ảnh Bìa
                 <a href="add.php" class="btn btn-success">Thêm mới</a>
             </h1>
             <ol class="breadcrumb">
@@ -39,14 +39,13 @@
                     <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">Admin</a>
+                    <a href="">Ảnh bìa</a>
                 </li>
             </ol >
             <div class="clearfix"></div>
             <!--Thông báo lỗi-->
             <?php include_once __DIR__."/../../../partials/notification.php"; ?>
         </div>
-        <?php //var_dump($admin); ?>
     </div>
     <div class="row">
         <div class="col md 12">
@@ -55,20 +54,18 @@
                     <tr>
                         <th>STT</th>
                         <th>Tên</th>
-                        <th>Số điện thoại</th>
-                        <th>Email</th>
-                        <th>Địa chỉ</th>                                              
+                        <th>Ảnh bìa</th>                                             
                         <th>Hoạt động</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $stt = 1; foreach($admin as $item): ?>
+                    <?php $stt = 1; foreach($banner_slide_show as $item): ?>
                     <tr>
                         <td><?php echo $stt ?></td>
                         <td><?php echo $item['name'] ?></td>
-                        <td><?php echo $item['phone'] ?></td>
-                        <td><?php echo $item['email'] ?></td>
-                        <td><?php echo $item['address'] ?></td>
+                        <td>
+                        	<img src="<?php echo uploads()?>banner_slide_shows/<?php echo $item['thunbar'] ?>" width="80px" height="80px"/>
+                        </td>
                         <td>
                             <a class="btn btn-xs btn-info" href="edit.php?id=<?php echo $item['id']?>"> <i class="fa fa-edit"></i> Sửa</a>
                             <a class="btn btn-xs btn-danger" href="delete.php?id=<?php echo $item['id']?>"> <i class="fa fa-times"></i> Xóa</a>

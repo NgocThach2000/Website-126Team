@@ -4,7 +4,7 @@ body{
   padding: 0;
   background: url(../img/register00.jpg);
   background-size: fixed;
-  
+  background-repeat: no-repeat;
   background-position: center;
   font-family: Roboto, Helvetica, Arial, sans-serif;;
  } 
@@ -13,7 +13,8 @@ body{
   height: 700px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-  top: 61%;
+  top: 50%;
+  bottom:50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%,-50%);

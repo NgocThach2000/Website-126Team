@@ -1,5 +1,5 @@
 <?php
-    $open = "admin";
+    $open = "groups";
     
     include_once __DIR__."/../../autoload/autoload.php";
     /**
@@ -8,11 +8,11 @@
      $id = intval(getInput('id'));
     //_debug($id);
 
-    $Editadmin = $db->fetchID("admin", $id);
-    if(empty($Editadmin))
+    $Editgroups = $db->fetchID("groups", $id);
+    if(empty($Editgroups))
     {
         $_SESSION['error'] = "Dữ liệu không tồn tại ";
-        redirectAdmin("admin");
+        redirectAdmin("groups");
     }
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -34,9 +34,9 @@
         	$error['email'] = "Mời bạn nhập email";
         }
         else{
-        	if(postInput("email") != $Editadmin['email'])
+        	if(postInput("email") != $Editgroups['email'])
         	{
-        		$is_check_mail = $db->fetchOne("admin", " email = '" .$data['email']."' ");
+        		$is_check_mail = $db->fetchOne("groups", " email = '" .$data['email']."' ");
 	        	if($is_check_mail != NULL){
 	        		$error['email'] = "Email đã tồn tại";	
 	        	}
@@ -47,9 +47,9 @@
         	$error['phone'] = "Mời bạn nhập số điện thoại";
         }
         else{
-        	if(postInput("phone") != $Editadmin['phone'])
+        	if(postInput("phone") != $Editgroups['phone'])
         	{
-	        	$is_check_phone = $db->fetchOne("admin", " phone = '" .$data['phone']."' ");
+	        	$is_check_phone = $db->fetchOne("groups", " phone = '" .$data['phone']."' ");
 	        	if($is_check_phone != NULL){
 	        		$error['phone'] = "Số điện thoại đã tồn tại";
 	        	}
@@ -76,14 +76,14 @@
         //error empty is mean not error
         if(empty($error))
         {
-        	$id_update = $db->update("admin", $data, array('id' => $id ));
+        	$id_update = $db->update("groups", $data, array('id' => $id ));
            	if($id_update > 0){
            		$_SESSION['success'] = "Cập nhật thành công";
-           		redirectAdmin("admin");
+           		redirectAdmin("groups");
            	}
            	else{
            		$_SESSION['error'] = "Cập nhật thất bại";
-           		redirectAdmin("admin");
+           		redirectAdmin("groups");
            	}
         }
         
@@ -95,19 +95,17 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Thêm mới Admin
+                Thêm mới thành viên
                 <a href="add.php" class="btn btn-success">Thêm mới</a>
             </h1>
             <ol class="breadcrumb">
                 <li class="active"> <i class="fa fa-dashboard"> </i>
-                    <a href="index.php">Dashboard</a>
+                    <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">Admin</a>
+                    <a href="">Thành viên</a>
                 </li>
-                <li>
-                    Thêm mới
-                </li>
+
             </ol >
             <div class="clearfix">
                 <!--Thông báo lỗi-->
@@ -121,8 +119,8 @@
              
 
             <div class="form-group">
-                <label for="iadmin"> Họ & tên </label>
-                <input type="type" class="form-control col-sm-2 control-label" placeholder="Vui lòng nhập tên..." id="iadmin" name="name" value="<?php echo $Editadmin['name'] ?>">
+                <label for="igroups"> Họ & tên </label>
+                <input type="type" class="form-control col-sm-2 control-label" placeholder="Vui lòng nhập tên..." id="igroups" name="name" value="<?php echo $Editgroups['name'] ?>">
                 
                 <?php if(isset($error['name'])): ?>
                     <p class="text-danger"> <?php echo $error['name']; ?> </p>
@@ -130,8 +128,8 @@
             </div>
 
             <div class="form-group">
-                <label for="iadmin"> Email </label>
-                <input type="email" class="form-control col-sm-2 control-label" placeholder="example@gmail.com" id="iadmin" name="email" value="<?php echo $Editadmin['email'] ?>" >
+                <label for="igroups"> Email </label>
+                <input type="email" class="form-control col-sm-2 control-label" placeholder="example@gmail.com" id="igroups" name="email" value="<?php echo $Editgroups['email'] ?>" >
                 
                 <?php if(isset($error['email'])): ?>
                     <p class="text-danger"> <?php echo $error['email']; ?> </p>
@@ -139,8 +137,8 @@
             </div>
 
             <div class="form-group">
-                <label for="iadmin"> Số điện thoại </label>
-                <input type="number" class="form-control col-sm-2 control-label" placeholder="090955533" id="iadmin" name="phone" value="<?php echo $Editadmin['phone'] ?>" >
+                <label for="igroups"> Số điện thoại </label>
+                <input type="number" class="form-control col-sm-2 control-label" placeholder="090955533" id="igroups" name="phone" value="<?php echo $Editgroups['phone'] ?>" >
                 
                 <?php if(isset($error['phone'])): ?>
                     <p class="text-danger"> <?php echo $error['phone']; ?> </p>
@@ -148,8 +146,8 @@
             </div>
 
             <div class="form-group">
-                <label for="iadmin"> Mật khẩu </label>
-                <input type="password" class="form-control col-sm-2 control-label" placeholder="********" id="iadmin" name="password" required="">
+                <label for="igroups"> Mật khẩu </label>
+                <input type="password" class="form-control col-sm-2 control-label" placeholder="********" id="igroups" name="password" required="">
                 
                 <?php if(isset($error['password'])): ?>
                     <p class="text-danger"> <?php echo $error['password']; ?> </p>
@@ -157,8 +155,8 @@
             </div>
 
             <div class="form-group">
-                <label for="iadmin"> Nhập lại mật khẩu </label>
-                <input type="password" class="form-control col-sm-2 control-label" placeholder="********" id="iadmin" name="re_password" required="">
+                <label for="igroups"> Nhập lại mật khẩu </label>
+                <input type="password" class="form-control col-sm-2 control-label" placeholder="********" id="igroups" name="re_password" required="">
                 
                 <?php if(isset($error['re_password'])): ?>
                     <p class="text-danger"> <?php echo $error['re_password']; ?> </p>
@@ -166,8 +164,8 @@
             </div>
 
             <div class="form-group">
-                <label for="iadmin"> Địa chỉ </label>
-                <input type="type" class="form-control col-sm-2 control-label" placeholder="280 An Dương Vương, Phường 4, Quận 5, Hồ Chí Minh" id="iadmin" name="address" value="<?php echo $Editadmin['address'] ?>" >
+                <label for="igroups"> Địa chỉ </label>
+                <input type="type" class="form-control col-sm-2 control-label" placeholder="280 An Dương Vương, Phường 4, Quận 5, Hồ Chí Minh" id="igroups" name="address" value="<?php echo $Editgroups['address'] ?>" >
                 
                 <?php if(isset($error['address'])): ?>
                     <p class="text-danger"> <?php echo $error['address']; ?> </p>
@@ -175,11 +173,11 @@
             </div>
 
              <div class="form-group">
-                <label for="iadmin"> Chức vụ </label>
+                <label for="igroups"> Chức vụ </label>
 	                <select class="form-control" name="level">
-	                	<option value="1" <?php echo isset($Editadmin['level']) && $Editadmin['level'] == 1 ? "selected = 'selected'" : '' ;?>>Admin</option>
-	                	<option value="2" <?php echo isset($Editadmin['level']) && $Editadmin['level'] == 2 ? "selected = 'selected'" : '' ;?>>Editor</option>
-	                	<option value="3" <?php echo isset($Editadmin['level']) && $Editadmin['level'] == 3 ? "selected = 'selected'" : '' ;?>>Collaborators</option>
+	                	<option value="1" <?php echo isset($Editgroups['level']) && $Editgroups['level'] == 1 ? "selected = 'selected'" : '' ;?>>Admin</option>
+	                	<option value="2" <?php echo isset($Editgroups['level']) && $Editgroups['level'] == 2 ? "selected = 'selected'" : '' ;?>>Editor</option>
+	                	<option value="3" <?php echo isset($Editgroups['level']) && $Editgroups['level'] == 3 ? "selected = 'selected'" : '' ;?>>Collaborators</option>
 	                </select>                
 	                <?php if(isset($error['level'])): ?>
 	                    <p class="text-danger"> <?php echo $error['level']; ?> </p>

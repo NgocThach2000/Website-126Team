@@ -12,7 +12,15 @@
     display: block;
     color:#666;
     text-align: center;
+    font-weight:bold;
+    text-decoration: none;
 } 
+
+.menu_hmain li a:hover{
+  color:black;
+}
+
+
 
 .menuheader_right li{border:none}
 
@@ -81,6 +89,9 @@
     border: none;
 } 
 
+.img_cart{
+  margin-top:-8px;
+}
 /*end menu header*/
 
 
@@ -116,7 +127,7 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
   .footer2{text-align:center;}
   .showmenu_mobile{display: block;}
   .loadmenu{display:block;}
-  .login {display:none !important;}
+  .login ,.login2 {display:none !important;}
   .cart{top:330px;}
   .call{top:380px;}
   
@@ -306,6 +317,24 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
     color: red;
   }
 
+
+  .iconTrangchu{
+    margin-top:5px;
+    
+  }
+  
+.Trangchu{
+    margin-top: 5px;
+    font-size:15px !important;
+
+}
+.login2 :hover{
+ color: red;
+}
+
+
+
+
   .mappage iframe{display:block;width:100% !important; height:400px !important;}
 
   @-webkit-keyframes phonering-alo-circle-anim {
@@ -390,16 +419,16 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #3171d1;
-    color: #f9f9f9 !important;
+  background-color: #3171d1;
+  color: #f9f9f9 !important;
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 .li_co_cap a:hover
 {
-    text-decoration: none !important;
-    color: #3171d1;
+  text-decoration: none !important;
+  color: #3171d1;
 }

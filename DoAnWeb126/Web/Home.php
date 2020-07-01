@@ -1,5 +1,8 @@
 <?php 
     include_once __DIR__. "/autoload/autoload.php"; 
+    $banner_ = $db->fetchAll("banner_slide_show");
+    $sql = "SELECT * FROM product WHERE product.category_id BETWEEN 25 AND 33";
+    $product = $db->fetchsql($sql);
 ?>
 <?php include_once __DIR__."/layouts/header.php" ?>
     <link href="<?php echo public_frontend() ?>css/Home.css" rel="stylesheet" /> 
@@ -11,8 +14,9 @@
 
          <!--SLIDER-->
          <div id="slider">
-            <a><img src="<?php echo public_frontend() ?>img/slider1.jpg" alt="" height="890"/></a>
-            <a><img src="<?php echo public_frontend() ?>img/slider2.jpg" alt="" height="890"/></a>
+             <?php foreach($banner_ as $item): ?>
+            <a><img src="<?php echo uploads() ?>banner_slide_shows/<?php echo $item['thunbar'] ?>" alt="<?php echo $item['name'] ?>" height="890"/></a>
+            <?php endforeach ?>
         </div>
         <div class="main_page">
             <div class="main_content fixwidth" >
@@ -68,6 +72,28 @@
                 </div>            
             </div>
         </div>
-    </div>
+
+        <div class="khoi-slide ">          
+            <div class="cac-slide">
+                <?php foreach($product as $item): ?>                
+                <div class="slide"><img src="<?php echo uploads() ?>product/<?php echo $item['thunbar1'] ?>" width="300" ></div>
+                <?php endforeach ?>
+            </div>
+        </div>
+
+        <script>
+        $(document).ready(function(){  //dong chay
+            $('.cac-slide').slick({
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            autoplay: false,
+            autoplaySpeed: 1000,
+            speed:2000,
+            arrows:true,
+            });    
+                      
+        });
+        </script>
+</div>
 
 <?php include_once __DIR__."/layouts/footer.php" ?>

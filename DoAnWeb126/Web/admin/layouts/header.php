@@ -23,7 +23,7 @@
                 <div class="navbar-header ">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     </button>
-                    <a class="navbar-brand" href="#">Bảng điều khiển</a>
+                    <a class="navbar-brand" href="#">Administrator</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -34,6 +34,9 @@
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
+                        <li class="<?php echo isset($open) && $open == 'dashboard' ? 'active' : '' ?>">
+                            <a href="<?php echo modules("dashboard") ?>"><i class="fa fa-fw fa-dashboard"></i> Bảng Điều Khiển</a>
+                        </li>
                         <li class="<?php echo isset($open) && $open == 'category_parent' ? 'active' : '' ?>">
                             <a href="<?php echo modules("category_parent") ?>"><i class="fa fa-fw fa-list"></i> Danh Mục Cha</a>
                         </li>
@@ -43,11 +46,14 @@
                          <li class="<?php echo isset($open) && $open == 'product' ? 'active' : '' ?>">
                             <a href="<?php echo modules("product") ?>"><i class="fa fa-fw fa-database"></i> Sản Phẩm</a>
                         </li>
-                        <li class="<?php echo isset($open) && $open == 'admin' ? 'active' : '' ?>">
-                            <a href="<?php echo modules("admin") ?>"><i class="fa fa-fw fa-lock"></i> Admin</a>
+                        <li class="<?php echo isset($open) && $open == 'groups' ? 'active' : '' ?>">
+                            <a href="<?php echo modules("groups") ?>"><i class="fa fa-fw fa-lock"></i> Thành Viên</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'user' ? 'active' : '' ?>">
-                            <a href="<?php echo modules("user") ?>"><i class="fa fa-fw fa-user"></i> Thành Viên </a>
+                            <a href="<?php echo modules("user") ?>"><i class="fa fa-fw fa-user"></i> Người Dùng </a>
+                        </li>
+                        <li class="<?php echo isset($open) && $open == 'banner_slide_show' ? 'active' : '' ?>">
+                            <a href="<?php echo modules("banner_slide_show") ?>"><i class="fa fa-fw fa-sliders"></i> Chuyển Cảnh </a>
                         </li>
                         <li>
                             <a href="<?php echo base_url() ?>Home.php"><i class="fa fa-fw fa-sign-out"></i> Đăng Xuất </a>

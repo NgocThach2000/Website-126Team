@@ -23,7 +23,6 @@
 	        "email"	=> postInput('email'),
 	        "phone" => postInput('phone'),
             "address" => postInput('address'),
-            "avatar" => postInput('avatar')
     	];
         
         $error = [];
@@ -105,18 +104,15 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Thêm mới thành viên
+                Thêm mới người dùng
                 <a href="add.php" class="btn btn-success">Thêm mới</a>
             </h1>
             <ol class="breadcrumb">
                 <li class="active"> <i class="fa fa-dashboard"> </i>
-                    <a href="index.php">Dashboard</a>
+                    <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">Admin</a>
-                </li>
-                <li>
-                    Thêm mới
+                    <a href="">Người dùng</a>
                 </li>
             </ol >
             <div class="clearfix">

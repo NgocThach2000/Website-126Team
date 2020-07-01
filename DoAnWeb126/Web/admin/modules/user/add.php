@@ -86,7 +86,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Thêm mới thành viên
+                Thêm mới người dùng
                 <a href="add.php" class="btn btn-success">Thêm mới</a>
             </h1>
             <ol class="breadcrumb">
@@ -94,10 +94,7 @@
                     <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">User</a>
-                </li>
-                <li>
-                    Thêm mới
+                    <a href="">Nguười dùng</a>
                 </li>
             </ol >
             <div class="clearfix">

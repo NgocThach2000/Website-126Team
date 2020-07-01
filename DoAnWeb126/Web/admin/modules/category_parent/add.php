@@ -46,9 +46,6 @@
                 <li class="active">
                     <a href="">Danh mục</a>
                 </li>
-                <li>
-                    Thêm mới
-                </li>
             </ol >
             <div class="clearfix">
                 <!--Thông báo lỗi-->

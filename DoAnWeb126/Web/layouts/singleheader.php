@@ -16,7 +16,7 @@
                     <?php if(isset($_SESSION['user_id'])): ?> 
                         <li class="li_co_cap dropdown">
                             <?php if($_SESSION['user_avatar'] != "") : ?>
-                                <a href="#"><img src="<?php echo uploads_users() ?><?php echo $_SESSION['user_avatar'] ?>" alt="icon" width="22" height="22"/> <?php echo getLastName($_SESSION['user_name']); ?></a>
+                                <a href="#"><img src="<?php echo uploads_users() ?><?php echo $_SESSION['user_avatar'] ?>" alt="icon" width="24" height="24"/> <?php echo getLastName($_SESSION['user_name']); ?></a>
                             <?php else: ?>
                                 <a href="#"><img src="<?php echo public_frontend() ?>img/iconuser.png" alt="icon" width="22" height="22"/> <?php echo getLastName($_SESSION['user_name']); ?></a>
                             <?php endif; ?>
@@ -28,13 +28,13 @@
                         </li>
                     <?php else: ?>
                     <li class="li_co_cap"><a class="login" href="Login.php">
-                        <img src="<?php echo public_frontend() ?>img/iconuser.png" alt="icon" width="22" height="22"/> Đăng nhập</a>
+                        <img src="<?php echo public_frontend() ?>img/icons8-user-male-64.png" alt="icon" width="22" height="22"/> Đăng nhập</a>
                     </li>
-                    <li class="li_co_cap"><a class="login" href="Register.php">
-                        <img src="<?php echo public_frontend() ?>img/sigup.png" alt="icon" width="30" height="25"/> Đăng ký</a>
+                    <li class="li_co_cap"><a class="login2" href="Register.php">
+                        <img src="<?php echo public_frontend() ?>img/icons8-add-user-male-64.png" alt="icon" width="22" height="22"/> Đăng ký</a>
                     </li>
                     <?php endif; ?>
-                    <li class="li_co_cap"><a href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart.png" alt="icon" width="22" height="22"/></a>
+                    <li class="li_co_cap"><a href="Shoping_cart.php"><img class="img_cart" src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" alt="icon" width="40" height="40" /></a>
                         <ul class="menu_con">
                             <li><a href="Shoping_cart.php">Số lượng:0</a></li>                            
                         </ul>
@@ -72,8 +72,10 @@
                     QUẦN ÁO THỂ THAO NAM CAO CẤP CHÍNH HÃNG
                 </div>
                 <div class="boxintro_item">
-                    QUẦN ÁO THỂ THAO NAM CAO CẤP CHÍNH HÃNG
-
+                    GIÀY THỂ THAO CAO CẤP CHÍNH HÃNG
+                </div>
+                <div class="boxintro_item">
+                    DỤNG CỤ HỖ TRỢ CAO CẤP CHÍNH HÃNG
                 </div>
             </div>
         </div>
@@ -111,7 +113,7 @@
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 3000,
+            autoplaySpeed: 500,
             speed:2500,
             fade:true,
             });            
