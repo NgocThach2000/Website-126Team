@@ -110,25 +110,24 @@
                         </li>
                     </ul>
                     <?php endforeach ?>
-                </div>
+                </div>  
             </div>
         </div>
-
-    <script type="text/javascript" src="js/mmenu.js"></script>
-    <script>
-        $(document).ready(function() {
-        $("#my-menu").mmenu();
-        });
-        $('.menu_sidebar >li').click(function(){
-            if(!$(this).hasClass('liactive_side')){
-                $(this).addClass('liactive_side');
-            }
-            else{
-                $(this).removeClass('liactive_side');
-            }
-            $(this).find('ul').toggle();
-        });
-    </script>
     </div>
+    <script type="text/javascript" src="js/mmenu.js"></script>
+        <script>
+            $(document).ready(function() {
+            $("#my-menu").mmenu();
+            });
+            $('.menu_sidebar >li').click(function(){
+                if(!$(this).hasClass('liactive_side')){
+                    $(this).addClass('liactive_side');
+                }
+                else{
+                    $(this).removeClass('liactive_side');
+                }
+                $(this).find('ul').toggle();
+            });
+        </script>
 
 <?php include_once __DIR__. "/layouts/footer.php" ?>

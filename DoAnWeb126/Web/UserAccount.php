@@ -9,5 +9,7 @@
     </head>
 <?php include_once __DIR__."/layouts/singleheader.php" ?>
 <!--Main content-->
-
+<div class="page_container2"> 
+                
+         
 <?php include_once __DIR__."/layouts/footer.php" ?>

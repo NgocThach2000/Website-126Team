@@ -1,7 +1,7 @@
 <?php 
     include_once __DIR__. "/autoload/autoload.php"; 
     $banner_ = $db->fetchAll("banner_slide_show");
-    $sql = "SELECT * FROM product WHERE product.category_id BETWEEN 25 AND 33";
+    $sql = "SELECT * FROM product WHERE product.category_id = 25 OR product.category_id = 33";
     $product = $db->fetchsql($sql);
 ?>
 <?php include_once __DIR__."/layouts/header.php" ?>
@@ -73,10 +73,12 @@
             </div>
         </div>
 
-        <div class="khoi-slide ">          
+        <div class="khoi-slide">          
             <div class="cac-slide">
                 <?php foreach($product as $item): ?>                
-                <div class="slide"><img src="<?php echo uploads() ?>product/<?php echo $item['thunbar1'] ?>" width="300" ></div>
+                <div class="slide">
+                    <a href="Details_product.php?id=<?php echo $item['id'] ?>"><img src="<?php echo uploads() ?>product/<?php echo $item['thunbar1'] ?>" width="300" ></a>
+                </div>
                 <?php endforeach ?>
             </div>
         </div>

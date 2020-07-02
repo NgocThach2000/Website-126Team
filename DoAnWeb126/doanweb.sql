@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 01, 2020 lúc 07:17 PM
+-- Thời gian đã tạo: Th7 02, 2020 lúc 04:01 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.5
 
@@ -242,8 +242,6 @@ INSERT INTO `product` (`id`, `name`, `slug`, `price`, `sale`, `thunbar1`, `thunb
 (74, 'TIRO 19 TRAINING PANTS ', 'tiro-19-training-pants', 900000, '10', 'TIRO 19 TRAINING PANTS B900.jpg', 'TIRO 19 TRAINING PANTS B.jpg', 'L,XL', 22, 'TIRO 19 TRAINING PANTS ', 50, '2020-07-01 15:58:18', '2020-07-01 15:58:18'),
 (75, 'ZENO BIG TREFOIL SHORTS', 'zeno-big-trefoil-shorts', 850000, '20', 'ZENO BIG TREFOIL SHORTS 850.jpg', 'ZENO BIG TREFOIL SHORTS.jpg', 'L,XL', 22, 'ZENO BIG TREFOIL SHORTS', 20, '2020-07-01 15:58:58', '2020-07-01 15:58:58'),
 (76, 'Nike Air Force 1 \'07 ', 'nike-air-force-1-07', 3750000, '0', 'Nike Air Force 1 \'07 3750.jpg', 'Nike Air Force 1 \'07 3.jpg', 'L,XL', 25, 'Nike Air Force 1 \'07 ', 50, '2020-07-01 16:00:46', '2020-07-01 16:00:46'),
-(77, 'Giày quần vợt nam Nike Court Lite màu xanh đen', 'giay-quan-vot-nam-nike-court-lite-mau-xanh-den', 1300000, '0', 'Giày quần vợt nam Nike Court Lite màu xanh đen1300.jpg', 'Giày quần vợt nam Nike Court Lite màu xanh đen.jpg', 'L,XL', 25, 'Giày quần vợt nam Nike Court Lite màu xanh đen', 20, '2020-07-01 16:01:31', '2020-07-01 16:01:31'),
-(78, 'Giày tập nam Anta', 'giay-tap-nam-anta', 850000, '0', 'Giày tập nam Anta 850.jpg', 'Giày tập nam Antaa.jpg', 'L,XL', 25, 'Giày tập nam Anta', 20, '2020-07-01 16:03:22', '2020-07-01 16:03:22'),
 (79, 'Nike Zoom Pegasus Turbo 2', 'nike-zoom-pegasus-turbo-2', 6500000, '0', 'Nike Zoom Pegasus Turbo 2 6500.jpg', 'Nike Zoom Pegasus Turbo 2.jpg', 'L,XL', 25, 'Nike Zoom Pegasus Turbo 2', 50, '2020-07-01 16:15:48', '2020-07-01 16:15:48'),
 (80, 'Nike Air VaporMax Flyknit 3', 'nike-air-vapormax-flyknit-3', 7125000, '0', 'Nike Air VaporMax Flyknit 3 7125.jpg', 'Nike Air VaporMax Flyknit 3.jpg', 'L,XL', 25, 'Nike Air VaporMax Flyknit 3', 20, '2020-07-01 16:19:13', '2020-07-01 16:19:13'),
 (81, 'Nike Jr. Mercurial Superfly 7 Academy MG', 'nike-jr-mercurial-superfly-7-academy-mg', 2900000, '0', 'Nike Jr. Mercurial Superfly 7 Academy MG 2900.jpg', 'Nike Jr. Mercurial Superfly 7 Academy MG.jpg', 'L,XL', 33, 'Nike Jr. Mercurial Superfly 7 Academy MG', 20, '2020-07-01 16:20:26', '2020-07-01 16:20:26'),
@@ -260,7 +258,7 @@ INSERT INTO `product` (`id`, `name`, `slug`, `price`, `sale`, `thunbar1`, `thunb
 (92, 'Nike Graphic', 'nike-graphic', 300000, '10', 'Nike Graphic 300.jpg', 'Nike Graphic.jpg', 'L,XL', 27, 'Nike Graphic', 100, '2020-07-01 16:28:18', '2020-07-01 16:28:18'),
 (93, 'Nike Swoosh', 'nike-swoosh', 250000, '10', 'Nike Swoosh 250.jpg', 'Nike Swoosh.jpg', 'L,XL', 28, 'Nike Swoosh', 100, '2020-07-01 16:30:59', '2020-07-01 16:30:59'),
 (94, 'Nike Swoosh', 'nike-swoosh', 250000, '', 'Nike Swoosh.jpg', 'Nike Swoosh 250.jpg', 'L,XL', 28, 'Nike Swoosh', 100, '2020-07-01 16:31:32', '2020-07-01 16:31:32'),
-(95, 'Jordan Jumpman ', 'jordan-jumpman', 750000, '0', 'Jordan Jumpman 750.jpg', '', 'L,XL', 28, 'Jordan Jumpman', 10, '2020-07-01 16:32:37', '2020-07-01 16:32:37');
+(95, 'Jordan Jumpman ', 'jordan-jumpman', 750000, '0', 'Jordan Jumpman 750.jpg', 'Jordan Jumpman 750.jpg', 'L,XL', 28, 'Jordan Jumpman', 10, '2020-07-01 16:32:37', '2020-07-02 12:45:20');
 
 -- --------------------------------------------------------
 

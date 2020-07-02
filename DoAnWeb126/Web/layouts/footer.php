@@ -2,7 +2,7 @@
             <div class="fixwidth clearfix">
                 <div class="content_footer">
                     <div class="content_foot">
-                        <b>VỀ SPORTER.VN</b>
+                        <b>VỀ 126TEAMSHOP.VN</b>
                     </div>
                     <p>Hệ thống bán lẻ đồ thể thao Sporter là đơn vị chuyên sản xuất và phân phối các sản phẩm thể thao chuyên nghiệp. Tại đây bạn có thể dễ dàng mua Quần áo và dụng cụ thể thao chất lượng cao, chính hãng... </p>
                     <p><a class="Hotline">HOTLINE:19001000</a></p>
@@ -28,7 +28,7 @@
                 <div class="footer_right">
                     <div class="boxfooter_fanpage">
                         <div class="chat_facebook"> 
-                            <div class="fb-page" data-href="https://www.facebook.com/nike/" data-tabs="timeline" data-width="500" data-height="225" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/nike/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/nike/">Nike</a></blockquote></div> 
+                        <div class="fb-page" data-href="https://www.facebook.com/126-Team-Shop-B%C3%B3ng-%C4%90%C3%A1-103446874767603/" data-tabs="timeline" data-width="500" data-height="225" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/126-Team-Shop-B%C3%B3ng-%C4%90%C3%A1-103446874767603/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/126-Team-Shop-B%C3%B3ng-%C4%90%C3%A1-103446874767603/">126-Team-Shop Bóng Đá</a></blockquote></div> 
                         </div>
                     </div>
                 </div>

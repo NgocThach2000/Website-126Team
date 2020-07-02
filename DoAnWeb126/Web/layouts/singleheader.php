@@ -7,7 +7,11 @@
         <div class=big_menu_header>
             <div class="menu_header clearfix">
                 <ul class="menu_hmain menuheader_left clearfix">
-                    <li class="showmenu_mobile"><a href="#my-menu"></a></li>
+                <li id="toggle" >
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                      </a>                            
+                    </li>
                     <li class="homeres"><a class="Trangchu" href="Home.php">Trang chủ</a></li>
                     <li><a class="iconTrangchu" href="Home.php"><img src="<?php echo public_frontend() ?>img/iconfinder_nike_27575.png"alt="icon" width="22"/></a> </li>
                 </ul>
@@ -41,6 +45,30 @@
                     </li>
                 </ul>
                 <!--end sổ mục-->
+            </div>
+            <div id="div_menu_sidebar">
+                    <ul class="menu_sidebar">
+                    <?php foreach($data as $key => $value): ?>
+                        <li class=""><a href="<?php $key['id'] ?>"><?php echo $key ?></a>
+                        <?php foreach($value as $item): ?>
+                            <ul class="ul_sidabar">
+                                <div>
+                                    <li class="li_sidabar"><a id="<?php echo $item['category_parent_id'] ?>" href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name']?></a></li>
+                                </div>
+                            </ul>
+                            <?php endforeach ?>
+                        </li>
+                        <?php endforeach ?>
+                        <?php if(isset($_SESSION['user_id'])): ?>
+                        <li><a href="UserAccount.php?id=<?php echo $_SESSION['user_id'] ?>">Tài khoản của tôi</a></li>
+                        <li><a href="">Đơn hàng của tôi</a></li>
+                        <li><a href="Logout.php">Đăng Xuất</a></li>
+                        <?php else: ?>
+                        <li><a href="Login.php">Đăng nhập</a></li>
+                        <li><a href="Register.php">Đăng ký</a></li>
+                        <li><a href="Shoping_cart1.php">Giỏ hàng</a></li> 
+                        <?php endif; ?> 
+                    </ul>  
             </div>
             <div class="menu_header2 clearfix"> <!-- div con dùng float thì thêm class clearfix ở div cha -->            
                 <a href="Home.php" id="logo"><img src="<?php echo public_frontend() ?>img/iconfinder_nike_27575.png" alt="icon" width="50"></a>
@@ -120,11 +148,27 @@
         });
     </script>   
 
-    <script type="text/javascript" src="<?php echo public_frontend() ?>js/mmenu.js"></script>
-    <script>
-        $(document).ready(function() {
-           $("#my-menu").mmenu();  //menu dien thoai
+<script>   
+        $('.menu_sidebar >li').click(function(){
+            if(!$(this).hasClass('liactive_side')){
+                $(this).addClass('liactive_side');
+            }
+            else{
+                $(this).removeClass('liactive_side');
+            }
+            $(this).find('ul').toggle();
         });
     </script>
+
+    
+
+
+<script>
+    $(document).ready(function(){
+        $("#toggle").click(function(){
+            $("#div_menu_sidebar").toggle(500);
+        })
+    })
+</script>
 </body>
 </html>

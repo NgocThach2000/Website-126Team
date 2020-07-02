@@ -47,11 +47,19 @@ table {
 }
 img{max-width: 100%;}
 /*===dùng reset để thiết lập cơ bản chung===*/
-.fixwidth{max-width: 1200px;margin:auto;}
+.fixwidth{
+  max-width: 1200px;
+  margin:auto;
+}
 
 
-body{font-size:14px;font-family: 'Arial';}
-a{text-decoration: none;}
+body{
+  font-size:14px;
+  font-family: 'Arial';
+}
+a{
+  text-decoration: none;
+}
 .clearfix::after { 
     content: "";
     clear: both; 
@@ -82,16 +90,27 @@ a{text-decoration: none;}
     background-size: cover;position: relative;
 }
 
-.page_container2:after{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 0;}
-.page_container2 >div{position: relative;z-index:1}
+.page_container2:after{
+  content: ''; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); 
+  z-index: 0;
+}
+.page_container2 >div{
+  position: relative;z-index:1
+}
 
 .list_group{
   background-color: black;
 }
 #Nike{
   font-size: 16px;
-    font-weight: bold;
-    color:Black;
+  font-weight: bold;
+  color:Black;
 }
 .list-group{
   padding-bottom : 20px;
@@ -190,6 +209,7 @@ border-top:2px solid #666;}
     margin-top:5px;
     color: white;
     height: auto;
+    
 }
 .Link{margin:20px auto;}
 .Link b a{
@@ -211,16 +231,7 @@ border-top:2px solid #666;}
   margin-bottom: 10px;
 }
 
-.menu_sidebar{}
-.menu_sidebar >li > a{color:#ebebeb;font-size:15px;font-weight:bold;display:block;cursor: pointer;}
-.menu_sidebar >li{padding: 10px 0;border-bottom:1px solid #ebebeb;position: relative;}
-.menu_sidebar >li:after{content: ''; position: absolute; background: url(../img/arrow.png) no-repeat top center; background-size: 100%; 
-top: 12px; right: 10px; width: 20px; height: 20px;transition: all ease 0.6s;;}
-.menu_sidebar >li ul{display:none;padding-top: 10px; padding-left: 15px;}
-.menu_sidebar >li ul >li >a{color:#ebebeb;font-size:13px;}
-.menu_sidebar >li ul >li{margin-bottom:5px;}
-.liactive_side:after{transform: rotate(180deg);}
-.sidebar_option {color :#ebebeb}
+
 
 .login:hover{
   color:black;
@@ -280,17 +291,19 @@ top: 12px; right: 10px; width: 20px; height: 20px;transition: all ease 0.6s;;}
 .image {
   display: block;
   width: 100%;
-  height: 350px;
+  height: 330px;
 }
 
 .image2 {
   position: absolute;
+  
   right: 0;
   bottom: 0; 
   opacity: 0;
   background-color: rgb(207, 205, 205);
   transition: .5s ease;
   width:100%;
+
 }
 .image2:hover{
   background-color: #443b3b;
