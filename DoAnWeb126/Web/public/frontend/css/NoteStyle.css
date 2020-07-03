@@ -126,12 +126,53 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
   height:60;
 }
 
+/*Toggle*/
+#toggle{display:none;
+  font-size:20;}
+  #div_menu_sidebar{
+      display:none;
+      background-color:#f5f5f5;
+      color:black;
+  }
+  .ul_sidabar{
+    
+      background-color: #ebebeb;
+  }
+  .li_sidabar{
+      font-size:15;
+      font-weight: bold;
+      border-bottom:solid 0.5px #ebeb;
+      
+  }
+  .li_sidabar a{
+      color :black;
+      margin-left: 30px;
+  }
+  
+
+  .menu_sidebar{}
+  .menu_sidebar >li > a{color:black;font-size:15px;font-weight:bold;display:block;cursor: pointer; margin-left:20px;}
+  .menu_sidebar >li{padding: 10px 0;border-bottom:1px solid #ebebeb;position: relative; margin-left:10px;}
+  .menu_sidebar >li:after{content: ''; position: absolute; background: url(../img/arrow.png) no-repeat top center; background-size: 100%; 
+  top: 12px; right: 10px; width: 20px; height: 20px;transition: all ease 0.6s;;}
+  .menu_sidebar >li ul{display:none;padding-top: 10px; padding-left: 15px;}
+  .menu_sidebar >li ul >li >a{color:#ebebeb;font-size:13px;}
+  .menu_sidebar >li ul >li{margin-bottom:5px;}
+  .liactive_side:after{transform: rotate(180deg);}
+  .sidebar_option {color :#ebebeb}
+
+  /*Toggle*/
+
 
 
 @media (max-width: 1110px) {
   #menu_contain li{padding: 0 20px;}
   .cart{top:330px;}
+  #toggle{display:block;}
   .call{top:380px;}
+  .hotline-phone-ring-wrap{display:none;}
+  #myBtn{display:none}
+  .homeres{display:none}
 }
 
 @media (max-width: 1100px) {
@@ -143,8 +184,8 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
   .main_page{padding:0 1%;}
   .footer{padding:30px 1%;}
   .footer2{text-align:center;}
-  .showmenu_mobile{display: block;}
-  .loadmenu{display:block;}
+  #toggle{display:block;}
+  
   .login ,.login2 {display:none !important;}
   .cart{top:330px;}
   .call{top:380px;}
@@ -157,7 +198,7 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
     .main_containt_right{width:100%;margin-top:20px;height:auto;}
     .cart_call{display: grid; grid-gap: 20px; grid-template-columns: 1fr 1fr;}
     .page_container2{padding:0 1%;}
-    .Danhmuc, .menu_sidebar, .Item_different{display:none;}
+    .Danhmuc,  .Item_different{display:none;}
     .main_containt_left{display: grid; grid-template-columns: 1fr 1fr;grid-gap: 10px;}
     .img_main, .img_main_2{width:100%;padding:0;}
   }
@@ -199,8 +240,8 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
   .cart_call{grid-template-columns: 1fr;grid-gap: 5px;}
 }
 
-@media (max-width: 320px) {
-
+@media (max-width: 321px) {
+.iconTrangchu{display:none}
 }
 
   @media (max-width: 768px) {

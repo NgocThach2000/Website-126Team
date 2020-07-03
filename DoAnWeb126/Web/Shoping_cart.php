@@ -22,7 +22,8 @@
     else {
         $_SESSION['cart'][$id]['qty'] +=1;
     }
-    echo "<script>alert('Thêm vào giỏ hàng thành công');location.href='Shoping_cart1.php'</script>";
-
+    echo "<script>alert('Thêm vào giỏ hàng thành công');location.href='List_Category.php?id=17'</script>";
     
 ?>
+
+    

@@ -145,7 +145,6 @@ border-top:2px solid #666;}
     padding:15px 5px;
     font-size: 40px;
     color: black;
-    
     background-color: #ebebeb;
 }
 
@@ -183,10 +182,12 @@ border-top:2px solid #666;}
 
 .main_content4 a img{
     transition: all ease 0.6s;
-    
 }
 
-.main_content4:hover a img{transform: scale(1.3) rotate(10deg); filter: grayscale(100%);}
+.main_content4:hover a img{
+    transform: scale(1.3) rotate(10deg); 
+    filter: grayscale(100%);
+}
 
 .main_content5 a{
     overflow: hidden;
@@ -195,7 +196,6 @@ border-top:2px solid #666;}
 
 .main_content5 a img{
     transition: all ease 0.6s;
-    
 }
 
 
@@ -426,10 +426,19 @@ border-top:2px solid #666;}
 
 .button8:hover {background-color: rgb(126, 126, 216)}
 
-.khoi-slide .slide img{display: block;width: 100%;}
-.khoi-slide .slide{margin-right:30px;}
-.cac-slide{margin-right:-15px;}
-.khoi-slide{overflow: hidden;margin-top:80px;}
+.khoi-slide .slide img{
+    display: block;width: 100%;
+}
+.khoi-slide .slide{
+    margin-right:30px;
+}
+.cac-slide{
+    margin-right:-15px;
+}
+.khoi-slide{
+    overflow: hidden;
+    margin-top:80px;
+}
 .cac-slide, .cac-slide div{outline:none !important;}
 .cac-slide .slick-prev:after, .cac-slide .slick-prev:before, .cac-slide .slick-next:after, .cac-slide .slick-next:before{content:'';}
 .cac-slide .slick-prev{width:50px;height:50px;background:#fff url(../img/arrow_slick.png) no-repeat center;background-size:58%;left:20px;
@@ -437,8 +446,13 @@ top:calc(45% - 25px);z-index: 99;transform: rotate(180deg);border-radius: 50%; b
 .cac-slide .slick-next{width:50px;height:50px;background:#fff url(../img/arrow_slick.png) no-repeat center;background-size:58%;right:35px;
 top:45%;z-index: 99;border-radius: 50%; box-shadow: 0px 0px 5px rgba(0,0,0,0.5);}
 
-
-.fixwidth{max-width:1300px;margin:auto;}
+.cac-slide img:hover
+{
+    transform: scale(1.3) rotate(10deg); 
+}
+.fixwidth{
+    max-width:1300px;margin:auto;
+}
 .footer{    /*footer 1*/
     margin-top: 40px;
     min-height: 100px;
@@ -458,11 +472,8 @@ top:45%;z-index: 99;border-radius: 50%; box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
 .content_footer{
     float:left;
     color: black;
-    
     background-color: #ebebebed;
-
     font-size: 15px;
-    
 }
 .content_foot{
     color:black;

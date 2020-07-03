@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 01, 2020 lúc 07:16 AM
+-- Thời gian đã tạo: Th7 02, 2020 lúc 04:01 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.5
 
@@ -212,7 +212,53 @@ INSERT INTO `product` (`id`, `name`, `slug`, `price`, `sale`, `thunbar1`, `thunb
 (44, 'Nike Dri-FIT', 'nike-dri-fit', 365000, '5', 'dri-fit-mens-training-shorts-2KTr7KBn.jpg', 'dri-fit-mens-training-shorts-2KTr7KBn (1).jpg', 'XL', 21, 'The Men\'s Nike Dry Shorts let you take training to the next level with sweat management and motion vents that allow you to move freely and comfortably.', 30, '2020-07-01 03:35:50', '2020-07-01 03:35:50'),
 (45, 'Nike Flight', 'nike-flight', 386000, '0', 'flight-basketball-shorts-1bBMrk.jpg', 'flight-basketball-shorts-1bBMrk (1).jpg', 'L', 21, 'Inspired by the iconic \'90s Flight Series, the Nike Flight Shorts offer an audacious look and feel with an authentic basketball design. Made with lightweight woven fabric and a mesh lining, they feature a Flight logo cut and stitched into the design.', 20, '2020-07-01 03:38:15', '2020-07-01 03:38:15'),
 (46, 'Nike Flight', 'nike-flight', 436000, '0', 'flight-basketball-shorts-1bBMrk (2).jpg', 'flight-basketball-shorts-1bBMrk (3).jpg', 'XL', 21, 'Inspired by the iconic \'90s Flight Series, the Nike Flight Shorts offer an audacious look and feel with an authentic basketball design. Made with lightweight woven fabric and a mesh lining, they feature a Flight logo cut and stitched into the design.', 20, '2020-07-01 03:39:11', '2020-07-01 03:39:11'),
-(47, 'Nike Flex', 'nike-flex', 530000, '40', 'flex-mens-training-shorts-3jGZS9.jpg', 'flex-mens-training-shorts-3jGZS9 (1).jpg', 'XL', 21, 'Made with lightweight heathered fabric, the Nike Flex Shorts move with your body through your most intense workouts. Mesh at the sides keep air flowing to help you stay cool when your routine heats up.', 20, '2020-07-01 03:40:17', '2020-07-01 03:40:17');
+(47, 'Nike Flex', 'nike-flex', 530000, '40', 'flex-mens-training-shorts-3jGZS9.jpg', 'flex-mens-training-shorts-3jGZS9 (1).jpg', 'XL', 21, 'Made with lightweight heathered fabric, the Nike Flex Shorts move with your body through your most intense workouts. Mesh at the sides keep air flowing to help you stay cool when your routine heats up.', 20, '2020-07-01 03:40:17', '2020-07-01 03:40:17'),
+(48, 'Backpack', 'backpack', 100000, '00', 'Backpack 1300.jpg', 'Backpack.jpg', 'L,XL', 27, 'Túi', 10, '2020-07-01 08:17:44', '2020-07-01 08:17:44'),
+(49, 'Nike Dri-FIT Kyrie', 'nike-dri-fit-kyrie', 1125000, '00', 'Nike Dri-FIT Kyrie 1125000.jpg', 'Nike Dri-FIT Kyrie.jpg', 'L,XL', 17, 'Nike Dri-FIT Kyrie', 20, '2020-07-01 15:22:38', '2020-07-01 15:22:38'),
+(50, '3-STRIPES CLUB TEE', '3-stripes-club-tee', 700000, '0', '3-STRIPES CLUB TEE 700.jpg', '3-STRIPES CLUB TEE.jpg', 'L,XL', 18, '3-STRIPES CLUB TEE', 20, '2020-07-01 15:33:03', '2020-07-01 15:33:03'),
+(51, '3-STRIPES CLUB TEE ', '3-stripes-club-tee', 700000, '0', '3-STRIPES CLUB TEE B700.jpg', '3-STRIPES CLUB TEE B.jpg', 'L,XL', 18, '3-STRIPES CLUB TEE ', 20, '2020-07-01 15:35:22', '2020-07-01 15:35:22'),
+(52, '3-STRIPES TEE', '3-stripes-tee', 625000, '0', '3-STRIPES TEE 625.jpg', '3-STRIPES TEE.jpg', 'L,XL', 18, '3-STRIPES TEE', 20, '2020-07-01 15:36:26', '2020-07-01 15:36:26'),
+(53, 'ADICOLOR 3D TREFOIL 3-STRIPES TEE', 'adicolor-3d-trefoil-3-stripes-tee', 875000, '0', 'ADICOLOR 3D TREFOIL 3-STRIPES TEE 875000.jpg', 'Adicolor_3D_Trefoil_3_Stripes_Tee_Black_GE0836_23_hover_model.jpg', 'L,XL', 18, 'ADICOLOR 3D TREFOIL 3-STRIPES TEE', 10, '2020-07-01 15:37:29', '2020-07-01 15:37:29'),
+(54, 'CAMO TREFOIL TEE', 'camo-trefoil-tee', 750000, '0', 'CAMO TREFOIL TEE 750.jpg', 'CAMO TREFOIL TEE.jpg', 'L,XL', 18, 'CAMO TREFOIL TEE', 10, '2020-07-01 15:38:31', '2020-07-01 15:38:31'),
+(55, 'MEN VOLLEYBALL GRAPHIC LOGO T-SHIRT', 'men-volleyball-graphic-logo-t-shirt', 700000, '0', 'MEN VOLLEYBALL GRAPHIC LOGO T-SHIRT 700.jpg', 'MEN VOLLEYBALL GRAPHIC LOGO T-SHIRT.jpg', 'L,XL', 18, 'MEN VOLLEYBALL GRAPHIC LOGO T-SHIRT', 10, '2020-07-01 15:39:12', '2020-07-01 15:39:12'),
+(56, 'MEN VOLLEYBALL GRAPHIC LOGO T-SHIRT ', 'men-volleyball-graphic-logo-t-shirt', 700000, '0', 'MEN VOLLEYBALL GRAPHIC LOGO T-SHIRT W700.jpg', 'MEN VOLLEYBALL GRAPHIC LOGO T-SHIRT W.jpg', 'L,XL', 18, 'MEN VOLLEYBALL GRAPHIC LOGO T-SHIRT ', 10, '2020-07-01 15:39:54', '2020-07-01 15:39:54'),
+(57, 'SHMOO LOGO TEE', 'shmoo-logo-tee', 500000, '20', 'SHMOO LOGO TEE 500000.jpg', 'SHMOO LOGO TEE.jpg', 'L,XL', 18, 'SHMOO LOGO TEE', 20, '2020-07-01 15:40:59', '2020-07-01 15:40:59'),
+(58, 'SHMOO LOGO TEE ', 'shmoo-logo-tee', 1000000, '0', 'SHMOO LOGO TEE Y1000000.jpg', 'SHMOO LOGO TEE Y.jpg', 'L,XL', 18, 'SHMOO LOGO TEE ', 100, '2020-07-01 15:42:24', '2020-07-01 15:42:24'),
+(59, 'HEAT.RDY CLUB TEE', 'heatrdy-club-tee', 1250000, '0', 'HEAT.RDY CLUB TEE 1250.jpg', 'HEAT.RDY CLUB TEE.jpg', 'L,XL', 18, 'HEAT.RDY CLUB TEE', 20, '2020-07-01 15:43:00', '2020-07-01 15:43:00'),
+(60, 'Nike', 'nike', 1625000, '0', 'Nike 1625.jpg', 'Nike.jpg', 'L,XL', 21, 'Nike', 20, '2020-07-01 15:44:05', '2020-07-01 15:44:05'),
+(61, 'Nike Air', 'nike-air', 1640000, '0', 'Nike Air 1640.jpg', 'Nike Air.jpg', 'L,XL', 21, 'Nike Air', 10, '2020-07-01 15:46:59', '2020-07-01 15:46:59'),
+(62, 'NikeCourt Dri-FIT', 'nikecourt-dri-fit', 1500000, '0', 'NikeCourt Dri-FIT 1500.jpg', 'NikeCourt Dri-FIT.jpg', 'L,XL', 21, 'NikeCourt Dri-FIT', 20, '2020-07-01 15:49:12', '2020-07-01 15:49:12'),
+(63, 'Nike Dri-FIT', 'nike-dri-fit', 2500000, '0', 'Nike Dri-FIT 2500.jpg', 'Nike Dri-FIT.jpg', 'L,XL', 21, 'Nike Dri-FIT', 20, '2020-07-01 15:50:11', '2020-07-01 15:50:11'),
+(64, 'Nike Air', 'nike-air', 1640000, '0', 'Nike Air 1640.jpg', 'Nike Air.jpg', 'L,XL', 21, 'Nike Air', 20, '2020-07-01 15:51:24', '2020-07-01 15:51:24'),
+(65, 'Nike Air', 'nike-air', 1640000, '0', 'Nike Air 1640.jpg', 'Nike Air.jpg', 'L,XL', 21, 'Nike Air', 50, '2020-07-01 15:51:59', '2020-07-01 15:51:59'),
+(66, '3D TREFOIL 3-STRIPES SWEAT SHORTS', '3d-trefoil-3-stripes-sweat-shorts', 1125000, '0', '3D TREFOIL 3-STRIPES SWEAT SHORTS 1125.jpg', '3D TREFOIL 3-STRIPES SWEAT SHORTS.jpg', 'L,XL', 22, '3D TREFOIL 3-STRIPES SWEAT SHORTS', 50, '2020-07-01 15:52:54', '2020-07-01 15:52:54'),
+(67, 'CLUB SHORTS 9-INCH', 'club-shorts-9-inch', 700000, '0', 'CLUB SHORTS 9-INCH 700.jpg', 'CLUB SHORTS 9-INCH.jpg', 'L,XL', 22, 'CLUB SHORTS 9-INCH', 50, '2020-07-01 15:53:26', '2020-07-01 15:53:26'),
+(68, 'O SHAPE PANTS', 'o-shape-pants', 1200000, '0', 'O SHAPE PANTS 1200.jpg', 'O SHAPE PANTS.jpg', 'L,XL', 22, 'O SHAPE PANTS', 20, '2020-07-01 15:54:00', '2020-07-01 15:54:00'),
+(69, 'O SHAPE PANTS ', 'o-shape-pants', 1200000, '0', 'O SHAPE PANTS R1200.jpg', 'O SHAPE PANTS R.jpg', 'L,XL', 22, 'O SHAPE PANTS ', 10, '2020-07-01 15:54:33', '2020-07-01 15:54:33'),
+(70, 'PANEL TREFOIL SHORTS', 'panel-trefoil-shorts', 1225000, '0', 'PANEL TREFOIL SHORTS 1225.jpg', 'PANEL TREFOIL SHORTS.jpg', 'L,XL', 22, 'PANEL TREFOIL SHORTS', 20, '2020-07-01 15:55:07', '2020-07-01 15:55:07'),
+(71, 'PRIDE 4KRFT SHORTS', 'pride-4krft-shorts', 850000, '0', 'PRIDE 4KRFT SHORTS 850.jpg', 'PRIDE 4KRFT SHORTS.jpg', 'L,XL', 22, 'PRIDE 4KRFT SHORTS', 20, '2020-07-01 15:55:58', '2020-07-01 15:55:58'),
+(72, 'SHMOO TERRY SHORTS', 'shmoo-terry-shorts', 1050000, '0', 'SHMOO TERRY SHORTS 1050.jpg', 'SHMOO TERRY SHORTS.jpg', 'L,XL', 22, 'SHMOO TERRY SHORTS', 20, '2020-07-01 15:56:41', '2020-07-01 15:56:41'),
+(73, 'TIRO 19 TRAINING PANTS ', 'tiro-19-training-pants', 900000, '0', 'TIRO 19 TRAINING PANTS G900.jpg', 'TIRO 19 TRAINING PANTS G.jpg', 'L,XL', 22, 'TIRO 19 TRAINING PANTS ', 10, '2020-07-01 15:57:18', '2020-07-01 15:57:18'),
+(74, 'TIRO 19 TRAINING PANTS ', 'tiro-19-training-pants', 900000, '10', 'TIRO 19 TRAINING PANTS B900.jpg', 'TIRO 19 TRAINING PANTS B.jpg', 'L,XL', 22, 'TIRO 19 TRAINING PANTS ', 50, '2020-07-01 15:58:18', '2020-07-01 15:58:18'),
+(75, 'ZENO BIG TREFOIL SHORTS', 'zeno-big-trefoil-shorts', 850000, '20', 'ZENO BIG TREFOIL SHORTS 850.jpg', 'ZENO BIG TREFOIL SHORTS.jpg', 'L,XL', 22, 'ZENO BIG TREFOIL SHORTS', 20, '2020-07-01 15:58:58', '2020-07-01 15:58:58'),
+(76, 'Nike Air Force 1 \'07 ', 'nike-air-force-1-07', 3750000, '0', 'Nike Air Force 1 \'07 3750.jpg', 'Nike Air Force 1 \'07 3.jpg', 'L,XL', 25, 'Nike Air Force 1 \'07 ', 50, '2020-07-01 16:00:46', '2020-07-01 16:00:46'),
+(79, 'Nike Zoom Pegasus Turbo 2', 'nike-zoom-pegasus-turbo-2', 6500000, '0', 'Nike Zoom Pegasus Turbo 2 6500.jpg', 'Nike Zoom Pegasus Turbo 2.jpg', 'L,XL', 25, 'Nike Zoom Pegasus Turbo 2', 50, '2020-07-01 16:15:48', '2020-07-01 16:15:48'),
+(80, 'Nike Air VaporMax Flyknit 3', 'nike-air-vapormax-flyknit-3', 7125000, '0', 'Nike Air VaporMax Flyknit 3 7125.jpg', 'Nike Air VaporMax Flyknit 3.jpg', 'L,XL', 25, 'Nike Air VaporMax Flyknit 3', 20, '2020-07-01 16:19:13', '2020-07-01 16:19:13'),
+(81, 'Nike Jr. Mercurial Superfly 7 Academy MG', 'nike-jr-mercurial-superfly-7-academy-mg', 2900000, '0', 'Nike Jr. Mercurial Superfly 7 Academy MG 2900.jpg', 'Nike Jr. Mercurial Superfly 7 Academy MG.jpg', 'L,XL', 33, 'Nike Jr. Mercurial Superfly 7 Academy MG', 20, '2020-07-01 16:20:26', '2020-07-01 16:20:26'),
+(82, 'Nike Mercurial Vapor 13 Academy MDS MG', 'nike-mercurial-vapor-13-academy-mds-mg', 2250000, '20', 'Nike Mercurial Vapor 13 Academy MDS MG 2250.jpg', 'Nike Mercurial Vapor 13 Academy MDS MG.jpg', 'L,XL', 33, 'Nike Mercurial Vapor 13 Academy MDS MG', 20, '2020-07-01 16:21:06', '2020-07-01 16:21:06'),
+(83, 'Nike Jr. Mercurial Superfly 7 Club CR7 Safari MG', 'nike-jr-mercurial-superfly-7-club-cr7-safari-mg', 2250000, '0', 'Nike Jr. Mercurial Superfly 7 Club CR7 Safari MG 2250.jpg', 'Nike Jr. Mercurial Superfly 7 Club CR7 Safari MG.jpg', 'L,XL', 33, 'Nike Jr. Mercurial Superfly 7 Club CR7 Safari MG', 20, '2020-07-01 16:22:21', '2020-07-01 16:22:21'),
+(84, 'Brazil Stadium', 'brazil-stadium', 700000, '10', 'Brazil Stadium 700.jpg', 'Brazil Stadium.jpg', 'L,XL', 27, 'Brazil Stadium', 20, '2020-07-01 16:23:25', '2020-07-01 16:23:25'),
+(85, 'Nike Brasilia', 'nike-brasilia', 1300000, '0', 'Nike Brasilia 1300.jpg', 'Nike Brasilia.jpg', 'L,XL', 27, 'Nike Brasilia', 20, '2020-07-01 16:24:04', '2020-07-01 16:24:04'),
+(86, 'Nike Brasilia', 'nike-brasilia', 1600000, '0', 'Nike Brasilia 1600.jpg', 'Nike Brasilia B.jpg', 'L,XL', 27, 'Nike Brasilia', 20, '2020-07-01 16:24:38', '2020-07-01 16:24:38'),
+(87, 'Nike Graphic', 'nike-graphic', 300000, '0', 'Nike Graphic 300.jpg', 'Nike Graphic.jpg', 'L,XL', 27, 'Nike Graphic', 20, '2020-07-01 16:25:14', '2020-07-01 16:25:14'),
+(88, 'Nike Gym Club', 'nike-gym-club', 11000000, '0', 'Nike Gym Club 1100.jpg', 'Nike Gym Club.jpg', 'L,XL', 27, 'Nike Gym Club', 100, '2020-07-01 16:25:52', '2020-07-01 16:25:52'),
+(89, 'Nike Gym Club', 'nike-gym-club', 1100000, '0', 'Nike Gym Club B1100.jpg', 'Nike Gym Club B.jpg', 'L,XL', 27, 'Nike Gym Club', 100, '2020-07-01 16:26:21', '2020-07-01 16:26:21'),
+(90, 'Nike Shoebox', 'nike-shoebox', 1000000, '0', 'Nike Shoebox 1000.jpg', 'Nike Shoebox.jpg', 'L,XL', 27, 'Nike Shoebox', 100, '2020-07-01 16:26:57', '2020-07-01 16:26:57'),
+(91, 'Nike Gym Club ', 'nike-gym-club', 1100000, '50', 'Nike Gym Club W1100.jpg', 'Nike Gym Club W.jpg', 'L,XL', 27, 'Nike Gym Club ', 100, '2020-07-01 16:27:39', '2020-07-01 16:27:39'),
+(92, 'Nike Graphic', 'nike-graphic', 300000, '10', 'Nike Graphic 300.jpg', 'Nike Graphic.jpg', 'L,XL', 27, 'Nike Graphic', 100, '2020-07-01 16:28:18', '2020-07-01 16:28:18'),
+(93, 'Nike Swoosh', 'nike-swoosh', 250000, '10', 'Nike Swoosh 250.jpg', 'Nike Swoosh.jpg', 'L,XL', 28, 'Nike Swoosh', 100, '2020-07-01 16:30:59', '2020-07-01 16:30:59'),
+(94, 'Nike Swoosh', 'nike-swoosh', 250000, '', 'Nike Swoosh.jpg', 'Nike Swoosh 250.jpg', 'L,XL', 28, 'Nike Swoosh', 100, '2020-07-01 16:31:32', '2020-07-01 16:31:32'),
+(95, 'Jordan Jumpman ', 'jordan-jumpman', 750000, '0', 'Jordan Jumpman 750.jpg', 'Jordan Jumpman 750.jpg', 'L,XL', 28, 'Jordan Jumpman', 10, '2020-07-01 16:32:37', '2020-07-02 12:45:20');
 
 -- --------------------------------------------------------
 
@@ -346,7 +392,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT cho bảng `transaction`
