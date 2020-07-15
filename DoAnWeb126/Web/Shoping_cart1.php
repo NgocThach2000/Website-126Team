@@ -6,12 +6,16 @@
     }
 ?>
 <link href="<?php echo public_frontend() ?>css/shoppingcart.css" rel="stylesheet" /> 
+<link href="<?php echo public_frontend() ?>css/Home.css" rel="stylesheet" /> 
+<div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0"></script>
+    </head>
 <?php require_once __DIR__."/layouts/header.php";
 ?>
 <?php require_once __DIR__."/layouts/singleheader.php" ?>
  
  
-<div class="col-md-9 bor">
+<div class="col-md-12 bor">
     <?php if (isset($_SESSION['success'])):?>
         <div class="alert alert -success">
             <strong style="color:#3c763d">Success!!</strong>
@@ -27,7 +31,7 @@
                             <th>Tên sản phẩm </th>
                             <th>Hình ảnh </th>
                             <th>Số lượng </th>
-                            <th>Gía  </th>
+                            <th>Giá  </th>
                             <th>Tổng tiền </th>
                             <th>Thao tác </th>
                         </tr>
@@ -50,18 +54,17 @@
                                 <td><?php echo formatPrice($value['price']) ?></td>
                                 <td><?php echo formatPrice($value['price']* $value['qty']) ?></td>
                                 <td>
-                                    <a href="remove.php?key=<?php echo $key?>" class="btn btn-xs btn-danger"><i class="fa fa-remove"></i>Remove</a>
-                                    <a href="#" class="btn btn-xs btn-info updatecart" data-key=<?php echo $key ?>><i class="fa fa-refresh"></i>Update</a>
+                                    <a href="remove.php?key=<?php echo $key?>" class="btn btn-danger"><i class="fa fa-remove"></i>Xóa</a>
+                                    <a href="#" class="btn btn-info updatecart" data-key=<?php echo $key ?>><i class="fa fa-refresh"></i>Cập nhật</a>
                                 </td>
                                 <?php $sum += $value['price']*$value['qty'];$_SESSION['tongtien']=$sum; ?> 
                                 
                             </tr>
                            
                     <?php $stt ++; endforeach ?>
-                            <tr>
-                            <td class="totalprice">Tổng tiền: <?php echo formatPrice($_SESSION['tongtien'])  ?></td>
-                            </tr>
-                  
+                        <tr>
+                            <td class="totalprice">Tổng tiền: <?php echo formatPrice($_SESSION['tongtien'])  ?>đ</td>          
+                        </tr>
                 </tbody>
             </table>
         </section>
