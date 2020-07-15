@@ -184,6 +184,31 @@ function formatPriceSale($number, $sale)
     $price = $number*(100 - $sale)/100;
     return formatPrice($price);
 }
+
+function check_level($level)
+{
+    $res = "";
+    switch($level)
+    {
+        case 1: $res = "Administrator"; break;
+        case 2: $res = "Editor"; break;
+        case 3: $res = "Collaborator"; break;
+        default: $res = "";
+    }
+    return $res;
+}
+
+function check_gender($gender)
+{
+    $res = "";
+    switch($gender)
+    {
+        case 1: $res = "Nam"; break;
+        case 2: $res = "Nữ"; break;
+        default: $res = "";
+    }
+    return $res;
+}
 ?>
 
 

@@ -4,16 +4,17 @@ body{
   padding: 0;
   background: url(../img/register00.jpg);
   background-size: fixed;
-  
+  background-repeat: no-repeat;
   background-position: center;
   font-family: Roboto, Helvetica, Arial, sans-serif;;
  } 
  .login-box{
   width: 380px;
-  height: 700px;
+  height: 750px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-  top: 61%;
+  top: 50%;
+  bottom:50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%,-50%);
@@ -43,7 +44,10 @@ body{
   width: 100%;
   margin-bottom: 12px;
  }
- .login-box input[type="email"], input[type="password"], input[type="text"], input[type="file"]  
+ .gender{
+  width: 15px !important;
+ }
+ .login-box input[type="email"], input[type="password"], input[type="text"], input[type="file"], input[type="number"]
  {
   border: none;
   border-bottom: 1px solid #fff;
@@ -68,6 +72,13 @@ body{
   cursor: pointer;
   background: #39dc79;
   color: #000;
+ }
+ .login-box input[type="radio"]
+ {
+  height: 20px;
+  background: #1c8adb;
+  color: #fff;
+ 
  }
  
  .login-box a{

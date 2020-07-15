@@ -70,10 +70,7 @@
                 <li class="active">
                      <a href="">Danh mục</a>
                 </li>
-                <li>
-                    <i class="fa fa-file"></i>Thêm mới
-                </li>
-            </ol >
+            </ol>
             <div class="clearfix">
                  <!--Thông báo lỗi-->
                 <?php include_once __DIR__."/../../../partials/notification.php"; ?>

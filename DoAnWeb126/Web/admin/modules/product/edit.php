@@ -61,7 +61,6 @@
                 {
                     $part = ROOT ."product/";
                     $data['thunbar1'] = $file_name;
-                    
                 }
                 if($file_error2 == 0)
                 {
@@ -100,9 +99,6 @@
                 </li>
                 <li class="active">
                      <a href="">sản phẩm</a>
-                </li>
-                <li>
-                    <i class="fa fa-file"></i>Thêm mới
                 </li>
             </ol >
             <div class="clearfix">

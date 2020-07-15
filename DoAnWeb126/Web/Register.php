@@ -7,7 +7,8 @@
         "phone" => postInput('phone'),
     	"password" => postInput('password'),
         "address" => postInput('address'),
-        "avatar" => postInput('avatar')
+        "avatar" => postInput('avatar'),
+        "gender" => postInput('gender')
     ];
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -15,6 +16,9 @@
         $error = [];
         if(postInput('name') == ''){
             $error['name'] = "*Vui lòng nhập đầy đủ họ & tên";
+        }
+        if(postInput('gender') == ''){
+            $error['gender'] = "*Vui lòng chọn giới tính";
         }
         if(postInput('email') == ''){
         	$error['email'] = "*Vui lòng nhập email";
@@ -78,44 +82,55 @@
 <head>    
     <link href="<?php echo public_frontend() ?>css/Register.css" rel="stylesheet" />
     <link href="<?php echo public_frontend() ?>css/mmenu.css" rel="stylesheet" />    
-    <title>Đăng nhập</title>
+    <!-- Custom Fonts -->
+    <!--Validation-->
+  
+    <!--End Validation-->
+    <link href="<?php echo base_url() ?>public/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <title>Đăng Ký</title>
 </head>
 <body>
     <div class="login-box">
       <img src="<?php echo public_frontend() ?>img/usericon.png" class="avatar">
       <h1>Đăng Ký</h1>
-      <form action="" method="POST" enctype="multipart/form-data">
-        <p class="Pnormal">Họ & Tên</p>
+      <form action="" method="POST" enctype="multipart/form-data" onclick="">
+        <p class="Pnormal"><i class="fa fa-user"></i> Họ & Tên</p>
         <input type="text" name="name" placeholder="Full Name" value="<?php echo $data['name'] ?>">
         <?php if(isset($error['name'])): ?>
             <p class="text-danger"> <?php echo $error['name']; ?> </p>
         <?php endif ?>
+        <p class="Pnormal">Giới tính </p>
+        <input class="gender" type="radio" name="gender" value="1" ><i class="fa fa-male"></i> Nam
+        <input class="gender" type="radio" name="gender" value="2" ><i class="fa fa-female"></i> Nữ
+        <?php if(isset($error['gender'])): ?>
+            <p class="text-danger"> <?php echo $error['gender']; ?> </p>
+        <?php endif ?>
 
-        <p class="Pnormal">Số Điện Thoại</p>
-        <input type="text" name="phone" placeholder="Phone" value="<?php echo $data['phone'] ?>">
+        <p class="Pnormal"><i class="fa fa-phone" aria-hidden="true"></i> Số Điện Thoại</p>
+        <input type="number" name="phone" placeholder="Phone" value="<?php echo $data['phone'] ?>">
         <?php if(isset($error['phone'])): ?>
             <p class="text-danger"> <?php echo $error['phone']; ?> </p>
         <?php endif ?>
 
-        <p class="Pnormal">Địa Chỉ</p>
+        <p class="Pnormal"><i class="fa fa-home" aria-hidden="true"></i> Địa Chỉ</p>
         <input type="text" name="address" placeholder="Address" value="<?php echo $data['address'] ?>">
         <?php if(isset($error['address'])): ?>
             <p class="text-danger"> <?php echo $error['address']; ?> </p>
         <?php endif ?>
 
-        <p class="Pnormal">Email</p>
+        <p class="Pnormal"><i class="fa fa-envelope" aria-hidden="true"></i> Email</p>
         <input type="email" name="email" placeholder="Email" value="<?php echo $data['email'] ?>">
         <?php if(isset($error['email'])): ?>
             <p class="text-danger"> <?php echo $error['email']; ?> </p>
         <?php endif ?>
 
-        <p class="Pnormal">Mật Khẩu</p>
+        <p class="Pnormal"><i class="fa fa-key" aria-hidden="true"></i> Mật Khẩu</p>
         <input type="password" name="password" placeholder="Password">
         <?php if(isset($error['password'])): ?>
             <p class="text-danger"> <?php echo $error['password']; ?> </p>
         <?php endif ?>
 
-        <p class="Pnormal">Nhập Lại Mật Khẩu</p>
+        <p class="Pnormal"><i class="fa fa-key" aria-hidden="true"></i> Nhập Lại Mật Khẩu</p>
         <input type="password" name="re_password" placeholder="Re-enter password">
         <?php if(isset($error['re_password'])): ?>
             <p class="text-danger"> <?php echo $error['re_password']; ?> </p>
@@ -127,7 +142,7 @@
         </div>
         
         <input type="submit" name="Submit" value="Đăng Ký">
-        <a id="login" href="Login.php" >Đăng Nhập</a>
+        <a id="login" href="Login.php" ><i class="fa fa-sign-in"></i> Đăng Nhập</a>
       </form>
     </div>
 </body>
