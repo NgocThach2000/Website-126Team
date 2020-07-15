@@ -5,19 +5,19 @@
     /**
     *Danh mục danh mục
     */
- 	$category = $db->fetchAll("category");
+    $category = $db->fetchAll("category");
+    $data = 
+    [
+        "name" 	=> postInput('name'),
+        "slug" 	=> to_slug(postInput('name')),
+        "category_id" => postInput('category_id'),
+        "number" => postInput('number'),
+        "price" => postInput('price'),
+        "sale" => postInput('sale'),
+        "size" => postInput('size'),
+        "content" => postInput('content')
+    ];
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $data = 
-        [
-            "name" 	=> postInput('name'),
-            "slug" 	=> to_slug(postInput('name')),
-            "category_id" => postInput('category_id'),
-        	"number" => postInput('number'),
-            "price" => postInput('price'),
-            "sale" => postInput('sale'),
-            "size" => postInput('size'),
-            "content" => postInput('content')
-        ];
         $error = [];
         if(postInput('name') == ''){
             $error['name'] = "Mời bạn nhập đầy đủ tên sản phẩm";
@@ -103,9 +103,6 @@
                 <li class="active">
                     <a href="">sản phẩm</a>
                 </li>
-                <li>
-                    Thêm mới
-                </li>
             </ol >
             <div class="clearfix">
                 <!--Thông báo lỗi-->
@@ -122,7 +119,7 @@
                 	<option value="">- Mời bạn chọn danh mục sản phẩm -</option>
                 
         		<?php foreach ($category as $item) : ?>
-        			<option value="<?php echo $item['id'] ?>"> <?php echo $item['name'] ?> </option>
+        			<option value="<?php echo $item['id'] ?>"<?php echo $item['id'] == $data['category_id'] ? "selected = 'selected'" : '' ?>> <?php echo $item['name'] ?> </option>
         		<?php endforeach ?>
         		</select>
 
@@ -133,7 +130,7 @@
 
             <div class="form-group">
                 <label for="iproduct">Tên sản phẩm</label>
-                <input type="type" class="form-control col-sm-2 control-label" placeholder="Tên sản phẩm" id="iproduct" name="name" >
+                <input type="type" class="form-control col-sm-2 control-label" placeholder="Tên sản phẩm" id="iproduct" name="name" value="<?php echo $data['name'] ?>">
                 
                 <?php if(isset($error['name'])): ?>
                     <p class="text-danger"> <?php echo $error['name']; ?> </p>
@@ -142,7 +139,7 @@
 
             <div class="form-group">
                 <label for="iproduct">Giá sản phẩm</label>
-                <input type="number" class="form-control col-sm-2 control-label" placeholder="1.000.000đ" id="iproduct" name="price" >
+                <input type="number" class="form-control col-sm-2 control-label" placeholder="1.000.000đ" id="iproduct" name="price" value="<?php echo $data['price'] ?>">
                 
                 <?php if(isset($error['price'])): ?>
                     <p class="text-danger"> <?php echo $error['price']; ?> </p>
@@ -151,7 +148,7 @@
 
             <div class="form-group">
                 <label for="iproduct">Số lượng sản phẩm</label>
-                <input type="number" class="form-control col-sm-2 control-label" placeholder="1" id="iproduct" name="number" >
+                <input type="number" class="form-control col-sm-2 control-label" placeholder="1" id="iproduct" name="number" value="<?php echo $data['number'] ?>">
                 
                 <?php if(isset($error['number'])): ?>
                     <p class="text-danger"> <?php echo $error['number']; ?> </p>
@@ -170,7 +167,7 @@
 
             <div class="form-group">
                 <label for="iproduct">Size</label>
-                <input type="type" class="form-control col-sm-2 control-label" placeholder="XL" id="iproduct" name="size" >
+                <input type="type" class="form-control col-sm-2 control-label" placeholder="XL" id="iproduct" name="size" value="<?php echo $data['size'] ?>" >
                 
                 <?php if(isset($error['size'])): ?>
                     <p class="text-danger"> <?php echo $error['size']; ?> </p>
@@ -198,7 +195,7 @@
              
          	<div class="form-group">
                 <label for="iproduct">Nội dung</label>
-                <textarea class="form-control" name="content" rows="10"></textarea>
+                <textarea class="form-control" name="content" rows="10"><?php echo $data['content'] ?></textarea>
                 <?php if(isset($error['content'])): ?>
                     <p class="text-danger"> <?php echo $error['content']; ?> </p>
                 <?php endif ?>

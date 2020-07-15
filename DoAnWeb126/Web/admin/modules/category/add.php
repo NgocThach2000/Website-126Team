@@ -2,13 +2,13 @@
     $open = "category";
     include_once __DIR__."/../../autoload/autoload.php";
     $category_parent = $db->fetchAll("category_parent");
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $data = 
+    $data = 
         [
             "name" => postInput('name'),
             "slug" => to_slug(postInput('name')),
             "category_parent_id" => postInput('category_parent_id')
         ];
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
         $error = [];
         if(postInput('name') == ''){
             $error['name'] = "Mời bạn nhập đầy đủ tên danh mục";
@@ -46,13 +46,10 @@
             </h1>
             <ol class="breadcrumb">
                 <li class="active"> <i class="fa fa-dashboard"> </i>
-                    <a href="index.php">Dashboard</a>
+                    <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
                     <a href="">Danh mục</a>
-                </li>
-                <li>
-                    Thêm mới
                 </li>
             </ol >
             <div class="clearfix">
@@ -70,7 +67,7 @@
                 	<option value="">- Mời bạn chọn danh mục cha -</option>
                 
         		<?php foreach ($category_parent as $item) : ?>
-        			<option value="<?php echo $item['id'] ?>"> <?php echo $item['name'] ?> </option>
+        			<option value="<?php echo $item['id'] ?>"<?php echo $data['category_parent_id'] == $item['id'] ? "selected = 'selected'" : '' ?>> <?php echo $item['name'] ?> </option>
         		<?php endforeach ?>
         		</select>
 
@@ -81,7 +78,7 @@
             <div class="form-group">
                 <!---->
                 <label for="icategory">Tên danh mục</label>
-                <input type="type" class="form-control col-sm-2 control-label" placeholder="Tên danh mục" id="icategory" name="name" >
+                <input type="type" class="form-control col-sm-2 control-label" placeholder="Tên danh mục" id="icategory" name="name" value="<?php echo $data['name'] ?>">
                 
                 <?php if(isset($error['name'])): ?>
                     <p class="text-danger"> <?php echo $error['name']; ?> </p>

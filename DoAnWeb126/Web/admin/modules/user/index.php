@@ -30,7 +30,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Danh Sách Thành Viên
+                Danh Sách Người Dùng
                 <a href="add.php" class="btn btn-success">Thêm mới</a>
             </h1>
             <ol class="breadcrumb">
@@ -39,7 +39,7 @@
                     <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">user</a>
+                    <a href="">Người dùng</a>
                 </li>
             </ol >
             <div class="clearfix"></div>
@@ -54,8 +54,10 @@
                     <tr>
                         <th>STT</th>
                         <th>Tên</th>
+                        <th>Giới tính</th>
                         <th>Số điện thoại</th>
                         <th>Email</th>
+                        <th>Mật khẩu</th>
                         <th>Địa chỉ</th> 
                         <th>Hình đại diện</th>                                             
                         <th>Hoạt động</th>
@@ -66,8 +68,10 @@
                     <tr>
                         <td><?php echo $stt ?></td>
                         <td><?php echo $item['name'] ?></td>
+                        <td><?php echo check_gender($item['gender']) ?></td>
                         <td><?php echo $item['phone'] ?></td>
                         <td><?php echo $item['email'] ?></td>
+                        <td><?php echo $item['password'] ?></td>
                         <td><?php echo $item['address'] ?></td>
                         <td>
                         	<img src="<?php echo uploads()?>users/<?php echo $item['avatar'] ?>" width="80px" height="80px"/>

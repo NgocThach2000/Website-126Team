@@ -24,6 +24,7 @@
 ?>
 <?php include_once __DIR__. "/layouts/header.php" ?>
     <link href="<?php echo public_frontend() ?>css/List_category.css" rel="stylesheet" />  
+    
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0"></script>
     <title>Áo Nike</title>
@@ -41,13 +42,29 @@
                     <div class="Clothes_list">
                         <?php foreach($product as $item): ?>
                         <div class="Clothes_item">
-                            <a><img src="<?php echo uploads() ?>product/<?php echo $item['thunbar1'] ?>"/></a>
+                            <!--product sale-->
+                            <?php if($item['sale'] != 0) : ?>
+                            <div class=Big_img>
+                                <a href="Details_product.php?id=<?php echo $item['id'] ?>"><img src="<?php echo uploads() ?>product/<?php echo $item['thunbar1'] ?> " class="image"/></a>
+                                <span>SALE <?php echo $item['sale'] ?>%</span>
+                                <div class="image2">
+                                    <a href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" class="icon_image" ></a>
+                                </div>
+                            </div>
                             <div class="clothes_all">
                             <p class="clothes_name"><?php echo $item['name'] ?></p>
-                            <?php if($item['sale'] == 0) : ?>
-                            <p class="clothes_price"><?php echo formatPrice($item['price']) ?> VNĐ</p>
-                            <?php else: ?>
                             <p class="clothes_price"><strike><?php echo formatPrice($item['price']) ?> VNĐ</strike></p>
+                            <!--product normal-->
+                            <?php else: ?>
+                            <div class=Big_img>
+                                <a href="Details_product.php?id=<?php echo $item['id'] ?>"><img src="<?php echo uploads() ?>product/<?php echo $item['thunbar1'] ?> " class="image"/></a>
+                                <div class="image2">
+                                    <a href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" class="icon_image" ></a>
+                                </div>
+                            </div>
+                            <div class="clothes_all">
+                                <p class="clothes_name"><?php echo $item['name'] ?></p>
+                                <p class="clothes_price"><?php echo formatPrice($item['price']) ?> VNĐ</p>
                             <?php endif?>
                             <a class="clothes_info" href="Details_product.php?id=<?php echo $item['id'] ?>" >Chi tiết</a>
                             </div>
@@ -78,39 +95,39 @@
                 </div>
             </div>  
             <div class="main_containt_right"> 
-                <div class="Danhmuc"><b>DANH MỤC SẢN PHẨM</b></div>
-                <!-- <div>
+            <b class="Danhmuc" >DANH MỤC SẢN PHẨM</b>
+                <div class="div_menu_sidebar">
+                    <?php foreach($data as $key => $value): ?>
                     <ul class="menu_sidebar">
-                    </ul>      
-                </div> -->
-                
-                <div class="Item_different"><b>SẢN PHẨM KHÁC</b>
-                    <div class="Item_trousers clearfix">
-                        <a class="icon" href="List_category.php?id=17"><img src="<?php echo public_frontend() ?>img/bannerAo.jpg" alt="icon" width="70"/>
-                            <div class="Item_content"><a href="List_category.php?id=17">ÁO </a></div>
-                    </div>
-                    <div class="Item_trousers clearfix">
-                        <a class="icon" href="List_category.php?id=21"><img src="<?php echo public_frontend() ?>img/1095278_L.jpg" alt="icon" width="70"/>
-                            <div class="Item_content"><a href="List_category.php?id=21">QUẦN </a></div>
-                    </div>
-
-                    <div class="Item_trousers clearfix">
-                        <a class="icon" href="List_category.php?id=25"><img src="<?php echo public_frontend() ?>img/1978458_L.jpg" alt="icon" width="70"/>
-                            <div class="Item_content"><a href="List_category.php?id=25">GIÀY </a></div>
-                    </div>
-
-                    <div class="Item_trousers clearfix">
-                        <a class="icon" href="List_category.php?id=28"><img src="<?php echo public_frontend() ?>img/885885_L.jpg" alt="icon" width="70"/>
-                            <div class="Item_content"><a href="List_category.php?id=28">DỤNG CỤ </a></div>
-                    </div>
-                </div>
-                                
+                        <li><a><?php echo $key ?> </a>
+                            <?php foreach($value as $item): ?>
+                            <ul>
+                                <div >
+                                    <li><a class="sidebar_option" href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
+                                </div>
+                            </ul>
+                            <?php endforeach ?>
+                        </li>
+                    </ul>
+                    <?php endforeach ?>
+                </div>  
             </div>
         </div>
-            
-                
-
     </div>
-
+    <script type="text/javascript" src="js/mmenu.js"></script>
+        <script>
+            $(document).ready(function() {
+            $("#my-menu").mmenu();
+            });
+            $('.menu_sidebar >li').click(function(){
+                if(!$(this).hasClass('liactive_side')){
+                    $(this).addClass('liactive_side');
+                }
+                else{
+                    $(this).removeClass('liactive_side');
+                }
+                $(this).find('ul').toggle();
+            });
+        </script>
 
 <?php include_once __DIR__. "/layouts/footer.php" ?>

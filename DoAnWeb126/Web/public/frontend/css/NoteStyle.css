@@ -12,7 +12,15 @@
     display: block;
     color:#666;
     text-align: center;
+    font-weight:bold;
+    text-decoration: none;
 } 
+
+.menu_hmain li a:hover{
+  color:black;
+}
+
+
 
 .menuheader_right li{border:none}
 
@@ -81,6 +89,9 @@
     border: none;
 } 
 
+.img_cart{
+  margin-top:-8px;
+}
 /*end menu header*/
 
 
@@ -97,12 +108,71 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
 .mm-wrapper_opening .showmenu_mobile a:after{border-bottom:none;transform: translate(-50%, 0px) rotate(45deg);top: 19px;left: 48%;}
 .mm-wrapper_opening .showmenu_mobile a:before{transform: translate(-50%, 0px) rotate(-45deg);bottom: 20px;}
 
+/*My Btn*/
+#myBtn{
+  position: fixed;
+  color:red;
+  border-radius: 15px;
+  background-color: #ebebeb;
+  z-index: 9999999;
+  bottom: 60px;
+  left:15px;
+  font-size: 20px;
+  
+  
+}
+#myBtn:hover{
+  width:60;
+  height:60;
+}
+
+/*Toggle*/
+#toggle{display:none;
+  font-size:20;}
+  #div_menu_sidebar{
+      display:none;
+      background-color:#f5f5f5;
+      color:black;
+  }
+  .ul_sidabar{
+    
+      background-color: #ebebeb;
+  }
+  .li_sidabar{
+      font-size:15;
+      font-weight: bold;
+      border-bottom:solid 0.5px #ebeb;
+      
+  }
+  .li_sidabar a{
+      color :black;
+      margin-left: 30px;
+  }
+  
+
+  .menu_sidebar{}
+  .menu_sidebar >li > a{color:black;font-size:15px;font-weight:bold;display:block;cursor: pointer; margin-left:20px;}
+  .menu_sidebar >li{padding: 10px 0;border-bottom:1px solid #ebebeb;position: relative; margin-left:10px;}
+  .menu_sidebar >li:after{content: ''; position: absolute; background: url(../img/arrow.png) no-repeat top center; background-size: 100%; 
+  top: 12px; right: 10px; width: 20px; height: 20px;transition: all ease 0.6s;;}
+  .menu_sidebar >li ul{display:none;padding-top: 10px; padding-left: 15px;}
+  .menu_sidebar >li ul >li >a{color:#ebebeb;font-size:13px;}
+  .menu_sidebar >li ul >li{margin-bottom:5px;}
+  .liactive_side:after{transform: rotate(180deg);}
+  .sidebar_option {color :#ebebeb}
+
+  /*Toggle*/
+
 
 
 @media (max-width: 1110px) {
   #menu_contain li{padding: 0 20px;}
   .cart{top:330px;}
+  #toggle{display:block;}
   .call{top:380px;}
+  .hotline-phone-ring-wrap{display:none;}
+  #myBtn{display:none}
+  .homeres{display:none}
 }
 
 @media (max-width: 1100px) {
@@ -114,9 +184,9 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
   .main_page{padding:0 1%;}
   .footer{padding:30px 1%;}
   .footer2{text-align:center;}
-  .showmenu_mobile{display: block;}
-  .loadmenu{display:block;}
-  .login {display:none !important;}
+  #toggle{display:block;}
+  
+  .login ,.login2 {display:none !important;}
   .cart{top:330px;}
   .call{top:380px;}
   
@@ -128,7 +198,7 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
     .main_containt_right{width:100%;margin-top:20px;height:auto;}
     .cart_call{display: grid; grid-gap: 20px; grid-template-columns: 1fr 1fr;}
     .page_container2{padding:0 1%;}
-    .Danhmuc, .menu_sidebar, .Item_different{display:none;}
+    .Danhmuc,  .Item_different{display:none;}
     .main_containt_left{display: grid; grid-template-columns: 1fr 1fr;grid-gap: 10px;}
     .img_main, .img_main_2{width:100%;padding:0;}
   }
@@ -170,8 +240,8 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
   .cart_call{grid-template-columns: 1fr;grid-gap: 5px;}
 }
 
-@media (max-width: 320px) {
-
+@media (max-width: 321px) {
+.iconTrangchu{display:none}
 }
 
   @media (max-width: 768px) {
@@ -306,6 +376,24 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
     color: red;
   }
 
+
+  .iconTrangchu{
+    margin-top:5px;
+    
+  }
+  
+.Trangchu{
+    margin-top: 5px;
+    font-size:15px !important;
+
+}
+.login2 :hover{
+ color: red;
+}
+
+
+
+
   .mappage iframe{display:block;width:100% !important; height:400px !important;}
 
   @-webkit-keyframes phonering-alo-circle-anim {
@@ -390,16 +478,16 @@ transform: translate(-50%, 0px);transition: all ease 0.5s}
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #3171d1;
-    color: #f9f9f9 !important;
+  background-color: #3171d1;
+  color: #f9f9f9 !important;
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 .li_co_cap a:hover
 {
-    text-decoration: none !important;
-    color: #3171d1;
+  text-decoration: none !important;
+  color: #3171d1;
 }

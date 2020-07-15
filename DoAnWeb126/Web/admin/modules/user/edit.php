@@ -23,13 +23,14 @@
 	        "email"	=> postInput('email'),
 	        "phone" => postInput('phone'),
             "address" => postInput('address'),
-            "avatar" => postInput('avatar')
+            "gender" => postInput('gender')
     	];
         
         $error = [];
         if(postInput('name') == ''){
             $error['name'] = "Mời bạn nhập đầy đủ họ & tên";
         }
+
         if(postInput('email') == ''){
         	$error['email'] = "Mời bạn nhập email";
         }
@@ -105,18 +106,15 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Thêm mới thành viên
+                Thêm mới người dùng
                 <a href="add.php" class="btn btn-success">Thêm mới</a>
             </h1>
             <ol class="breadcrumb">
                 <li class="active"> <i class="fa fa-dashboard"> </i>
-                    <a href="index.php">Dashboard</a>
+                    <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">Admin</a>
-                </li>
-                <li>
-                    Thêm mới
+                    <a href="">Người dùng</a>
                 </li>
             </ol >
             <div class="clearfix">
@@ -137,6 +135,13 @@
                 <?php if(isset($error['name'])): ?>
                     <p class="text-danger"> <?php echo $error['name']; ?> </p>
                 <?php endif ?>
+            </div>
+
+            <div class="form-group">
+                <label for="iuser"> Giới tính </label>
+                <input type="radio" class="control-label" id="iuser" name="gender" value="1" <?php if (isset($Edituser["gender"]) && $Edituser["gender"]=="1") echo "checked";?> ?> Nam
+                <input type="radio" class="control-label" id="iuser" name="gender" value="2" <?php if (isset($Edituser["gender"]) && $Edituser["gender"]=="2") echo "checked";?>> Nữ
+                
             </div>
 
             <div class="form-group">
