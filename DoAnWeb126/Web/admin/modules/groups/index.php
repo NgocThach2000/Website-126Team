@@ -14,7 +14,7 @@
 
     $sql = "SELECT groups.*FROM groups ORDER BY ID DESC";
 
-    $groups = $db->fetchJone('groups', $sql, $pag, 3, true);
+    $groups = $db->fetchJone('groups', $sql, $pag, 10, true);
 
     if(isset($groups['page']))
     {
@@ -39,7 +39,7 @@
                     <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">Thành viên</a>
+                    <a href="index.php">Danh sách thành viên</a>
                 </li>
             </ol >
             <div class="clearfix"></div>

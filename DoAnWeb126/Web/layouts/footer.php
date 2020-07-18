@@ -2,7 +2,7 @@
             <div class="fixwidth clearfix">
                 <div class="content_footer">
                     <div class="content_foot">
-                        <b>VỀ 126TEAMSHOP.VN</b>
+                        <b>VỀ SPORTER.VN</b>
                     </div>
                     <p>Hệ thống bán lẻ đồ thể thao Sporter là đơn vị chuyên sản xuất và phân phối các sản phẩm thể thao chuyên nghiệp. Tại đây bạn có thể dễ dàng mua Quần áo và dụng cụ thể thao chất lượng cao, chính hãng... </p>
                     <p><a class="Hotline">HOTLINE:19001000</a></p>
@@ -16,13 +16,10 @@
             
                 <div class="content_footer2">  <!-- Footer2 -->
                     <div class="content_foot2">
-                        <b>ĐĂNG KÝ NHẬN KHUYẾN MÃI</b>
+                        <b>CHƯƠNG TRÌNH NHẬN KHUYẾN MÃI</b>
                     </div>
-                    <p>Hãy nhập email của bạn để chúng tôi gửi email ngay khi có thông tin về những chương trình khuyến mãi mới.</p>
-                    <form method="" action="" class="form_search2">                
-                        <input type="text" id="fname" name="fname"  placeholder="Nhập email của bạn"><br>
-                        <button class="button5">Đăng ký</button>
-                    </form>
+                    <p>Nhanh tay đừng bỏ lỡ chương trình khuyến mãi mỗi tháng với những ưu đãi đầy hấp dẫn !</p>
+                    <p style="display:block;">Chỉ cần tạo tài khoảng và đăng nhập mua hàng từ hệ thống chúng tôi với đơn giá từ 3.000.000 VNĐ trở lên bạn đã có cơ hội được tham gia chương trình khuyến mãi quay số trúng thưởng cùng hàng triệu phần quà hấp dẫn nhanh tay đừng bỏ lỡ !</p>
                 </div>   
 
                 <div class="footer_right">
@@ -46,7 +43,7 @@
         </div>   <!-- -->
     </div>    
 
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="<?php echo public_frontend() ?>img/icons8-up-26.png"  width="40"></button>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="<?php echo public_frontend() ?>img/backtoptop.png"  width="40"></button>
 
     <div class="hotline-phone-ring-wrap">
         <div class="hotline-phone-ring">
@@ -117,5 +114,39 @@
 
     });
 
-
  </script>
+  <script>
+
+$(function(){
+    $updatecart=$(".updatecart");
+    $updatecart.click(function(e){
+        e.preventDefault();
+        $qty = $(this).parents("tr").find("#qty").val();
+
+        $key = $(this).attr("data-key");
+        $.ajax({
+            url:'Update_cart.php',
+            type:'GET',
+            data: {'qty':$qty,'key':$key},
+            success:function(data)
+            {
+                if(data==1){
+                    alert("Cập nhật thành công");
+                    location.href='Shoping_cart1.php';
+                }
+                else
+                {
+                    alert("Số lượng sản phẩm bạn nhập vào vượt quá số lượng sản phẩm đang có trong kho. Vui lòng nhập lại !!!");
+                    location.href='Shoping_cart1.php';
+                }
+            }
+
+
+        });
+
+
+
+    })
+
+}) 
+</script>

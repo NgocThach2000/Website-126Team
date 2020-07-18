@@ -9,7 +9,6 @@
     $data = 
     [
         "name" 	=> postInput('name'),
-        "slug" 	=> to_slug(postInput('name')),
         "category_id" => postInput('category_id'),
         "number" => postInput('number'),
         "price" => postInput('price'),
@@ -22,11 +21,32 @@
         if(postInput('name') == ''){
             $error['name'] = "Mời bạn nhập đầy đủ tên sản phẩm";
         }
+        else{
+            $postname = postInput('name');
+            if(strlen($postname) <= 2)
+            {
+                $error['name'] = "*Tên sản phẩm không bé hơn 2 ký tự";
+            } 
+            else if(strlen($postname) >= 50)
+            {
+                $error['name'] = "*Tên sản phẩm không lớn hơn 50 ký tự";
+            }
+            if(!preg_match("/^[a-zA-Z0-9à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|ỳ|ý|ỵ|ỷ|ỹ|đ|-| ]*$/",$postname)){
+                $error['name'] = "*Tên sản phẩm chỉ chứ chữ, số và khoảng trắng!";
+            }
+        }
         if(postInput('category_id') == ''){
         	$error['category_id'] = "Mời bạn chọn tên danh mục";
         }
         if(postInput('price') == ''){
         	$error['price'] = "Mời bạn nhập giá";
+        }
+        else{
+            $postprice = postInput('price');
+            if($postprice <= 0)
+            {
+                $error['price'] = "Giá sản phẩm phải lớn hơn 0";
+            }
         }
         if(postInput('content') == ''){
         	$error['content'] = "Mời bạn nhập nội dung";
@@ -36,6 +56,13 @@
         }
         if(postInput('size') == ''){
             $error['size'] = "Mời bạn nhập kích thước sản phẩm";
+        }
+        else{
+            $postsize = postInput('size');
+            if(!preg_match("/^[X|XL|XXL|XXXL|S|L|M|x|xl|xxl|xxxl|s|l|m0-9]*$/",$postsize)){
+                $error['size'] = "*Kích thước sản phẩm chỉ chứa (S,M,L,XL,XXL,XXL,XXL) hoặc 1 số !";
+            }
+
         }
         if(!isset($_FILES['thunbar1'])){
         	$error['thunbar1'] = "Mời bạn chọn hình ảnh";
@@ -101,7 +128,7 @@
                     <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">sản phẩm</a>
+                    <a href="index.php">sản phẩm</a>
                 </li>
             </ol >
             <div class="clearfix">
@@ -139,7 +166,7 @@
 
             <div class="form-group">
                 <label for="iproduct">Giá sản phẩm</label>
-                <input type="number" class="form-control col-sm-2 control-label" placeholder="1.000.000đ" id="iproduct" name="price" value="<?php echo $data['price'] ?>">
+                <input type="number" class="form-control col-sm-2 control-label" min="0" placeholder="1.000.000đ" id="iproduct" name="price" value="<?php echo $data['price'] ?>">
                 
                 <?php if(isset($error['price'])): ?>
                     <p class="text-danger"> <?php echo $error['price']; ?> </p>
@@ -148,7 +175,7 @@
 
             <div class="form-group">
                 <label for="iproduct">Số lượng sản phẩm</label>
-                <input type="number" class="form-control col-sm-2 control-label" placeholder="1" id="iproduct" name="number" value="<?php echo $data['number'] ?>">
+                <input type="number" class="form-control col-sm-2 control-label" min="1" placeholder="1" id="iproduct" name="number" value="<?php echo $data['number'] ?>">
                 
                 <?php if(isset($error['number'])): ?>
                     <p class="text-danger"> <?php echo $error['number']; ?> </p>
@@ -157,8 +184,8 @@
 
 
             <div class="form-group">
-                <label for="iproduct">Giảm giá</label>
-                <input type="number" class="form-control col-sm-2 control-label" placeholder="10%" id="iproduct" name="sale" value="0" />
+                <label for="iproduct">Giảm giá (%)</label>
+                <input type="number" class="form-control col-sm-2 control-label" min="0" max="99" placeholder="10%" id="iproduct" name="sale" value="0" />
                 
                 <?php if(isset($error['sale'])): ?>
                     <p class="text-danger"> <?php echo $error['sale']; ?> </p>
@@ -167,7 +194,7 @@
 
             <div class="form-group">
                 <label for="iproduct">Size</label>
-                <input type="type" class="form-control col-sm-2 control-label" placeholder="XL" id="iproduct" name="size" value="<?php echo $data['size'] ?>" >
+                <input type="type" class="form-control col-sm-2 control-label" placeholder="L" id="iproduct" name="size" value="<?php echo $data['size'] ?>" >
                 
                 <?php if(isset($error['size'])): ?>
                     <p class="text-danger"> <?php echo $error['size']; ?> </p>

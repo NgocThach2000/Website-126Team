@@ -198,6 +198,18 @@ function check_level($level)
     return $res;
 }
 
+function check_gender($gender)
+{
+    $res = "";
+    switch($gender)
+    {
+        case 1: $res = "Nam"; break;
+        case 2: $res = "Nữ"; break;
+        default: $res = "";
+    }
+    return $res;
+}
+
 ?>
 
 

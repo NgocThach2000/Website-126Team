@@ -48,7 +48,7 @@
                                 <a href="Details_product.php?id=<?php echo $item['id'] ?>"><img src="<?php echo uploads() ?>product/<?php echo $item['thunbar1'] ?> " class="image"/></a>
                                 <span>SALE <?php echo $item['sale'] ?>%</span>
                                 <div class="image2">
-                                    <a href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" class="icon_image" ></a>
+                                    <a href="Shoping_cart.php?id=<?php echo $item['id']?>"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" class="icon_image" ></a>
                                 </div>
                             </div>
                             <div class="clothes_all">
@@ -59,7 +59,7 @@
                             <div class=Big_img>
                                 <a href="Details_product.php?id=<?php echo $item['id'] ?>"><img src="<?php echo uploads() ?>product/<?php echo $item['thunbar1'] ?> " class="image"/></a>
                                 <div class="image2">
-                                    <a href="Shoping_cart.php"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" class="icon_image" ></a>
+                                    <a href="Shoping_cart.php?id=<?php echo $item['id']?>"><img src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" class="icon_image" ></a>
                                 </div>
                             </div>
                             <div class="clothes_all">
@@ -96,50 +96,38 @@
             </div>  
             <div class="main_containt_right"> 
             <b class="Danhmuc" >DANH MỤC SẢN PHẨM</b>
-                        <div class="div_menu_sidebar">
-                            <?php foreach($data as $key => $value): ?>
-                            <ul class="menu_sidebar">
-                                <li><a><?php echo $key ?> </a>
-                                    <?php foreach($value as $item): ?>
-                                    <ul>
-                                        <div >
-                                            <li><a class="sidebar_option" href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
-                                        </div>
-                                    </ul>
-                                    <?php endforeach ?>
-                                </li>
+                <div class="div_menu_sidebar">
+                    <?php foreach($data as $key => $value): ?>
+                    <ul class="menu_sidebar">
+                        <li><a><?php echo $key ?> </a>
+                            <?php foreach($value as $item): ?>
+                            <ul>
+                                <div >
+                                    <li><a class="sidebar_option" href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
+                                </div>
                             </ul>
                             <?php endforeach ?>
-                        </div>
-                <!-- <div>
-                    <ul class="menu_sidebar">
-                    </ul>      
-                </div> -->
-                <!-- <div class="Item_different">
-                    <b>SẢN PHẨM KHÁC</b>
-                </div> -->      
+                        </li>
+                    </ul>
+                    <?php endforeach ?>
+                </div>  
             </div>
         </div>
-
-        <script type="text/javascript" src="js/mmenu.js"></script>
-<script>
-    $(document).ready(function() {
-       $("#my-menu").mmenu();
-    });
-    $('.menu_sidebar >li').click(function(){
-        if(!$(this).hasClass('liactive_side')){
-            $(this).addClass('liactive_side');
-        }
-        else{
-            $(this).removeClass('liactive_side');
-        }
-        $(this).find('ul').toggle();
-    });
-</script>
-            
-                
-
     </div>
-
+    <script type="text/javascript" src="js/mmenu.js"></script>
+        <script>
+            $(document).ready(function() {
+            $("#my-menu").mmenu();
+            });
+            $('.menu_sidebar >li').click(function(){
+                if(!$(this).hasClass('liactive_side')){
+                    $(this).addClass('liactive_side');
+                }
+                else{
+                    $(this).removeClass('liactive_side');
+                }
+                $(this).find('ul').toggle();
+            });
+        </script>
 
 <?php include_once __DIR__. "/layouts/footer.php" ?>

@@ -19,10 +19,14 @@
                 <ul class="menu_hmain menuheader_right clearfix">
                     <?php if(isset($_SESSION['user_id'])): ?> 
                         <li class="li_co_cap dropdown">
-                            <?php if($_SESSION['user_avatar'] != "") : ?>
-                                <a href="#"><img src="<?php echo uploads_users() ?><?php echo $_SESSION['user_avatar'] ?>" alt="icon" width="24" height="24"/> <?php echo getLastName($_SESSION['user_name']); ?></a>
+                            <?php if($_SESSION['user_avatar'] == "") : ?>
+                                <?php if($_SESSION['user_gender'] == 1): ?> 
+                                    <a href="#"><img src="<?php echo public_frontend() ?>img/gender01.jpg" alt="icon" width="22" height="22"/> <?php echo getLastName($_SESSION['user_name']); ?></a>
+                                <?php else: ?>
+                                    <a href="#"><img src="<?php echo public_frontend() ?>img/gender02.jpg" alt="icon" width="22" height="22"/> <?php echo getLastName($_SESSION['user_name']); ?></a>
+                                <?php endif ?>
                             <?php else: ?>
-                                <a href="#"><img src="<?php echo public_frontend() ?>img/iconuser.png" alt="icon" width="22" height="22"/> <?php echo getLastName($_SESSION['user_name']); ?></a>
+                                <a href="#"><img src="<?php echo uploads_users() ?><?php echo $_SESSION['user_avatar'] ?>" alt="icon" width="24" height="24"/> <?php echo getLastName($_SESSION['user_name']); ?></a>
                             <?php endif; ?>
                             <ul class="dropdown-content">
                                 <li><a href="UserAccount.php?id=<?php echo $_SESSION['user_id'] ?>">Tài khoản của tôi</a></li>
@@ -38,58 +42,37 @@
                         <img src="<?php echo public_frontend() ?>img/icons8-add-user-male-64.png" alt="icon" width="22" height="22"/> Đăng ký</a>
                     </li>
                     <?php endif; ?>
-                    <li class="li_co_cap"><a href="Shoping_cart.php"><img class="img_cart" src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" alt="icon" width="40" height="40" /></a>
+                    <li class="li_co_cap"><a href="Shoping_cart1.php"><img class="img_cart" src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" alt="icon" width="40" height="40" /></a>
                         <ul class="menu_con">
-                            <li><a href="Shoping_cart.php">Số lượng:0</a></li>                            
+                            <!-- <li><a href="Shoping_cart.php">Số lượng:0</a></li>                             -->
                         </ul>
                     </li>
                 </ul>
                 <!--end sổ mục-->
             </div>
             <div id="div_menu_sidebar">
-                
                     <ul class="menu_sidebar">
-                        <li class=""><a href="#" id="Ao">Áo</a>
+                    <?php foreach($data as $key => $value): ?>
+                        <li class=""><a href="<?php $key['id'] ?>"><?php echo $key ?></a>
+                        <?php foreach($value as $item): ?>
                             <ul class="ul_sidabar">
-                                <div class="">
-                                <li class="li_sidabar"><a href="#">Áo Nike</a></li>
-                                <li class="li_sidabar"><a href="#">Áo Adidas</a></li>
-                                <li class="li_sidabar"><a href="#">Áo Thái</a></li>
-                                <li class="li_sidabar"><a href="#">Áo bóng đá</a></li>
+                                <div>
+                                    <li class="li_sidabar"><a id="<?php echo $item['category_parent_id'] ?>" href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name']?></a></li>
                                 </div>
                             </ul>
+                            <?php endforeach ?>
                         </li>
-                        <li class=""><a href="#">Quần</a>
-                            <ul class="ul_sidabar">
-                                <div class="">
-                                <li class="li_sidabar"><a href="#">Quần Nike</a></li>
-                                <li class="li_sidabar"><a href="#">Quần Adidas</a></li>
-                                <li class="li_sidabar"><a href="#">Quần Thái</a></li>
-                                <li class="li_sidabar"><a href="#">Quần bóng đá</a></li>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class=""><a href="#"><b>Giày</b></a>
-                            <ul class="ul_sidabar">
-                                <div class="">
-                                <li class="li_sidabar"> <a href="#">Giày thể thao</a></li>
-                                <li class="li_sidabar"><a href="#">Giày bóng đá</a></li>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class=""><a href="#">Dụng cụ hỗ trợ</a>
-                            <ul class="ul_sidabar">
-                                <div class="">
-                                <li class="li_sidabar"><a href="#">Túi thể thao</a></li>
-                                <li class="li_sidabar"><a href="#">Băng tay</a></li>
-                                <li class="li_sidabar"><a href="#">Băng gối</a></li>
-                                <li class="li_sidabar"><a href="#">Băng chân</a></li>
-                                </div>
-                            </ul>
-                        </li>
-                        <li ><a href="Login.html">Đăng nhập / Đăng ký</a></li>
-                            
-                    </ul>
+                        <?php endforeach ?>
+                        <?php if(isset($_SESSION['user_id'])): ?>
+                        <li><a href="UserAccount.php?id=<?php echo $_SESSION['user_id'] ?>">Tài khoản của tôi</a></li>
+                        <li><a href="">Đơn hàng của tôi</a></li>
+                        <li><a href="Logout.php">Đăng Xuất</a></li>
+                        <?php else: ?>
+                        <li><a href="Login.php">Đăng nhập</a></li>
+                        <li><a href="Register.php">Đăng ký</a></li>
+                        <li><a href="Shoping_cart1.php">Giỏ hàng</a></li> 
+                        <?php endif; ?> 
+                    </ul>  
             </div>
             <div class="menu_header2 clearfix"> <!-- div con dùng float thì thêm class clearfix ở div cha -->            
                 <a href="Home.php" id="logo"><img src="<?php echo public_frontend() ?>img/iconfinder_nike_27575.png" alt="icon" width="50"></a>
@@ -108,9 +91,22 @@
                          <!--end Sổ danh mục sản phẩm-->
                     </ul>
                 </div>
-                <form method="" action="" class="form_search">                
-                    <input type="text" id="fname" name="fname"  placeholder="Search"><br>
+                <form method="get" action="search.php" action="" class="form_search">                
+                    <input type="text" name="search" />
+                    <input type="submit" name="ok" value="search" style="display: none;" />
                 </form>
+                
+
+                <?php 
+                    if (isset($_REQUEST['ok'])) {
+                        $search = addslashes($_GET['search']);
+                        if (empty($search)) {
+                            echo "Yeu cau nhap du lieu vao o trong";
+                        } else {
+                            // Phan dung vong lap while show du lieu
+                        }
+                    }
+                ?>
             </div>
         </div>      
 

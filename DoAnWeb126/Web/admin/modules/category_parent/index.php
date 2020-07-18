@@ -37,7 +37,7 @@
                     <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">Danh Mục</a>
+                    <a href="index.php">Danh sách danh mục</a>
                 </li>
             </ol >
             <div class="clearfix"></div>
