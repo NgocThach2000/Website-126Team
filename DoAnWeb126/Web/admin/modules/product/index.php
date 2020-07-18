@@ -14,7 +14,7 @@
 
     $sql = "SELECT product.*, category.name as namecate FROM product LEFT JOIN category on category.id = product.category_id";
 
-    $product = $db->fetchJone('product', $sql, $pag, 20, true);
+    $product = $db->fetchJone('product', $sql, $pag, 30, true);
 
     if(isset($product['page']))
     {

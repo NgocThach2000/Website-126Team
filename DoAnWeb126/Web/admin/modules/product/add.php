@@ -10,6 +10,7 @@
     [
         "name" 	=> postInput('name'),
         "category_id" => postInput('category_id'),
+        "slug" => to_slug(postInput('name')),
         "number" => postInput('number'),
         "price" => postInput('price'),
         "sale" => postInput('sale'),
@@ -27,11 +28,11 @@
             {
                 $error['name'] = "*Tên sản phẩm không bé hơn 2 ký tự";
             } 
-            else if(strlen($postname) >= 50)
+            else if(strlen($postname) >= 100)
             {
-                $error['name'] = "*Tên sản phẩm không lớn hơn 50 ký tự";
+                $error['name'] = "*Tên sản phẩm không lớn hơn 100 ký tự";
             }
-            if(!preg_match("/^[a-zA-Z0-9à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|ỳ|ý|ỵ|ỷ|ỹ|đ|-| ]*$/",$postname)){
+            if(!preg_match("/^[a-zA-Z0-9à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|ỳ|ý|ỵ|ỷ|ỹ|đ|'|.| ]*$/",$postname)){
                 $error['name'] = "*Tên sản phẩm chỉ chứ chữ, số và khoảng trắng!";
             }
         }

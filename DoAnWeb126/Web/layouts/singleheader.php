@@ -91,22 +91,14 @@
                          <!--end Sổ danh mục sản phẩm-->
                     </ul>
                 </div>
+                <!--Search-->
                 <form method="get" action="search.php" action="" class="form_search">                
-                    <input type="text" name="search" />
-                    <input type="submit" name="ok" value="search" style="display: none;" />
+                    <input type="text" name="key" placeholder="Search"/>
+                    <input type="submit" value="search" style="display: none;" />
                 </form>
                 
 
-                <?php 
-                    if (isset($_REQUEST['ok'])) {
-                        $search = addslashes($_GET['search']);
-                        if (empty($search)) {
-                            echo "Yeu cau nhap du lieu vao o trong";
-                        } else {
-                            // Phan dung vong lap while show du lieu
-                        }
-                    }
-                ?>
+
             </div>
         </div>      
 
