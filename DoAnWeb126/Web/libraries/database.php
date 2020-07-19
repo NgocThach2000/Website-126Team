@@ -15,7 +15,7 @@ class Database
 
     public function __construct()
     {
-        $this->link = mysqli_connect("localhost","root","","DoAnWeb") or die ();
+        $this->link = mysqli_connect("127.0.0.1","root","","DoAnWeb") or die ();
         mysqli_set_charset($this->link,"utf8");
     }
 
@@ -267,6 +267,7 @@ class Database
         $tien = mysqli_fetch_assoc($result);
         return $tien;
     }
+   
 }
 
 ?>

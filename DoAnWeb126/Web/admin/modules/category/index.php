@@ -36,7 +36,7 @@
                     <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">Danh Mục</a>
+                    <a href="index.php">Danh sách danh mục</a>
                 </li>
             </ol >
             <div class="clearfix"></div>
@@ -53,7 +53,6 @@
                         <th>STT</th>
                         <th>Tên danh mục cha</th>
                         <th>Tên danh mục</th>
-                        <th>Slug</th>
                         <th>Thời gian khởi tạo</th>
                         <th>Hoạt động</th>
                     </tr>
@@ -65,7 +64,6 @@
                         <td><?php echo $stt ?></td>
                         <td><?php echo $item['namePcate'] ?></td>
                         <td><?php echo $item['name'] ?></td>
-                        <td><?php echo $item['slug'] ?></td>
                         <td><?php echo $item['created_at'] ?></td>
                         <td>
                             <a class="btn btn-xs btn-info" href="edit.php?id=<?php echo $item['id']?>"> <i class="fa fa-edit"></i> Sửa</a>

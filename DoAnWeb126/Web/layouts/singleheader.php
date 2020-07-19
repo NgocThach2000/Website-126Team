@@ -30,7 +30,7 @@
                             <?php endif; ?>
                             <ul class="dropdown-content">
                                 <li><a href="UserAccount.php?id=<?php echo $_SESSION['user_id'] ?>">Tài khoản của tôi</a></li>
-                                <li><a href="">Đơn hàng của tôi</a></li>
+                                <li><a href="Order.php">Đơn hàng của tôi</a></li>
                                 <li><a href="Logout.php">Đăng Xuất</a></li>
                             </ul>
                         </li>
@@ -65,7 +65,7 @@
                         <?php endforeach ?>
                         <?php if(isset($_SESSION['user_id'])): ?>
                         <li><a href="UserAccount.php?id=<?php echo $_SESSION['user_id'] ?>">Tài khoản của tôi</a></li>
-                        <li><a href="">Đơn hàng của tôi</a></li>
+                        <li><a href="Order.php">Đơn hàng của tôi</a></li>
                         <li><a href="Logout.php">Đăng Xuất</a></li>
                         <?php else: ?>
                         <li><a href="Login.php">Đăng nhập</a></li>
@@ -91,9 +91,14 @@
                          <!--end Sổ danh mục sản phẩm-->
                     </ul>
                 </div>
-                <form method="" action="" class="form_search">                
-                    <input type="text" id="fname" name="fname"  placeholder="Search"><br>
+                <!--Search-->
+                <form method="get" action="Search.php" class="form_search">                
+                    <input type="text" name="key" placeholder="Search"/>
+                    <input type="submit" value="search" style="display: none;" />
                 </form>
+                
+
+
             </div>
         </div>      
 

@@ -20,6 +20,20 @@
         if(postInput('name') == ''){
             $error['name'] = "Mời bạn nhập đầy đủ tên danh mục";
         }
+        else{
+            $postname = postInput('name');
+            if(strlen($postname) <= 2)
+            {
+                $error['name'] = "*Tên danh mục không bé hơn 2 ký tự";
+            } 
+            else if(strlen($postname) >= 30)
+            {
+                $error['name'] = "*Tên danh mục không lớn hơn 30 ký tự";
+            }
+            if(!preg_match("/^[a-zA-Zà|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|ỳ|ý|ỵ|ỷ|ỹ|đ ]*$/",$postname)){
+                $error['name'] = "*Tên danh mục chỉ chứ chữ và khoảng trắng!";
+            }
+        }
         if(postInput('category_parent_id') == ''){
             $error['category_parent_id'] = "Mời bạn chọn danh mục cha";
         }

@@ -2,7 +2,7 @@
             <div class="fixwidth clearfix">
                 <div class="content_footer">
                     <div class="content_foot">
-                        <b>VỀ 126TEAMSHOP.VN</b>
+                        <b>VỀ SPORTER.VN</b>
                     </div>
                     <p>Hệ thống bán lẻ đồ thể thao Sporter là đơn vị chuyên sản xuất và phân phối các sản phẩm thể thao chuyên nghiệp. Tại đây bạn có thể dễ dàng mua Quần áo và dụng cụ thể thao chất lượng cao, chính hãng... </p>
                     <p><a class="Hotline">HOTLINE:19001000</a></p>
@@ -19,11 +19,11 @@
                         <b>ĐĂNG KÝ NHẬN KHUYẾN MÃI</b>
                     </div>
                     <p>Hãy nhập email của bạn để chúng tôi gửi email ngay khi có thông tin về những chương trình khuyến mãi mới.</p>
-                    <form method="" action="" class="form_search2">                
-                        <input type="text" id="fname" name="fname"  placeholder="Nhập email của bạn"><br>
+                    <form method="POST" action="Home.php" class="form_search2">                
+                        <input type="email" id="fname" name="fname"  placeholder="Nhập email của bạn"><br>
                         <button class="button5">Đăng ký</button>
                     </form>
-                </div>   
+                </div>  
 
                 <div class="footer_right">
                     <div class="boxfooter_fanpage">
@@ -46,7 +46,7 @@
         </div>   <!-- -->
     </div>    
 
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="<?php echo public_frontend() ?>img/icons8-up-26.png"  width="40"></button>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="<?php echo public_frontend() ?>img/backtoptop.png"  width="40"></button>
 
     <div class="hotline-phone-ring-wrap">
         <div class="hotline-phone-ring">
@@ -116,7 +116,9 @@
         });
 
     });
-
+    $('.button5').click(function(){
+        alert("Bạn Đã Đăng Ký Thành Công!!");
+    })
 
  </script>
   <script>
@@ -138,7 +140,11 @@ $(function(){
                     alert("Cập nhật thành công");
                     location.href='Shoping_cart1.php';
                 }
-            
+                else
+                {
+                    alert("Số lượng sản phẩm bạn nhập vào vượt quá số lượng sản phẩm đang có trong kho. Vui lòng nhập lại !!!");
+                    location.href='Shoping_cart1.php';
+                }
             }
 
 

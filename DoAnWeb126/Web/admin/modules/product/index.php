@@ -14,7 +14,7 @@
 
     $sql = "SELECT product.*, category.name as namecate FROM product LEFT JOIN category on category.id = product.category_id";
 
-    $product = $db->fetchJone('product', $sql, $pag, 10, true);
+    $product = $db->fetchJone('product', $sql, $pag, 30, true);
 
     if(isset($product['page']))
     {
@@ -38,7 +38,7 @@
                     <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">Sản phẩm</a>
+                    <a href="index.php">Danh sách sản phẩm</a>
                 </li>
             </ol >
             <div class="clearfix"></div>
@@ -76,7 +76,7 @@
                         </td>
                         <td>
                         	<ul>
-                        		<li>Giá: <?php echo $item['price'] ?></li>
+                        		<li>Giá: <?php echo formatPrice($item['price']) ?> VNĐ</li>
                                 <li>Số lượng <?php echo $item['number']; ?></li>
                                 <li>Size: <?php echo $item['size'] ?></li>
                         	</ul>

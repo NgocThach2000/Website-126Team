@@ -21,6 +21,20 @@
         if(postInput('name') == ''){
             $error['name'] = "Mời bạn nhập đầy đủ họ & tên";
         }
+        else{
+            $postname = postInput('name');
+            if(strlen($postname) <= 3)
+            {
+                $error['name'] = "*Tên không bé hơn 3 ký tự";
+            } 
+            else if(strlen($postname) >= 30)
+            {
+                $error['name'] = "*Tên không lớn hơn 30 ký tự";
+            }
+            if(!preg_match("/^[a-zA-Zà|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|ỳ|ý|ỵ|ỷ|ỹ|đ ]*$/",$postname)){
+                $error['name'] = "*Tên chỉ chứ chữ và khoảng trắng!";
+            }
+        }
         if(postInput('email') == ''){
         	$error['email'] = "Mời bạn nhập email";
         }
@@ -28,7 +42,12 @@
         	$is_check_mail = $db->fetchOne("groups", " email = '" .$data['email']."' ");
         	if($is_check_mail != NULL){
         		$error['email'] = "Email đã tồn tại";	
-        	}
+            }
+            $postemail = postInput('email');
+            
+            if(!preg_match("/^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/",$postemail)){
+                $error['email'] = "*Email không hợp lệ!";
+            }
         }
         if(postInput('phone') == ''){
         	$error['phone'] = "Mời bạn nhập số điện thoại";
@@ -37,10 +56,34 @@
         	$is_check_phone = $db->fetchOne("groups", " phone = '" .$data['phone']."' ");
         	if($is_check_phone != NULL){
         		$error['phone'] = "Số điện thoại đã tồn tại";
-        	}
+            }
+            $postphone = strval(postInput('phone'));
+            if(strlen($postphone) > 11)
+            {
+                $error['phone'] = "*Số điện thoại không hợp lệ";	
+            }
+            else if(strlen($postphone) < 9)
+            {
+                $error['phone'] = "*Số điện thoại không hợp lệ";	
+            }
         }
         if(postInput('password') == ''){
         	$error['password'] = "Mời bạn mật khẩu";
+        }
+        else{
+            $postpass = strval(postInput('password'));
+            if (strlen($postpass) <= 8) {
+                $error['password'] = "Mật khẩu của bạn phải chứa ít nhất 8 ký tự!";
+            }
+            else if(!preg_match("#[0-9]+#",$postpass)) {
+                $error['password'] = "Mật khẩu của bạn phải chứa ít nhất 1 số!";
+            }
+            else if(!preg_match("#[A-Z]+#",$postpass)) {
+                $error['password'] = "Mật khẩu của bạn phải chứa ít nhất 1 chữ cái viết hoa!";
+            }
+            else if(!preg_match("#[a-z]+#",$postpass)) {
+                $error['password'] = "Mật khẩu của bạn phải chứa ít nhất 1 chữ cái viết thường!";
+            }
         }
         if(postInput('address') == ''){
         	$error['address'] = "Mời bạn nhập địa chỉ";
@@ -49,7 +92,7 @@
         	$error['level'] = "Mời bạn chọn chức vụ";
         }
         if($data['password'] != postInput("re_password")){
-        	$error['password'] = "Mật khẩu không khớp ";
+        	$error['re_password'] = "Mật khẩu không khớp ";
         }
         //error empty is error
         if(empty($error))
@@ -123,7 +166,7 @@
 
             <div class="form-group">
                 <label for="igroups"> Mật khẩu </label>
-                <input type="password" class="form-control col-sm-2 control-label" placeholder="********" id="igroups" name="password" required="">
+                <input type="password" class="form-control col-sm-2 control-label" placeholder="********" id="igroups" name="password" value="<?php echo $data['password'] ?>" >
                 
                 <?php if(isset($error['password'])): ?>
                     <p class="text-danger"> <?php echo $error['password']; ?> </p>
@@ -132,7 +175,7 @@
 
             <div class="form-group">
                 <label for="igroups"> Nhập lại mật khẩu </label>
-                <input type="password" class="form-control col-sm-2 control-label" placeholder="********" id="igroups" name="re_password" required="">
+                <input type="password" class="form-control col-sm-2 control-label" placeholder="********" id="igroups" name="re_password" >
                 
                 <?php if(isset($error['re_password'])): ?>
                     <p class="text-danger"> <?php echo $error['re_password']; ?> </p>

@@ -40,7 +40,7 @@ function to_slug($str) {
     $str = preg_replace('/(ỳ|ý|ỵ|ỷ|ỹ)/', 'y', $str);
     $str = preg_replace('/(đ)/', 'd', $str);
     $str = preg_replace('/[^a-z0-9-\s]/', '', $str);
-    $str = preg_replace('/([\s]+)/', '-', $str);
+    $str = preg_replace('/([\s]+)/', '', $str);
     return $str;
 }
 
@@ -209,6 +209,7 @@ function check_gender($gender)
     }
     return $res;
 }
+
 ?>
 
 

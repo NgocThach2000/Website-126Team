@@ -4,7 +4,6 @@
     $user = $db->fetchID("user", $id);
 ?>
 <?php include_once __DIR__."/layouts/header.php" ?>
-
     <link href="<?php echo public_frontend() ?>css/UserAccount.css" rel="stylesheet" /> 
         <title>Trang cá nhân</title> 
         <div id="fb-root"></div>
@@ -15,7 +14,7 @@
 
 <div class="main_containt clearfix fixwidth" >
                 <div class="main_containt_left" >
-                    <div class="title_info"><b>Thông tin người dùng</b></div>
+                    <div class="title_info"><b>Thông Tin Cá Nhân</b></div>
                     <?php if($user["avatar"] == ""): ?>
                         <?php if($user["gender"] == "1"): ?>
                             <div class="img_info"><img class="img_account_1" src="<?php echo public_frontend() ?>img/gender01.jpg"></img></div>
@@ -27,9 +26,9 @@
                     <?php endif ?>
                     <div class="Change">
                         <div class="border_infor">
-                        <div class="p_border1"><img  src="<?php echo public_frontend() ?>img/icons8-important-note-24.png" width="22"></img><a href="#"> Cập nhật thông tin cá nhân</a></div>
+                        <div class="p_border1"><img  src="<?php echo public_frontend() ?>img/icons8-important-note-24.png" width="22"></img><a href="EditProfileUser.php?id=<?php echo $user["id"] ?>"> Cập nhật thông tin cá nhân</a></div>
 
-                        <div class="p_border2"><img  src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" width="25"></img><a href="#"> Quản lý đơn hàng</a></div>
+                        <div class="p_border2"><img  src="<?php echo public_frontend() ?>img/icons8-shopping-cart-100.png" width="25"></img><a href="Order.php?id=<?php echo $user["id"] ?>"> Quản lý đơn hàng</a></div>
 
                         <div class="p_border3"><img  src="<?php echo public_frontend() ?>img/icons8-export-26.png" width="19"></img><a href="Logout.php"> Đăng xuất</a></div>
                             
@@ -52,15 +51,8 @@
                         <p class="p_border_infor2"><?php echo $user["address"] ?></p>
                     </div>
                 </div>
-</div>
-
-
-
-
-
-</div>
-
-
+            </div>
+        </div>
 </body>
 <!--Main content-->
 

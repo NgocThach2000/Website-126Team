@@ -14,7 +14,7 @@
 
     $sql = "SELECT user.*FROM user ORDER BY ID DESC";
 
-    $user = $db->fetchJone('user', $sql, $pag, 3, true);
+    $user = $db->fetchJone('user', $sql, $pag, 10, true);
 
     if(isset($user['page']))
     {
@@ -39,7 +39,7 @@
                     <a href="index.php">Bảng điều khiển</a>
                 </li>
                 <li class="active">
-                    <a href="">Người dùng</a>
+                    <a href="index.php">Danh sách người dùng</a>
                 </li>
             </ol >
             <div class="clearfix"></div>
@@ -53,7 +53,8 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên</th>
+                        <th>Mã người dùng</th>
+                        <th>Tên người dùng</th>
                         <th>Giới tính</th>
                         <th>Số điện thoại</th>
                         <th>Email</th>
@@ -67,6 +68,7 @@
                     <?php $stt = 1; foreach($user as $item): ?>
                     <tr>
                         <td><?php echo $stt ?></td>
+                        <td><?php echo $item['id'] ?></td>
                         <td><?php echo $item['name'] ?></td>
                         <td><?php echo check_gender($item['gender']) ?></td>
                         <td><?php echo $item['phone'] ?></td>

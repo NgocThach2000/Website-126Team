@@ -8,7 +8,6 @@
     $attachedproducts = $db->fetchsql($sql);
 ?>
 <?php include_once __DIR__. "/layouts/header.php" ?>
-
     <link href="<?php echo public_frontend() ?>css/Details_product.css" rel="stylesheet" /> 
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0"></script>
@@ -18,17 +17,17 @@
             <div class="page_container2"> 
                 <div class="main_containt clearfix fixwidth" >
                     <div class="main_containt_left" >
-                        <a><img class="img_main" src="<?php echo uploads_product() ?><?php echo $product['thunbar1'] ?>" /></a>
-                        <a><img class="img_main_2" src="<?php echo uploads_product() ?><?php echo $product['thunbar2'] ?>" /></a>
+                        <a><img class="img_main1" src="<?php echo uploads_product() ?><?php echo $product['thunbar1'] ?>" /></a>
+                        <a><img class="img_main2" src="<?php echo uploads_product() ?><?php echo $product['thunbar2'] ?>" /></a>
                     </div>
 
                     <div class="main_containt_right " >
                         <div class="content_detail"><b><?php echo $product['content'] ?></b></div>
                         <div class="content_detail_two"> <?php echo $product['name'] ?> All Size </div>
                         <?php if($product['sale'] == 0): ?>
-                        <div class="price"><h4><?php echo formatPrice($product['price']) ?> đ</h4></div>
+                        <div class="price"><h4>Giá: <?php echo formatPrice($product['price']) ?> VNĐ</h4></div>
                         <?php else: ?>
-                        <div class="price"><h4><strike><?php echo formatPrice($product['price']) ?> đ</strike> </h4> <h4><?php echo formatPriceSale($product['price'], $product['sale'])?> đ</h4></div>   
+                        <div class="price"><h4><strike><?php echo formatPrice($product['price']) ?> VNĐ</strike> </h4> <h4><?php echo formatPriceSale($product['price'], $product['sale'])?> đ</h4></div>   
                         <?php endif ?>
                         <div class="size">
                         <label  for="sizeT">SIZE: </label>
@@ -41,23 +40,6 @@
                             <div class="call1" ><a style="text-decoration: none; color: black;" href="#"><img src="<?php echo public_frontend() ?>img/icon-call-nh.png" width="24">1900 1000</img></a></div>
                         </div>
                         
-                           
-                        <b class="Danhmuc" >DANH MỤC SẢN PHẨM</b>
-                        <div class="div_menu_sidebar">
-                            <?php foreach($data as $key => $value): ?>
-                            <ul class="menu_sidebar">
-                                <li><a><?php echo $key ?> </a>
-                                    <?php foreach($value as $item): ?>
-                                    <ul>
-                                        <div >
-                                            <li><a class="sidebar_option" href="List_category.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a></li>
-                                        </div>
-                                    </ul>
-                                    <?php endforeach ?>
-                                </li>
-                            </ul>
-                            <?php endforeach ?>
-                        </div>
                                     
               
 

@@ -24,30 +24,30 @@
                     <b>ÁO THỂ THAO</b>
                 </h1>
                 <div id="cf">
-                    <a href="#"> <img class="img_con" src="<?php echo public_frontend() ?>images/32x32/ecopetit.cat-ronaldo-4k-wallpaper-2314365.png" alt="main"></a> 
+                    <a href="List_category.php?id=31"> <img class="img_con" src="<?php echo public_frontend() ?>images/32x32/ecopetit.cat-ronaldo-4k-wallpaper-2314365.png" alt="main"></a> 
                 </div>
-                <button class="button">Shop</button>  
+                <a href="List_category.php?id=31"><button class="button">Shop</button></a> 
             </div>
             <div class="main_content2 fixwidth clearfix">
                 <h2 class="Shirt">
                     <b>QUẦN THỂ THAO</b>
                 </h2>            
                 <div class="img_main_2"> 
-                    <a href="#"> <img class="img_con_1" src="<?php echo public_frontend() ?>/img/dri-fit-elite-mens-basketball-shorts-8p91Nb.jpg" alt="main" width="700" ></a>
-                    <button class="button">Shop</button>  
+                    <a href="List_category.php?id=32"> <img class="img_con_1" src="<?php echo public_frontend() ?>/img/dri-fit-elite-mens-basketball-shorts-8p91Nb.jpg" alt="main" width="700" ></a>
+                    <a href="List_category.php?id=32"><button class="button">Shop</button></a> 
                 </div>
                 <div class="img_main_3">
-                    <a href="#"> <img class="img_con_2" src="<?php echo public_frontend() ?>img/gyakusou-knit-trousers-qZqZwK.jpg" alt="main" width="700" ></a>
-                    <button class="button">Shop</button>
+                    <a href="List_category.php?id=32"> <img class="img_con_2" src="<?php echo public_frontend() ?>img/gyakusou-knit-trousers-qZqZwK.jpg" alt="main" width="700" ></a>
+                    <a href="List_category.php?id=32"><button class="button">Shop</button></a> 
                 </div>            
             </div>
 
             <div class="main_content3 fixwidth">
                 <h2 class="Shirt">
-                    <b>QUẦN ÁO BÓNG ĐÁ</b>
+                    <b>ÁO BÓNG ĐÁ</b>
                 </h2>         
-                <a href="#"> <img class="img_con_3" src="<?php echo public_frontend() ?>img/file_52498fc5199bf6961575655.jpg" alt="main" ></a>           
-                <button class="button">Shop</button>                
+                <a href="List_category.php?id=20"> <img class="img_con_3" src="<?php echo public_frontend() ?>img/file_52498fc5199bf6961575655.jpg" alt="main" ></a>           
+                <a href="List_category.php?id=20"><button class="button">Shop</button></a>               
             </div>
         <div class="SDS clearfix">
             <div class="fixwidth main_content_grid">
@@ -55,20 +55,20 @@
                     <h3 class="content_4">
                         <b>DỤNG CỤ HỖ TRỢ</b>
                     </h3>            
-                    <a href="#"> 
+                    <a href="List_category.php?id=27"> 
                         <img class="img_con_4"  src="<?php echo public_frontend() ?>img/Quấn-Bảo-Vệ-Khuỷu-Tay-Aolikes-1-Cặp.jpg"  width="400">                                            
                     </a>
-                    <button class="button">Shop</button>   
+                    <a href="List_category.php?id=27"><button class="button">Shop</button></a>   
                 </div>
 
                 <div class="main_content5">
                     <h3 class="content_4">
                         <b>GIÀY</b>
                     </h3>
-                    <a href="#"> 
+                    <a href="List_category.php?id=33"> 
                         <img class="img_con_5" src="<?php echo public_frontend() ?>img/superrep-go-training-shoe-SMnpt6.jpg"  width="400">                        
                     </a>
-                    <button class="button">Shop</button>
+                    <a href="List_category.php?id=33"><button class="button">Shop</button></a> 
                 </div>            
             </div>
         </div>

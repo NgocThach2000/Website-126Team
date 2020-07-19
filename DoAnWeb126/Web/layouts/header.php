@@ -12,7 +12,7 @@
     <!-- Custom Fonts -->
     <link href="<?php echo base_url() ?>public/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Note sytle -->
-    <link href="<?php echo public_frontend() ?>css/NoteStyle.css" rel="stylesheet" />
+
     
     
 
