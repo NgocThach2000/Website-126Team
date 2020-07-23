@@ -1,0 +1,121 @@
+<?php
+    $open = "groups";
+    include_once __DIR__."/../../autoload/autoload.php";
+    $groups = $db->fetchAll("groups");
+
+    if(isset($_GET['page']))
+    {
+    	$pag = $_GET['page'];
+    }
+    else
+    {
+    	$pag = 1;
+    }
+
+    $sql = "SELECT groups.*FROM groups ORDER BY ID DESC";
+
+    $groups = $db->fetchJone('groups', $sql, $pag, 10, true);
+
+    if(isset($groups['page']))
+    {
+    	$sotrang = $groups['page'];
+    	unset($groups['page']);
+    }
+
+?>
+<?php include_once __DIR__."/../../layouts/header.php"; ?>
+
+    <!-- Page Heading -->
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Danh Sách Thành Viên
+                <a href="http://sporter.unaux.com/DoAnWeb126/Web/admin/modules/banner_slide_show/addGroups.php?id=<?php echo $item['id'] ?>" class="btn btn-success">Thêm mới</a>
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-dashboard"></i>
+                    <a href="index.php">Bảng điều khiển</a>
+                </li>
+                <li class="active">
+                    <a href="index.php">Danh sách thành viên</a>
+                </li>
+            </ol >
+            <div class="clearfix"></div>
+            <!--Thông báo lỗi-->
+            <?php include_once __DIR__."/../../../partials/notification.php"; ?>
+        </div>
+        <?php //var_dump($groups); ?>
+    </div>
+    <div class="row">
+        <div class="col md 12">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên</th>
+                        <th>Chức vụ</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Địa chỉ</th>                                              
+                        <th>Hoạt động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $stt = 1; foreach($groups as $item): ?>
+                    <tr>
+                        <td><?php echo $stt ?></td>
+                        <td><?php echo $item['name'] ?></td>
+                        <td><?php echo check_level($item['level']) ?></td>
+                        <td><?php echo $item['phone'] ?></td>
+                        <td><?php echo $item['email'] ?></td>
+                        <td><?php echo $item['address'] ?></td>
+                        <td>
+                            <a class="btn btn-xs btn-info" href="http://sporter.unaux.com/DoAnWeb126/Web/admin/modules/banner_slide_show/editGroups.php?id=<?php echo $item['id'] ?>"> <i class="fa fa-edit"></i> Sửa</a>
+                            <a class="btn btn-xs btn-danger" href="http://sporter.unaux.com/DoAnWeb126/Web/admin/modules/banner_slide_show/deleteGroups.php?id=<?php echo $item['id'] ?>"> <i class="fa fa-times"></i> Xóa</a>
+                        </td>
+                    </tr>
+                    <?php $stt++; endforeach; ?>
+                </tbody>
+            </table>
+            <div>
+                <div class="pull-right">
+                    <nav aria-label="Page navigation clearfix" >
+                        <ul class="pagination">
+                            <li>
+                                <a class="page-link" href="" tabindex="-1" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <?php for($i = 1; $i <= $sotrang; $i++) : ?>
+                                <?php 
+                                if(isset($_GET['page']))
+                                {
+                                    $pag = $_GET['page'];
+                                }
+                                else
+                                {
+                                    $pag = 1;
+                                }
+
+                                ?>
+                            <li class="<?php echo ($i == $pag) ? 'active' : '' ?>">
+                                <a href="?page=<?php echo $i ;?>"><?php echo $i; ?></a>
+                            </li>
+                            <?php endfor; ?>
+                            <li>
+	                            <a href="" aria-label="Next">
+	                                <span aria-hidden="true">&raquo;</span>
+	                            </a>
+                            </li>
+                        	
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Footer-->
+<?php include_once __DIR__."/../../layouts/footer.php"; ?>
+                    
